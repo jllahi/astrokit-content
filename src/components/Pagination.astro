@@ -1,0 +1,42 @@
+---
+// https://docs.astro.build/en/core-concepts/routing/#pagination
+// https://docs.astro.build/en/reference/api-reference/#paginate
+
+import type { Page } from "astro"
+import type { CollectionEntry } from "astro:content"
+
+interface Props {
+	page: Page<CollectionEntry<"posts">>
+}
+
+const { page } = Astro.props
+---
+
+<!-- <div
+	class:list={[
+		'mt-8 flex justify-center gap-4 text-center',
+		'[&>div>a]:rounded [&>div>a]:border [&>div>a]:border-gray-300 [&>div>a]:bg-light [&>div>a]:p-2 [&>div>a]:shadow [&>div>a]:dark:border-gray-600 [&>div>a]:dark:bg-dark [&>div]:w-28',
+	]}> -->
+<div class="flex flex-row w-full justify-between">
+	<div>
+		{
+			page.url.prev && (
+				<a href={page.url.prev} rel="prev">
+					&lt;&lt; Previous
+				</a>
+			)
+		}
+	</div>
+	<!-- <div>
+    {page.currentPage}
+    </div> -->
+	<div>
+		{
+			page.url.next && (
+				<a href={page.url.next} rel="next">
+					Next &gt;&gt;
+				</a>
+			)
+		}
+	</div>
+</div>

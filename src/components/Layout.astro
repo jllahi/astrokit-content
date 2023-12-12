@@ -1,7 +1,16 @@
 ---
+import SITE from "@/data/site.json"
+import Footer from "./Footer.astro"
 import Header from "./Header.astro"
+import TailwindIndicator from "./TailwindIndicator.astro"
+import { type Props as SEOProps, SEO } from "astro-seo"
+import { ViewTransitions } from "astro:transitions"
 
-const { title } = Astro.props
+interface Props {
+	seo?: SEOProps
+}
+
+const { seo } = Astro.props
 ---
 
 <html lang="en">
@@ -10,10 +19,22 @@ const { title } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<SEO
+			title={seo?.title ?? SITE.title}
+			description={seo?.description ?? SITE.description}
+			extend={{
+				meta: [{ name: "twitter:card", content: "summary" }],
+			}}
+			{...seo}
+		/>
+		<ViewTransitions />
 	</head>
-	<body class="prose p-6">
+	<body class="prose p-6 h-screen flex flex-col items-start justify-between">
 		<Header />
-		<slot />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<Footer />
+		<TailwindIndicator />
 	</body>
 </html>
