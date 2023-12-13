@@ -4,6 +4,9 @@ import { getCollection } from "astro:content"
 
 import SITE from "@/data/site.json"
 import Layout from "@/components/Layout.astro"
+import { formatDate } from "@/utils/content"
+import Spotify from "@/components/embed/Spotify.astro"
+import FormatDate from "@/components/FormatDate.astro"
 
 // export async function getStaticPaths({ paginate }) {
 export async function getStaticPaths() {
@@ -41,53 +44,24 @@ const { Content } = await post.render()
 	<article
 		class="article-grid text-md grid gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl"
 	>
-		<!-- <div class="full-bleed h-[500px]">
+		<div>
+			<h1>{post.data.title}</h1>
+
 			<Image
 				alt={post.data.title}
 				src={post.data.image}
-				class="h-full w-full object-cover"
+				class="w-full object-cover aspect-video"
+				width="720"
 			/>
-		</div> -->
+		</div>
 
-		<h1 class="wide-bleed my-8 text-2xl md:text-5xl">
-			{post.data.title}
-		</h1>
+		<div class="flex flex-row justify-between">
+			<FormatDate date={post.data.date} />
+			<span></span>
+		</div>
 
 		<div class="prose-lg prose-gray">
-			<Content />
+			<Content components={{ Spotify }} />
 		</div>
 	</article>
 </Layout>
-<!--
-	<PostLayout {...post.data}>
-  	<Content />
-	</PostLayout>
--->
-
-<!-- <style>
-	.article-grid {
-		grid-template-columns: [full-start] 1fr [wide-start] 140px [content-start] 720px [content-end] 140px [wide-end] 1fr [full-end];
-	}
-
-	.article-grid > * {
-		grid-column: content;
-	}
-
-	.article-grid > .full-bleed {
-		grid-column: full;
-	}
-
-	.article-grid > .wide-bleed {
-		grid-column: wide;
-	}
-
-	@media screen and (max-width: 1000px) {
-		.article-grid {
-			grid-template-columns: 18px 1fr 18px;
-			grid-template-areas:
-				". content ."
-				"full full full"
-				". wide .";
-		}
-	}
-</style> -->
