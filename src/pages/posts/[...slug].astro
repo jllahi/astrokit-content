@@ -1,16 +1,16 @@
 ---
-import { Image } from "astro:assets"
-import { getCollection } from "astro:content"
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
 
-import SITE from "@/data/site.json"
-import Layout from "@/components/Layout.astro"
-import Spotify from "@/components/embed/Spotify.astro"
+import SITE from '@/data/site.json'
+import Layout from '@/layouts/Layout.astro'
+import Spotify from '@/components/embed/Spotify.astro'
 // import GithubRepo from "@/components/embed/GithubRepo.astro"
-import FormatDate from "@/components/utils/FormatDate.astro"
+import FormatDate from '@/components/utils/FormatDate.astro'
 
 // export async function getStaticPaths({ paginate }) {
 export async function getStaticPaths() {
-	const posts = await getCollection("posts")
+	const posts = await getCollection('posts')
 
 	return posts.map((post) => ({
 		params: { slug: post.slug },
@@ -35,25 +35,26 @@ const { Content } = await post.render()
 		openGraph: {
 			basic: {
 				title: post.data.title,
-				type: "article",
+				type: 'article',
 				image: post.data.image.src,
 			},
 		},
 	}}
 >
 	<article
-		class="article-grid text-md grid gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl"
+		class="article-grid text-md grid gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl my-4"
 	>
-		<div>
-			<h1>{post.data.title}</h1>
+		<h1 class="font-black text-5xl my-4 text-balance">{post.data.title}</h1>
 
-			<Image
-				alt={post.data.title}
-				src={post.data.image}
-				class="w-full object-cover aspect-video"
-				width="720"
-			/>
-		</div>
+		<p class="text-left">{post.data.description}</p>
+
+		<Image
+			alt={post.data.title}
+			src={post.data.image}
+			class="w-full object-cover aspect-video my-4"
+			width="720"
+			transition:name={`post-image-${post.data.title}`}
+		/>
 
 		<div class="flex flex-row justify-between">
 			<FormatDate date={post.data.date} />

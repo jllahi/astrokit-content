@@ -1,16 +1,21 @@
-import defaultTheme from "tailwindcss/defaultTheme"
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+	darkMode: ['class'],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
 			fontFamily: {
-				sans2: ["Inter Variable", ...defaultTheme.fontFamily.sans],
-				heading2: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
-				logo: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
+				sans2: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+				heading2: ['Montserrat Variable', ...defaultTheme.fontFamily.sans],
+				logo: ['Montserrat Variable', ...defaultTheme.fontFamily.sans],
+			},
+			colors: {
+				'font-color': 'var(--font-color)',
+				'background-color': 'var(--background-color)',
 			},
 		},
 	},
-	plugins: [require("@tailwindcss/typography")],
+	plugins: [require('@tailwindcss/typography')],
 }

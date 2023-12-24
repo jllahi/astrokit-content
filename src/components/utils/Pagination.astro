@@ -2,17 +2,17 @@
 // https://docs.astro.build/en/core-concepts/routing/#pagination
 // https://docs.astro.build/en/reference/api-reference/#paginate
 
-import type { Page } from "astro"
-import type { CollectionEntry } from "astro:content"
+import type { Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
 
 interface Props {
-	page: Page<CollectionEntry<"posts">>
+	page: Page<CollectionEntry<'posts'>>
 }
 
 const { page } = Astro.props
 ---
 
-<div class="flex flex-row w-full justify-between">
+<div class="flex flex-row w-full justify-between my-8">
 	<div>
 		{
 			page.url.prev && (
