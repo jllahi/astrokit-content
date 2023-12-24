@@ -1,8 +1,18 @@
 ---
-import SITE from "@/data/site.json"
+import SITE from '@/data/site.json'
+import ThemeToggle from '@/components/utils/ThemeToggle.astro'
 ---
 
-<header class="w-full">
-	<h1><a class="font-black text-2xl" href="/">{SITE.title}</a></h1>
-	<hr />
+<header
+	class:list={[
+		'flex flex-row justify-between w-full',
+		'border-b mb-4 pb-4 border-font-color',
+	]}
+>
+	<a href="/"
+		><h2 class="font-black text-2xl font-logo uppercase no-underline">
+			{SITE.title}
+		</h2></a
+	>
+	<ThemeToggle />
 </header>

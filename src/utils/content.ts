@@ -10,7 +10,7 @@ export function slugify(text) {
 }
 
 export function formatDate(date: string | number | Date) {
-	return new Date(date).toLocaleDateString("en-US", {
+	return new Date(date).toLocaleDateString("es-ES", {
 		timeZone: "UTC",
 	})
 }

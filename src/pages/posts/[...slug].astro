@@ -1,13 +1,16 @@
 ---
-import { Image } from "astro:assets"
-import { getCollection } from "astro:content"
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
 
-import SITE from "@/data/site.json"
-import Layout from "@/components/Layout.astro"
+import SITE from '@/data/site.json'
+import Layout from '@/layouts/Layout.astro'
+import Spotify from '@/components/embed/Spotify.astro'
+// import GithubRepo from "@/components/embed/GithubRepo.astro"
+import FormatDate from '@/components/utils/FormatDate.astro'
 
 // export async function getStaticPaths({ paginate }) {
 export async function getStaticPaths() {
-	const posts = await getCollection("posts")
+	const posts = await getCollection('posts')
 
 	return posts.map((post) => ({
 		params: { slug: post.slug },
@@ -32,62 +35,34 @@ const { Content } = await post.render()
 		openGraph: {
 			basic: {
 				title: post.data.title,
-				type: "article",
+				type: 'article',
 				image: post.data.image.src,
 			},
 		},
 	}}
 >
 	<article
-		class="article-grid text-md grid gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl"
+		class="article-grid text-md grid gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl my-4"
 	>
-		<!-- <div class="full-bleed h-[500px]">
-			<Image
-				alt={post.data.title}
-				src={post.data.image}
-				class="h-full w-full object-cover"
-			/>
-		</div> -->
+		<h1 class="font-black text-5xl my-4 text-balance">{post.data.title}</h1>
 
-		<h1 class="wide-bleed my-8 text-2xl md:text-5xl">
-			{post.data.title}
-		</h1>
+		<p class="text-left">{post.data.description}</p>
+
+		<Image
+			alt={post.data.title}
+			src={post.data.image}
+			class="w-full object-cover aspect-video my-4"
+			width="720"
+			transition:name={`post-image-${post.data.title}`}
+		/>
+
+		<div class="flex flex-row justify-between">
+			<FormatDate date={post.data.date} />
+			<span></span>
+		</div>
 
 		<div class="prose-lg prose-gray">
-			<Content />
+			<Content components={{ Spotify }} />
 		</div>
 	</article>
 </Layout>
-<!--
-	<PostLayout {...post.data}>
-  	<Content />
-	</PostLayout>
--->
-
-<!-- <style>
-	.article-grid {
-		grid-template-columns: [full-start] 1fr [wide-start] 140px [content-start] 720px [content-end] 140px [wide-end] 1fr [full-end];
-	}
-
-	.article-grid > * {
-		grid-column: content;
-	}
-
-	.article-grid > .full-bleed {
-		grid-column: full;
-	}
-
-	.article-grid > .wide-bleed {
-		grid-column: wide;
-	}
-
-	@media screen and (max-width: 1000px) {
-		.article-grid {
-			grid-template-columns: 18px 1fr 18px;
-			grid-template-areas:
-				". content ."
-				"full full full"
-				". wide .";
-		}
-	}
-</style> -->

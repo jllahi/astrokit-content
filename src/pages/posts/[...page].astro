@@ -1,35 +1,57 @@
 ---
 // https://docs.astro.build/en/guides/content-collections/#generating-routes-from-content
 
-import { type GetStaticPaths, type Page } from "astro"
-import { type CollectionEntry, getCollection } from "astro:content"
+import { type GetStaticPaths, type Page } from 'astro'
+import { type CollectionEntry, getCollection } from 'astro:content'
 
-import Pagination from "@/components/Pagination.astro"
-import Layout from "@/components/Layout.astro"
-import { formatDate } from "@/utils/content"
+import Pagination from '@/components/utils/Pagination.astro'
+import Layout from '@/layouts/Layout.astro'
+import { formatDate } from '@/utils/content'
+import getSortedPosts from '@/utils/getSortedPosts'
+import { Image } from 'astro:assets'
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-	const posts = await getCollection("posts")
+	const posts = await getCollection('posts', ({ data }) => {
+		return data.draft !== true
+	})
+	const sortedPosts = getSortedPosts(posts)
 
-	return paginate(posts, { pageSize: 2 })
+	return paginate(sortedPosts, { pageSize: 3 })
 }
 
 interface Props {
-	page: Page<CollectionEntry<"posts">>
+	page: Page<CollectionEntry<'posts'>>
 }
 
 const { page } = Astro.props
 ---
 
-<Layout seo={{ title: "Posts", description: "Collection of posts" }}>
-	<h1 class="my-4 font-heading text-2xl font-bold">Posts</h1>
+<Layout seo={{ title: 'Posts', description: 'Collection of posts' }}>
+	<h1 class="my-8 font-heading text-5xl font-black">Posts</h1>
 	<!-- <div class="grid grid-cols-1 gap-4"> -->
-	<ul>
+	<ul class="flex flex-col gap-8">
 		{
 			page.data.map((post) => (
-				<li>
-					{formatDate(post.data.date)}
-					<a href={`/posts/${post.slug}`}>{post.data.title}</a>
+				<li class="text-xl gap-8">
+					<a href={`/posts/${post.slug}`} class="flex flex-row gap-8">
+						{post.data.image && (
+							<Image
+								src={post.data.image}
+								alt={post.data.description ?? post.data.title}
+								width={300}
+								height={300}
+								class="size-32 object-cover"
+								transition:name={`post-image-${post.data.title}`}
+							/>
+						)}{' '}
+						<div class="flex flex-col">
+							<h2 class="text-2xl font-black text-balance">
+								{post.data.title}
+							</h2>
+							<div class="text-xl">{post.data.description}</div>
+							<div class="text-sm">{formatDate(post.data.date)}</div>
+						</div>
+					</a>
 				</li>
 				// cover={post.data.image}>
 				// {post.data.description}
