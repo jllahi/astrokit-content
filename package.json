@@ -1,5 +1,5 @@
 {
-	"name": "astrokit",
+	"name": "astrokit-content",
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
@@ -10,21 +10,27 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.3.2",
-		"@astrojs/mdx": "^2.0.1",
-		"@astrojs/tailwind": "^5.0.3",
+		"@astrojs/check": "^0.3.4",
+		"@astrojs/mdx": "^2.0.2",
+		"@astrojs/rss": "^4.0.1",
+		"@astrojs/sitemap": "^3.0.3",
+		"@astrojs/tailwind": "^5.0.4",
 		"@fontsource-variable/inter": "^5.0.16",
 		"@fontsource-variable/montserrat": "^5.0.17",
 		"@sentry/astro": "^7.86.0",
 		"@spotlightjs/astro": "^1.0.2",
 		"@tailwindcss/typography": "^0.5.10",
-		"astro": "^4.0.3",
+		"astro": "^4.0.7",
 		"astro-embed": "^0.6.1",
-		"astro-expressive-code": "^0.29.4",
+		"astro-expressive-code": "^0.30.1",
 		"astro-icon": "^0.8.2",
+		"astro-robots-txt": "^1.0.0",
 		"astro-seo": "^0.8.0",
+		"mdast-util-to-string": "^4.0.0",
+		"reading-time": "^1.5.0",
 		"sharp": "^0.33.0",
 		"tailwindcss": "^3.0.24",
+		"typescript": "^5.3.3",
 		"vite-plugin-mkcert": "^1.17.1"
 	}
 }

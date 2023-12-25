@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content"
+// import { rssSchema } from '@astrojs/rss';
 
 const posts = defineCollection({
 	type: "content",
@@ -22,6 +23,7 @@ const posts = defineCollection({
 			draft: z.boolean().optional(),
 			featured: z.boolean().optional(),
 			// author: z.string().default(SITE.author),
+			reading: z.string().optional(),
 		}),
 })
 

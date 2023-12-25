@@ -1,27 +1,39 @@
 // import mkcert from "vite-plugin-mkcert"
-import tailwind from '@astrojs/tailwind'
 // import sentry from '@sentry/astro'
 // import spotlightjs from '@spotlightjs/astro'
-import { defineConfig, squooshImageService } from 'astro/config'
-import astroExpressiveCode from 'astro-expressive-code'
-import embeds from 'astro-embed/integration'
+import mdx from '@astrojs/mdx';
+import tailwind from '@astrojs/tailwind';
+import embeds from 'astro-embed/integration';
+import astroExpressiveCode from 'astro-expressive-code';
+import { defineConfig } from 'astro/config';
+import { remarkReadingTime } from './src/utils/remark-reading-time.mjs';
+import sitemap from '@astrojs/sitemap';
 
-import mdx from '@astrojs/mdx'
+import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		// sentry(),
-		// spotlightjs(),
-		tailwind(),
-		embeds(),
-		astroExpressiveCode(),
-		mdx(),
-	],
-	// image: {
-	//   service: squooshImageService()
-	// }
-	// vite: {
-	// 	plugins: [mkcert()],
-	// },
-})
+  site: 'https://astrokit-content.vercel.app',
+  integrations: [
+  // sentry(),
+  // spotlightjs(),
+  tailwind(), embeds(), astroExpressiveCode(), mdx(), sitemap(), robotsTxt()],
+  markdown: {
+    remarkPlugins: [remarkReadingTime
+    // remarkToc,
+    // [
+    // 	remarkCollapse,
+    // 	{
+    // 		test: 'Table of contents',
+    // 	},
+    // ],
+    ]
+    // other config
+  }
+  // image: {
+  //   service: squooshImageService()
+  // }
+  // vite: {
+  // 	plugins: [mkcert()],
+  // },
+});

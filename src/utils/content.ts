@@ -1,4 +1,56 @@
-export function slugify(text) {
+import type { CollectionEntry, ContentCollectionKey } from "astro:content"
+
+export function filterContent<items>(
+	items: CollectionEntry<ContentCollectionKey>[],
+	{
+		filterOutDrafts = true,
+		filterOutFuture = true,
+		sortByDate = true,
+		limit = undefined,
+	}: {
+		filterOutDrafts?: boolean
+		filterOutFuture?: boolean
+		sortByDate?: boolean
+		limit?: number | undefined
+	} = {}
+) {
+	const filteredContent = items.filter((item) => {
+		const { date, draft } = item.data
+
+		// filterOutDrafts if true
+		if (filterOutDrafts && draft) return false
+
+		// filterOutFuturePosts if true
+		if (filterOutFuture && new Date(date) > new Date()) return false
+
+		return true
+	})
+
+	// sortByDate or randomize
+	if (sortByDate) {
+		filteredContent.sort(
+			(a, b) =>
+				new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+		)
+	} else {
+		filteredContent.sort(() => Math.random() - 0.5)
+	}
+
+	// limit if number is passed
+	if (typeof limit === 'number') {
+		return filteredContent.slice(0, limit)
+	}
+
+	return filteredContent
+}
+
+export function formatDate(date: string | number | Date) {
+	return new Date(date).toLocaleDateString("es-ES", {
+		timeZone: "UTC",
+	})
+}
+
+export function slugify(text: string) {
 	return text
 		.toString()
 		.toLowerCase()
@@ -9,45 +61,11 @@ export function slugify(text) {
 		.replace(/-+$/, "")
 }
 
-export function formatDate(date: string | number | Date) {
-	return new Date(date).toLocaleDateString("es-ES", {
-		timeZone: "UTC",
-	})
-}
-
-export function formatBlogPosts(
-	posts,
-	{
-		filterOutDrafts = true,
-		filterOutFuturePosts = true,
-		sortByDate = true,
-		limit = undefined,
-	} = {}
-) {
-	const filteredPosts = posts.reduce((acc, post) => {
-		const { date, draft } = post.data
-		// filterOutDrafts if true
-		if (filterOutDrafts && draft) return acc
-
-		// filterOutFuturePosts if true
-		if (filterOutFuturePosts && new Date(date) > new Date()) return acc
-
-		// add post to acc
-		acc.push(post)
-
-		return acc
-	}, [])
-
-	// sortByDate or randomize
-	if (sortByDate) {
-		filteredPosts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
-	} else {
-		filteredPosts.sort(() => Math.random() - 0.5)
-	}
-
-	// limit if number is passed
-	if (typeof limit === "number") {
-		return filteredPosts.slice(0, limit)
-	}
-	return filteredPosts
-}
+export const getSortedPosts = (posts: CollectionEntry<"posts">[]) =>
+	posts
+		.filter(({ data }) => !data.draft)
+		.sort(
+			(a, b) =>
+				Math.floor(new Date(b.data.date).getTime() / 1000) -
+				Math.floor(new Date(a.data.date).getTime() / 1000)
+		)

@@ -6,17 +6,14 @@ import { type CollectionEntry, getCollection } from 'astro:content'
 
 import Pagination from '@/components/utils/Pagination.astro'
 import Layout from '@/layouts/Layout.astro'
-import { formatDate } from '@/utils/content'
-import getSortedPosts from '@/utils/getSortedPosts'
+import { formatDate, filterContent } from '@/utils/content'
 import { Image } from 'astro:assets'
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-	const posts = await getCollection('posts', ({ data }) => {
-		return data.draft !== true
-	})
-	const sortedPosts = getSortedPosts(posts)
+	const posts = await getCollection('posts')
+	const filteredPosts = filterContent(posts)
 
-	return paginate(sortedPosts, { pageSize: 3 })
+	return paginate(filteredPosts, { pageSize: 3 })
 }
 
 interface Props {
@@ -28,8 +25,7 @@ const { page } = Astro.props
 
 <Layout seo={{ title: 'Posts', description: 'Collection of posts' }}>
 	<h1 class="my-8 font-heading text-5xl font-black">Posts</h1>
-	<!-- <div class="grid grid-cols-1 gap-4"> -->
-	<ul class="flex flex-col gap-8">
+	<ul class="grid grid-cols-1 gap-10">
 		{
 			page.data.map((post) => (
 				<li class="text-xl gap-8">
@@ -53,8 +49,6 @@ const { page } = Astro.props
 						</div>
 					</a>
 				</li>
-				// cover={post.data.image}>
-				// {post.data.description}
 			))
 		}
 	</ul>
