@@ -10,9 +10,9 @@ const { date } = Astro.props
 
 <time
 	datetime={date.toISOString()}
-	class="flex flex-row gap-1 place-items-center"
+	class="flex flex-row gap-3 place-items-center"
 >
-	<Icon name="fluent:calendar-32-regular" />
+	<Icon name="ri:calendar-2-line" title="Date" />
 	<small>
 		{
 			date.toLocaleDateString('es-es', {

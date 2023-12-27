@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
+import Card from '@/components/ui/Card.astro'
+
+interface Props {
+	posts: CollectionEntry<ContentCollectionKey>[]
+}
+
+const { posts } = Astro.props
+---
+
+<ul class="grid grid-cols-1 gap-10">
+	{
+		posts.map((post) => (
+			<li class="text-xl gap-8">
+				<Card post={post} />
+			</li>
+		))
+	}
+</ul>

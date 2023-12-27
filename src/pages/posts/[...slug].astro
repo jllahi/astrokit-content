@@ -5,8 +5,8 @@ import { getCollection } from 'astro:content'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
 import Spotify from '@/components/embed/Spotify.astro'
-// import GithubRepo from "@/components/embed/GithubRepo.astro"
 import Date from '@/components/utils/Date.astro'
+import Tags from '@/components/Tags.astro'
 
 // export async function getStaticPaths({ paginate }) {
 export async function getStaticPaths() {
@@ -51,17 +51,18 @@ const { Content } = await post.render()
 		<Image
 			alt={post.data.title}
 			src={post.data.image}
-			class="w-full object-cover aspect-video my-4"
+			class="w-full object-cover aspect-video my-4 rounded"
 			width="720"
 			transition:name={`post-image-${post.data.title}`}
 		/>
 
 		<div class="flex flex-row justify-between">
 			<Date date={post.data.date} />
-			<span>Reading time: {post.data.reading}</span>
+			<!-- <span>Reading time: {post.data.reading}</span> -->
+			<Tags tags={post.data.tags} />
 		</div>
 
-		<div class="prose-lg prose-gray">
+		<div class="prose-lg prose-gray prose-img:rounded">
 			<Content components={{ Spotify }} />
 		</div>
 	</article>
