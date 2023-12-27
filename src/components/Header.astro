@@ -1,6 +1,7 @@
 ---
-import SITE from '@/data/site.json'
-import ThemeToggle from '@/components/utils/ThemeToggle.astro'
+import site from '@/data/site'
+// import Navigation from '@/components/Navigation.astro'
+import ResponsiveMenu from './ResponsiveMenu.astro'
 ---
 
 <header
@@ -11,8 +12,8 @@ import ThemeToggle from '@/components/utils/ThemeToggle.astro'
 >
 	<a href="/"
 		><h2 class="font-black text-2xl font-logo uppercase no-underline">
-			{SITE.title}
+			{site.title}
 		</h2></a
 	>
-	<ThemeToggle />
+	<ResponsiveMenu />
 </header>

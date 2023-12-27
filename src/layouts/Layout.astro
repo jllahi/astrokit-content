@@ -1,5 +1,5 @@
 ---
-import SITE from '@/data/site.json'
+import { site } from '@/data/site'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import TailwindIndicator from '@/components/utils/TailwindIndicator.astro'
@@ -23,8 +23,8 @@ const { seo } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<SEO
-			title={seo?.title ?? SITE.title}
-			description={seo?.description ?? SITE.description}
+			title={seo?.title ?? site.title}
+			description={seo?.description ?? site.description}
 			extend={{
 				meta: [{ name: 'twitter:card', content: 'summary' }],
 			}}

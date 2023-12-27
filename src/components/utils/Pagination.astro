@@ -4,6 +4,7 @@
 
 import type { Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
+import Link from '@/components/ui/Link.astro'
 
 interface Props {
 	page: Page<CollectionEntry<'posts'>>
@@ -13,12 +14,17 @@ const { page } = Astro.props
 ---
 
 <div class="flex flex-row w-full justify-between my-8">
-	<div>
+	<div
+		class:list={[
+			'rounded py-1 px-2',
+			'hover:bg-font-color hover:text-background-color',
+		]}
+	>
 		{
 			page.url.prev && (
-				<a href={page.url.prev} rel="prev">
+				<Link href={page.url.prev} rel="prev">
 					&lt;&lt; Previous
-				</a>
+				</Link>
 			)
 		}
 	</div>
@@ -28,9 +34,9 @@ const { page } = Astro.props
 	<div>
 		{
 			page.url.next && (
-				<a href={page.url.next} rel="next">
+				<Link href={page.url.next} rel="next">
 					Next &gt;&gt;
-				</a>
+				</Link>
 			)
 		}
 	</div>

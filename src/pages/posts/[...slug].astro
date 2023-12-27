@@ -2,11 +2,11 @@
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 
-import SITE from '@/data/site.json'
+import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
 import Spotify from '@/components/embed/Spotify.astro'
 // import GithubRepo from "@/components/embed/GithubRepo.astro"
-import FormatDate from '@/components/utils/FormatDate.astro'
+import Date from '@/components/utils/Date.astro'
 
 // export async function getStaticPaths({ paginate }) {
 export async function getStaticPaths() {
@@ -31,7 +31,7 @@ const { Content } = await post.render()
 <Layout
 	seo={{
 		title: post.data.title,
-		description: post.data.description ?? SITE.description,
+		description: post.data.description ?? site.description,
 		openGraph: {
 			basic: {
 				title: post.data.title,
@@ -57,7 +57,7 @@ const { Content } = await post.render()
 		/>
 
 		<div class="flex flex-row justify-between">
-			<FormatDate date={post.data.date} />
+			<Date date={post.data.date} />
 			<span>Reading time: {post.data.reading}</span>
 		</div>
 

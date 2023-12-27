@@ -1,8 +1,15 @@
+---
+import ThemeToggle from '@/components/utils/ThemeToggle.astro'
+// import Social from '@/components/Social.astro'
+---
+
 <footer
 	class:list={[
-		'w-full border-t py-4 mt-14',
-		'text-font-color bg-background-color border-font-color',
+		'flex flex-row justify-between w-full border-t py-4 mt-14 border-font-color',
+		// 'text-font-color bg-background-color border-font-color',
 	]}
 >
 	<p>Built with Astro</p>
+	<!-- <Social /> -->
+	<ThemeToggle />
 </footer>

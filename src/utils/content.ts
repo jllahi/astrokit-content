@@ -1,4 +1,5 @@
 import type { CollectionEntry, ContentCollectionKey } from "astro:content"
+import site from '@/data/site'
 
 export function filterContent<items>(
 	items: CollectionEntry<ContentCollectionKey>[],
@@ -45,8 +46,11 @@ export function filterContent<items>(
 }
 
 export function formatDate(date: string | number | Date) {
-	return new Date(date).toLocaleDateString("es-ES", {
+	return new Date(date).toLocaleDateString(site.language, {
 		timeZone: "UTC",
+		year: 'numeric',
+		month: 'numeric',
+		day: 'numeric',
 	})
 }
 

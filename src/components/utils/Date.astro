@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+	date: Date
+}
+
+const { date } = Astro.props
+---
+
+<time
+	datetime={date.toISOString()}
+	class="flex flex-row gap-1 place-items-center"
+>
+	<Icon name="fluent:calendar-32-regular" />
+	<small>
+		{
+			date.toLocaleDateString('es-es', {
+				year: 'numeric',
+				month: 'numeric',
+				day: 'numeric',
+			})
+		}
+	</small>
+</time>

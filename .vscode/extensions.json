@@ -10,13 +10,14 @@
 		"idered.npm",
 		"mhutchie.git-graph",
 		"SheltonLouis.astro-snippets",
-		"svelte.svelte-vscode",
+		// "svelte.svelte-vscode",
 		"unifiedjs.vscode-mdx",
 		"usernamehw.errorlens",
 		"VisualStudioExptTeam.vscodeintellicode",
 		"WallabyJs.console-ninja",
 		"xabikos.JavaScriptSnippets",
-		"yoavbls.pretty-ts-errors"
+		"yoavbls.pretty-ts-errors",
+		"stivo.tailwind-fold"
 	],
 	"unwantedRecommendations": []
 }
