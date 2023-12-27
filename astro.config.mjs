@@ -27,10 +27,13 @@ export default defineConfig({
 		icon({
 			iconDir: 'src/assets/icons',
 			include: {
-				// Include only three `mdi` icons in the bundle
-				fluent: ['calendar-32-regular'],
-				ri: ['ri:github-line', 'ri:twitter-x-line'],
-				// Include all `uis` icons
+				// fluent: ['calendar-32-regular'],
+				ri: [
+					'github-line',
+					'twitter-x-line',
+					'calendar-2-line',
+					'price-tag-3-line',
+				],
 				// uis: ['*'],
 			},
 		}),
