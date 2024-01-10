@@ -1,4 +1,4 @@
-// import mkcert from "vite-plugin-mkcert"
+import mkcert from 'vite-plugin-mkcert'
 // import sentry from '@sentry/astro'
 // import spotlightjs from '@spotlightjs/astro'
 import mdx from '@astrojs/mdx'
@@ -9,8 +9,8 @@ import { defineConfig } from 'astro/config'
 import { remarkReadingTime } from './src/utils/remark-reading-time.mjs'
 import sitemap from '@astrojs/sitemap'
 import robotsTxt from 'astro-robots-txt'
-
 import icon from 'astro-icon'
+import debugcss from 'astro-debugcss'
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,7 +27,7 @@ export default defineConfig({
 		icon({
 			iconDir: 'src/assets/icons',
 			include: {
-				// fluent: ['calendar-32-regular'],
+				heroicons: ['sun', 'moon'],
 				ri: [
 					'github-line',
 					'twitter-x-line',
@@ -37,6 +37,7 @@ export default defineConfig({
 				// uis: ['*'],
 			},
 		}),
+		debugcss(),
 	],
 	markdown: {
 		remarkPlugins: [
@@ -54,7 +55,7 @@ export default defineConfig({
 	// image: {
 	//   service: squooshImageService()
 	// }
-	// vite: {
-	// 	plugins: [mkcert()],
-	// },
+	vite: {
+		plugins: [mkcert()],
+	},
 })
