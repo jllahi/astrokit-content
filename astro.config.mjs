@@ -11,6 +11,7 @@ import sitemap from '@astrojs/sitemap'
 import robotsTxt from 'astro-robots-txt'
 import icon from 'astro-icon'
 import debugcss from 'astro-debugcss'
+import metaTags from 'astro-meta-tags'
 
 // https://astro.build/config
 export default defineConfig({
@@ -38,6 +39,7 @@ export default defineConfig({
 			},
 		}),
 		debugcss(),
+		metaTags(),
 	],
 	markdown: {
 		remarkPlugins: [
