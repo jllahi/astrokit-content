@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
 	return posts.map((post) => ({
 		params: { slug: post.slug },
-		props: { post },
+		props: { post }
 	}))
 	// return paginate(allPokemon, { pageSize: 10 });
 }
@@ -36,22 +36,22 @@ const { Content } = await post.render()
 			basic: {
 				title: post.data.title,
 				type: 'article',
-				image: post.data.image.src,
-			},
-		},
+				image: post.data.image.src
+			}
+		}
 	}}
 >
 	<article
-		class="article-grid text-md grid gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl my-4"
+		class="article-grid text-md my-4 grid gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl"
 	>
-		<h1 class="font-black text-5xl my-4 text-balance">{post.data.title}</h1>
+		<h1 class="my-4 text-balance text-5xl font-black">{post.data.title}</h1>
 
 		<p class="text-left">{post.data.description}</p>
 
 		<Image
 			alt={post.data.title}
 			src={post.data.image}
-			class="w-full object-cover aspect-video my-4 rounded"
+			class="my-4 aspect-video w-full rounded object-cover"
 			width="720"
 			transition:name={`post-image-${post.data.title}`}
 		/>

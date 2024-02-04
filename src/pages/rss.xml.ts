@@ -1,7 +1,7 @@
-import rss from '@astrojs/rss'
-import { getCollection } from 'astro:content'
 import { filterContent } from '@/utils/content'
+import rss from '@astrojs/rss'
 import type { APIContext } from 'astro'
+import { getCollection } from 'astro:content'
 // import { rssSchema } from '@astrojs/rss';
 
 export async function GET(context: APIContext) {
@@ -17,7 +17,7 @@ export async function GET(context: APIContext) {
 			pubDate: post.data.date,
 			description: post.data.description,
 			// customData: post.data.date,
-			link: `/post/${post.slug}/`,
-		})),
+			link: `/post/${post.slug}/`
+		}))
 	})
 }

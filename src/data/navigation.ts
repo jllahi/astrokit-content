@@ -6,20 +6,20 @@ export interface NavigationItem {
 
 export const navigation: NavigationItem[] = [
 	{
-		title: "Home",
-		path: "/",
+		title: 'Home',
+		path: '/'
 	},
 	{
-		title: "About",
-		path: "/about",
+		title: 'About',
+		path: '/about'
 	},
 	{
-		title: "Blog",
-		path: "/posts",
+		title: 'Blog',
+		path: '/posts'
 	},
 	{
-		title: "Contact",
-		path: "/contact",
+		title: 'Contact',
+		path: '/contact'
 	}
 	// {
 	// 	title: "Features",

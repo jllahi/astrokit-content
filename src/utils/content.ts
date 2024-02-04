@@ -1,13 +1,14 @@
-import type { CollectionEntry, ContentCollectionKey } from "astro:content"
 import site from '@/data/site'
+import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
 
-export function filterContent<items>(
+// export function filterContent<items>(
+export function filterContent(
 	items: CollectionEntry<ContentCollectionKey>[],
 	{
 		filterOutDrafts = true,
 		filterOutFuture = true,
 		sortByDate = true,
-		limit = undefined,
+		limit = undefined
 	}: {
 		filterOutDrafts?: boolean
 		filterOutFuture?: boolean
@@ -30,8 +31,7 @@ export function filterContent<items>(
 	// sortByDate or randomize
 	if (sortByDate) {
 		filteredContent.sort(
-			(a, b) =>
-				new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+			(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 		)
 	} else {
 		filteredContent.sort(() => Math.random() - 0.5)
@@ -47,10 +47,10 @@ export function filterContent<items>(
 
 export function formatDate(date: string | number | Date) {
 	return new Date(date).toLocaleDateString(site.language, {
-		timeZone: "UTC",
+		timeZone: 'UTC',
 		year: 'numeric',
 		month: 'numeric',
-		day: 'numeric',
+		day: 'numeric'
 	})
 }
 
@@ -58,14 +58,14 @@ export function slugify(text: string) {
 	return text
 		.toString()
 		.toLowerCase()
-		.replace(/\s+/g, "-")
-		.replace(/[^\w-]+/g, "")
-		.replace(/-{2,}/g, "-")
-		.replace(/^-+/, "")
-		.replace(/-+$/, "")
+		.replace(/\s+/g, '-')
+		.replace(/[^\w-]+/g, '')
+		.replace(/-{2,}/g, '-')
+		.replace(/^-+/, '')
+		.replace(/-+$/, '')
 }
 
-export const getSortedPosts = (posts: CollectionEntry<"posts">[]) =>
+export const getSortedPosts = (posts: CollectionEntry<'posts'>[]) =>
 	posts
 		.filter(({ data }) => !data.draft)
 		.sort(

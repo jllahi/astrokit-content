@@ -56,7 +56,9 @@ import { Icon } from 'astro-icon/components'
 		document.documentElement.classList.remove('dark')
 		document.documentElement.classList.add(themeValue)
 
-		document.querySelector('#theme-btn')?.setAttribute('aria-label', themeValue)
+		document
+			.querySelector('#theme-btn')
+			?.setAttribute('aria-label', themeValue)
 
 		// Get a reference to the body element
 		const body = document.body
@@ -85,10 +87,12 @@ import { Icon } from 'astro-icon/components'
 			reflectPreference()
 
 			// now this script can find and listen for clicks on the control
-			document.querySelector('#theme-btn')?.addEventListener('click', () => {
-				themeValue = themeValue === 'light' ? 'dark' : 'light'
-				setPreference()
-			})
+			document
+				.querySelector('#theme-btn')
+				?.addEventListener('click', () => {
+					themeValue = themeValue === 'light' ? 'dark' : 'light'
+					setPreference()
+				})
 		}
 
 		setThemeFeature()

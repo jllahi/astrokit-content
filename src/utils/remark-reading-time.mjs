@@ -1,7 +1,7 @@
 // https://astro-paper.pages.dev/posts/how-to-add-estimated-reading-time/
 
-import getReadingTime from "reading-time"
-import { toString } from "mdast-util-to-string"
+import { toString } from 'mdast-util-to-string'
+import getReadingTime from 'reading-time'
 
 export function remarkReadingTime() {
 	return function (tree, { data }) {

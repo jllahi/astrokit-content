@@ -1,6 +1,7 @@
 {
 	"recommendations": [
 		"aaron-bond.better-comments",
+		"antfu.iconify",
 		"astro-build.astro-vscode",
 		"astro-build.houston",
 		"bradlc.vscode-tailwindcss",
@@ -10,14 +11,14 @@
 		"idered.npm",
 		"mhutchie.git-graph",
 		"SheltonLouis.astro-snippets",
-		// "svelte.svelte-vscode",
+		"stivo.tailwind-fold",
 		"unifiedjs.vscode-mdx",
 		"usernamehw.errorlens",
 		"VisualStudioExptTeam.vscodeintellicode",
 		"WallabyJs.console-ninja",
 		"xabikos.JavaScriptSnippets",
-		"yoavbls.pretty-ts-errors",
-		"stivo.tailwind-fold"
+		"yoavbls.pretty-ts-errors"
+		// "svelte.svelte-vscode",
 	],
 	"unwantedRecommendations": []
 }

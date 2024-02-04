@@ -26,7 +26,7 @@ const { seo } = Astro.props
 			title={seo?.title ?? site.title}
 			description={seo?.description ?? site.description}
 			extend={{
-				meta: [{ name: 'twitter:card', content: 'summary' }],
+				meta: [{ name: 'twitter:card', content: 'summary' }]
 			}}
 			{...seo}
 		/>
@@ -34,13 +34,13 @@ const { seo } = Astro.props
 	</head>
 	<body
 		class:list={[
-			'p-6 h-screen flex flex-col items-start justify-between font-sans mx-auto container max-w-3xl transition-all duration-300',
-			'text-font-color bg-background-color',
-			'dark:text-font-color dark:bg-background-color',
+			'container mx-auto flex h-screen max-w-3xl flex-col items-start justify-between p-6 font-sans transition-all duration-300',
+			'bg-background-color text-font-color',
+			'dark:bg-background-color dark:text-font-color'
 		]}
 	>
 		<Header />
-		<main class="flex-grow w-full">
+		<main class="w-full flex-grow">
 			<slot />
 		</main>
 		<Footer />

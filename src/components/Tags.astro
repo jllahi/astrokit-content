@@ -12,13 +12,13 @@ const { tags } = Astro.props
 
 {
 	tags && (
-		<ul class="flex flex-row gap-2 place-items-center">
+		<ul class="flex flex-row place-items-center gap-2">
 			<Icon name="ri:price-tag-3-line" title="Tags" />
 			{tags.map((tag) => (
 				<li class="inline">
 					<Link
 						size="sm"
-						class="uppercase text-sm"
+						class="text-sm uppercase"
 						href={`/tag/${slugify(tag)}`}
 					>
 						{tag}
