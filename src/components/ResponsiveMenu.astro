@@ -11,10 +11,7 @@ import Navigation from './Navigation.astro'
 			<div class="block pl-10 lg:hidden" id="burger-menu">
 				<span />
 			</div>
-			<div
-				id="menu"
-				class="flex flex-col justify-center bg-background-color"
-			>
+			<div id="menu" class="flex flex-col justify-center bg-background-color">
 				<Navigation style="vertical" />
 			</div>
 		</div>
@@ -22,9 +19,7 @@ import Navigation from './Navigation.astro'
 }
 
 <script is:inline>
-	document
-		.getElementById('burger-menu')
-		.addEventListener('click', clickBurger, false) // function (this) {
+	document.getElementById('burger-menu').addEventListener('click', clickBurger, false) // function (this) {
 
 	function clickBurger() {
 		document.getElementById('burger-menu').classList.toggle('close')
@@ -34,9 +29,7 @@ import Navigation from './Navigation.astro'
 	document.addEventListener(
 		'astro:page-load',
 		() => {
-			document
-				.getElementById('burger-menu')
-				.addEventListener('click', clickBurger, false)
+			document.getElementById('burger-menu').addEventListener('click', clickBurger, false)
 		}
 		// { once: true },
 	)

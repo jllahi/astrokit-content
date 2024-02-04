@@ -8,10 +8,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans2: ['Inter Variable', ...defaultTheme.fontFamily.sans],
-				heading2: [
-					'Montserrat Variable',
-					...defaultTheme.fontFamily.sans
-				],
+				heading2: ['Montserrat Variable', ...defaultTheme.fontFamily.sans],
 				logo: ['Montserrat Variable', ...defaultTheme.fontFamily.sans]
 			},
 			colors: {

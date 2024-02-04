@@ -16,20 +16,12 @@ const sizes = {
 
 const styles = {
 	outline: 'border-2 border-black hover:bg-black text-black hover:text-white',
-	primary:
-		'bg-background-color text-font-color hover:bg-font-color hover:text-background-color',
-	inverted:
-		'bg-font-color text-background-color hover:bg-background-color hover:text-font-color',
+	primary: 'bg-background-color text-font-color hover:bg-font-color hover:text-background-color',
+	inverted: 'bg-font-color text-background-color hover:bg-background-color hover:text-font-color',
 	tag: 'border-font-color border rounded-full text-sm'
 }
 
-const {
-	size = 'md',
-	style = 'primary',
-	block,
-	class: className,
-	...rest
-} = Astro.props
+const { size = 'md', style = 'primary', block, class: className, ...rest } = Astro.props
 ---
 
 <a

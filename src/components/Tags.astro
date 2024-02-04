@@ -16,11 +16,7 @@ const { tags } = Astro.props
 			<Icon name="ri:price-tag-3-line" title="Tags" />
 			{tags.map((tag) => (
 				<li class="inline">
-					<Link
-						size="sm"
-						class="text-sm uppercase"
-						href={`/tag/${slugify(tag)}`}
-					>
+					<Link size="sm" class="text-sm uppercase" href={`/tag/${slugify(tag)}`}>
 						{tag}
 					</Link>
 				</li>

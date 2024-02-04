@@ -7,7 +7,7 @@ export default {
 	singleQuote: true,
 	trailingComma: 'none',
 	semi: false,
-	printWidth: 80,
+	printWidth: 100,
 	astroAllowShorthand: true,
 	// pluginSearchDirs: false,
 	plugins: [
