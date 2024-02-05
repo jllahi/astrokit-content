@@ -14,11 +14,11 @@ const { page } = Astro.props
 ---
 
 <div class="my-8 flex w-full flex-row justify-between">
-	<div class:list={['rounded px-2 py-1', 'hover:bg-font-color hover:text-background-color']}>
+	<div class:list={['rounded', 'hover:bg-font-color hover:text-background-color']}>
 		{
 			page.url.prev && (
 				<Link href={page.url.prev} rel="prev">
-					&lt;&lt; Previous
+					&lt; Previous
 				</Link>
 			)
 		}
@@ -30,7 +30,7 @@ const { page } = Astro.props
 		{
 			page.url.next && (
 				<Link href={page.url.next} rel="next">
-					Next &gt;&gt;
+					Next &gt;
 				</Link>
 			)
 		}

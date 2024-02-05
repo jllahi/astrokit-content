@@ -20,7 +20,7 @@ export function filterContent(
 		const { date, draft } = item.data
 
 		// filterOutDrafts if true
-		if (filterOutDrafts && draft) return false
+		if (filterOutDrafts && draft && !import.meta.env.DEV) return false
 
 		// filterOutFuturePosts if true
 		if (filterOutFuture && new Date(date) > new Date()) return false

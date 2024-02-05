@@ -42,9 +42,14 @@ const { Content } = await post.render()
 	}}
 >
 	<article
-		class="article-grid text-md my-4 grid gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl"
+		class="article-grid text-md w-xl my-4 grid max-w-2xl gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl"
 	>
-		<h1 class="my-4 text-balance text-5xl font-black">{post.data.title}</h1>
+		<h1
+			class="mt-4 text-balance text-5xl font-black"
+			transition:name={`post-title-${post.data.title}`}
+		>
+			{post.data.title}
+		</h1>
 
 		<p class="text-left">{post.data.description}</p>
 
@@ -62,7 +67,7 @@ const { Content } = await post.render()
 			<Tags tags={post.data.tags} />
 		</div>
 
-		<div class="prose-lg prose-gray prose-img:rounded">
+		<div class="prose-lg prose-gray text-pretty prose-img:rounded">
 			<Content components={{ Spotify }} />
 		</div>
 	</article>

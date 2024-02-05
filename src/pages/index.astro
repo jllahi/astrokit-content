@@ -1,26 +1,30 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { Image } from 'astro:assets'
-import homeImage from '@/assets/images/blast.jpg'
+// import { Image } from 'astro:assets'
+// import homeImage from '@/assets/images/blast.jpg'
 import site from '@/data/site'
 ---
 
 <Layout seo={{ title: 'Home' }}>
-	<p class="text-xl">
-		{site.description}
-	</p>
-	<div class="mt-16">
-		<Image
+	<section class="flex h-full flex-col">
+		<!-- <Image
 			alt="Image for homepage"
 			src={homeImage}
 			class="my-4 aspect-video w-full rounded object-cover"
 			width="720"
 			transition:name={`image-home`}
-		/>
-		<p>
-			Veniam Lorem est dolor consectetur aliquip veniam deserunt laborum irure officia.
-			Pariatur cillum cupidatat non consequat labore aute aute sunt culpa adipisicing. Dolore
-			et est fugiat id eu.
-		</p>
-	</div>
+		/> -->
+		<header class="my-16 h-full max-w-3xl">
+			<h1 class="mb-16 text-pretty text-5xl font-black sm:text-7xl xl:text-8xl">
+				{site.description}
+				<span class="text-6xl"></span>🚀
+			</h1>
+			<p class="text-xl">
+				Nostrud est laborum et magna ad dolor consequat Lorem est. In et incididunt pariatur
+				pariatur eu aute tempor ea quis laboris cupidatat eu. Pariatur in aliqua commodo
+				adipisicing eu non. Ex proident culpa veniam excepteur quis amet dolor culpa sit
+				culpa.
+			</p>
+		</header>
+	</section>
 </Layout>

@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'astro/types'
 import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
 import { Image } from 'astro:assets'
-import { formatDate } from '@/utils/content'
+// import { formatDate } from '@/utils/content'
 
 interface Props extends HTMLAttributes<'a'> {
 	post: CollectionEntry<ContentCollectionKey>
@@ -14,31 +14,55 @@ const { post, ...props } = Astro.props
 <a
 	href={`/posts/${post.slug}`}
 	class:list={[
-		'flex flex-row gap-8'
+		'cursor-pointer sm:motion-safe:transition sm:motion-safe:duration-200 sm:motion-safe:hover:scale-105'
 		// 'rounded py-1 px-2',
 		// 'hover:bg-font-color hover:text-background-color',
 	]}
 	{...props}
 >
-	{
-		post.data.image && (
-			<Image
-				src={post.data.image}
-				alt={post.data.description ?? post.data.title}
-				width={300}
-				height={300}
-				class="size-32 object-cover"
-				transition:name={`post-image-${post.data.title}`}
-			/>
-		)
-	}{' '}
-	<div class="flex flex-col">
-		<h2 class="text-balance text-2xl font-black">
-			{post.data.title}
-		</h2>
-		<div class="text-font-color-20 text-xl">
-			{post.data.description}
-		</div>
-		<div class="text-sm">{formatDate(post.data.date)}</div>
-	</div>
+	<article class="relative aspect-video overflow-hidden rounded-xl shadow-sm">
+		{
+			post.data.image && (
+				<Image
+					src={post.data.image}
+					alt={post.data.description ?? post.data.title}
+					width={300}
+					height={300}
+					class="h-full w-full object-cover object-center text-transparent"
+					transition:name={`post-image-${post.data.title}`}
+				/>
+			)
+		}
+		<header class="absolute inset-0 h-full w-full">
+			<div
+				class="absolute inset-0 h-full w-full bg-gradient-to-br from-font-color opacity-100"
+			>
+			</div>
+			<div class="relative flex h-full w-full items-start p-4">
+				<div class="max-w-xs text-white">
+					{
+						post.data.category && (
+							<ul class="mb-2 flex gap-4 text-sm uppercase">
+								<li>{post.data.category}</li>
+							</ul>
+						)
+					}
+					<h3
+						class="text-balance text-xl font-semibold sm:text-2xl"
+						transition:name={`post-title-${post.data.title}`}
+					>
+						{post.data.title}
+					</h3>
+					<!-- <div class="text-sm">{formatDate(post.data.date)}</div> -->
+					{
+						post.data.draft && (
+							<div class="absolute bottom-4 rounded bg-red-500 p-1 text-xs">
+								DRAFT
+							</div>
+						)
+					}
+				</div>
+			</div>
+		</header>
+	</article>
 </a>

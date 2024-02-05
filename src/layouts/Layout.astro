@@ -34,7 +34,7 @@ const { seo } = Astro.props
 	</head>
 	<body
 		class:list={[
-			'container mx-auto flex h-screen max-w-3xl flex-col items-start justify-between p-6 font-sans transition-all duration-300',
+			'container mx-auto flex h-screen flex-col items-start justify-between p-6 font-sans transition-all duration-300',
 			'bg-background-color text-font-color',
 			'dark:bg-background-color dark:text-font-color'
 		]}
@@ -47,12 +47,12 @@ const { seo } = Astro.props
 		<TailwindIndicator align="right" />
 		<style is:global>
 			:root {
-				--font-color: theme('colors.teal.100');
+				--font-color: theme('colors.teal.50');
 				--background-color: theme('colors.slate.900');
 			}
 			html.dark {
 				--font-color: theme('colors.slate.900');
-				--background-color: theme('colors.teal.100');
+				--background-color: theme('colors.teal.50');
 			}
 		</style>
 	</body>

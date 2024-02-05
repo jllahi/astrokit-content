@@ -9,12 +9,12 @@ interface Props {
 const { posts } = Astro.props
 ---
 
-<ul class="grid grid-cols-1 gap-10">
+<div class="grid grid-cols-1 gap-10 sm:gap-10 md:grid-cols-2 lg:grid-cols-3 xl:gap-12">
 	{
 		posts.map((post) => (
-			<li class="gap-8 text-xl">
-				<Card post={post} />
-			</li>
+			// <article class="gap-8 text-xl">
+			<Card post={post} />
+			// </article>
 		))
 	}
-</ul>
+</div>

@@ -11,7 +11,7 @@ import Navigation from './Navigation.astro'
 			<div class="block pl-10 lg:hidden" id="burger-menu">
 				<span />
 			</div>
-			<div id="menu" class="flex flex-col justify-center bg-background-color">
+			<div id="menu" class="flex flex-col bg-background-color pr-6 text-right">
 				<Navigation style="vertical" />
 			</div>
 		</div>
@@ -102,7 +102,6 @@ import Navigation from './Navigation.astro'
 		height: 0;
 		visibility: hidden;
 		opacity: 0;
-		text-align: center;
 		padding-top: 20px;
 		transition: all 0.3s ease-in-out;
 	}
@@ -121,7 +120,7 @@ import Navigation from './Navigation.astro'
 		color: var(--font-color);
 		display: block;
 		/* font-size: 32px; */
-		margin-bottom: 30px;
+		/* margin-bottom: 30px; */
 		text-decoration: none;
 	}
 </style>
