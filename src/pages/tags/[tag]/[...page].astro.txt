@@ -1,0 +1,45 @@
+---
+// https://docs.astro.build/en/guides/content-collections/#generating-routes-from-content
+import {
+	type GetStaticPaths,
+	type InferGetStaticParamsType,
+	type InferGetStaticPropsType
+	// type GetStaticPaths,
+} from 'astro'
+import { getCollection } from 'astro:content'
+
+import Pagination from '@/components/utils/Pagination.astro'
+import Layout from '@/layouts/Layout.astro'
+// import { filterContent } from '@/utils/content'
+import PostList from '@/components/PostList.astro'
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+	const allPosts = await getCollection('posts')
+	const allTags = new Set<string>()
+	allPosts.map((post: { data: { tags: string[] } }) => {
+		post.data.tags && post.data.tags.map((tag: string) => allTags.add(tag))
+	})
+
+	return Array.from(allTags).flatMap((tag) => {
+		const filteredPosts = allPosts.filter((post: any) => post.data.tags?.includes(tag))
+		return paginate(filteredPosts, {
+			params: { tag },
+			pageSize: 3
+		})
+	})
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { page } = Astro.props as Props
+const { tag } = Astro.params as Params
+---
+
+<Layout seo={{ title: 'Tag', description: 'Collection of Tag' }}>
+	<section class="my-8 grid gap-2">
+		<h1 class="font-sans text-5xl font-black">Tag {tag}</h1>
+		<PostList posts={page.data} />
+		<Pagination {page} />
+	</section>
+</Layout>

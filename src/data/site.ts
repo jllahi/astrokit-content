@@ -1,18 +1,3 @@
-interface Site {
-	title: string
-	description: string
-	language: string
-	logo?: {
-		src: './src/assets/icons/logo.svg'
-		alt: string
-	}
-	opengraph: {
-		title: string
-		description: string
-		image?: string
-	}
-}
-
 export const site: Site = {
 	title: 'AstroKit',
 	description: 'We are all made from stars',
@@ -21,7 +6,14 @@ export const site: Site = {
 		title: 'AstroKit',
 		description: 'We are all made from stars',
 		image: './src/assets/image/blast.jpg'
-	}
+	},
+	urls: {
+		posts: 'posts',
+		tags: 'tags',
+		category: 'category'
+	},
+	pagination: 3,
+	scheduled: 16000
 }
 
 export default site

@@ -1,0 +1,30 @@
+---
+export async function getStaticPaths() {
+	return [
+		{
+			params: { id: '1' },
+			props: {
+				cat: 'Randy'
+			}
+		},
+		{ params: { id: '2' } },
+		{ params: { id: '3' } },
+		{ params: { id: '4' } },
+		{ params: { id: undefined } }
+	]
+}
+
+const { id } = Astro.params
+const { cat } = Astro.props
+---
+
+{
+	id === undefined ? (
+		<h2 class="p-4 text-2xl font-black">NO ID, NO CAT</h2>
+	) : (
+		<>
+			<h2 class="p-4 text-2xl font-black">ID: {id}</h2>
+			<h2 class="p-4 text-2xl font-black">CAT: {cat}</h2>
+		</>
+	)
+}

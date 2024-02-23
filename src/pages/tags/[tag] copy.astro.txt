@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import Card from '@/components/ui/Card.astro'
+import { slugify } from '@/utils/content'
+import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro'
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+	const posts = await getCollection('posts')
+	const tags = [
+		...new Set(
+			posts
+				.map((post) => {
+					if (post.data.tags !== undefined) return post.data.tags
+				})
+				.flat()
+		)
+	]
+	const flattenedPaths = tags.flat()
+
+	console.log(flattenedPaths)
+
+	// const allTags = new Set<string>()
+	// posts.map((post) => {
+	// 	// post.data.tags && post.data.tags.map((tag: string) => tags.add(tag))
+	// 	const tags = posts.data.tags || []
+	// 	return tags.map((tag: string) => ({
+	// 		params: { tag }
+	// 	}))
+	// })
+
+	const filteredPosts = posts.filter((post) => {
+		if (post.data.tags !== undefined) {
+			return post.data.tags.includes(tag)
+		}
+	})
+
+	return tags.map((tag) => {
+		return {
+			params: { tag },
+			props: { posts: filteredPosts }
+		}
+	})
+	// return Array.from(allTags).flatMap((tag) => {
+	// 	const filteredPosts = allPosts.filter((post: any) => post.data.tags?.includes(tag))
+	// 	return paginate(filteredPosts, {
+	// 		params: { tag },
+	// 		pageSize: 3
+	// 	})
+	// })
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { page } = Astro.props as Props
+const { tag } = Astro.params as Params
+
+// export async function getStaticPaths() {
+// 	const posts = await getCollection('posts')
+// 	const paths = posts.map((post) => ({
+// 		params: {
+// 			// slug: post.slug,
+// 			tag: post.data.tags?.map((tag) => tag.toLowerCase().replace(' ', '-'))
+// 		}
+// 	}))
+// 	return { paths, fallback: false }
+// }
+
+// export async function getStaticPaths() {
+// 	// const allPosts = await getCollection('posts')
+// 	// const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+// 	const posts = await getCollection('posts')
+// 	const uniqueTags = new Set()
+// 	const originalTags = new Array()
+// 	posts.forEach((post) => {
+// 		if (post.data.tags != undefined) {
+// 			post.data.tags?.forEach((tag) => {
+// 				uniqueTags.add(slugify(tag))
+// 				originalTags.push(tag)
+// 			})
+// 		}
+// 	})
+
+// 	const tags = Array.from(uniqueTags)
+// 	console.log('uniqueTags: ', uniqueTags)
+// 	console.log('originalTags: ', originalTags)
+
+// 	return originalTags.map((tag) => {
+// 		const filteredPosts = posts.filter((post) => {
+// 			if (post.data.tags != undefined) return post.data.tags.includes(tag)
+// 		})
+// 		console.dir(tag)
+// 		return {
+// 			params: { tag },
+// 			props: { posts: filteredPosts }
+// 		}
+// 	})
+// }
+
+// const { tag } = Astro.params
+// const { posts } = Astro.props
+---
+
+<Layout seo={{ title: `Posts tagged with ${tag}` }}>
+	<p>Posts tagged with {tag}</p>
+	<ul>
+		<!-- {posts.map((post) => <Card url={`/posts/${post.slug}/`} title={post.data.title} />)} -->
+		{posts.map((post) => <Card post={post} />)}
+	</ul>
+</Layout>

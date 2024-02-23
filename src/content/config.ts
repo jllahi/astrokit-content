@@ -19,7 +19,7 @@ const posts = defineCollection({
 			// categories: reference("categories"),
 			// tags: z.array(reference("tags")).optional(),
 			category: z.string().optional(),
-			tags: z.array(z.string()).optional(),
+			tags: z.array(z.string()).default([]), // optional(),
 			draft: z.boolean().optional(),
 			featured: z.boolean().optional(),
 			// author: z.string().default(SITE.author),
