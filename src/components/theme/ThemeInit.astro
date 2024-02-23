@@ -1,0 +1,21 @@
+<script is:inline>
+	function themeInit() {
+		const theme = (() => {
+			if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+				return localStorage.getItem('theme')
+			}
+			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				return 'dark'
+			}
+			return 'light'
+		})()
+		document.querySelector('html').className = theme
+		window.localStorage.setItem('theme', theme)
+		console.log('themeInit executed: ', theme)
+	}
+	themeInit()
+
+	document.addEventListener('astro:after-swap', () => {
+		themeInit()
+	})
+</script>

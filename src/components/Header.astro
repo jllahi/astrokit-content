@@ -8,9 +8,11 @@ import ResponsiveMenu from './ResponsiveMenu.astro'
 	<a href="/">
 		<h2
 			class:list={[
-				'border-2 border-font-color p-2 font-logo text-2xl font-black uppercase text-font-color no-underline',
+				'border-2 border-color-black dark:border-color-white p-2 font-logo text-2xl font-black uppercase no-underline',
 				'transition-all duration-300 ease-out',
-				'hover:bg-font-color hover:text-background-color'
+				'text-color-black dark:text-color-white',
+				'hover:bg-color-black hover:text-color-white',
+				'dark:hover:bg-color-white dark:hover:text-color-black'
 			]}
 		>
 			{site.title}

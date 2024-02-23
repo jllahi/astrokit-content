@@ -1,12 +1,13 @@
 ---
-import { site } from '@/data/site'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
+import ThemeInit from '@/components/theme/ThemeInit.astro'
 import TailwindIndicator from '@/components/utils/TailwindIndicator.astro'
-import { type Props as SEOProps, SEO } from 'astro-seo'
-import { ViewTransitions } from 'astro:transitions'
-import '@fontsource-variable/montserrat'
+import { site } from '@/data/site'
 import '@fontsource-variable/inter'
+import '@fontsource-variable/montserrat'
+import { SEO, type Props as SEOProps } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
 	seo?: SEOProps
@@ -25,18 +26,23 @@ const { seo } = Astro.props
 		<SEO
 			title={seo?.title ?? site.title}
 			description={seo?.description ?? site.description}
-			extend={{
-				meta: [{ name: 'twitter:card', content: 'summary' }]
+			openGraph={{
+				basic: {
+					title: seo?.title || site.title,
+					type: 'website', // https://ogp.me/#types
+					image: '/open-graph.jpg'
+				}
 			}}
 			{...seo}
 		/>
+		<ThemeInit />
 		<ViewTransitions />
 	</head>
 	<body
 		class:list={[
 			'container mx-auto flex h-screen flex-col items-start justify-between p-6 font-sans transition-all duration-300',
-			'bg-background-color text-font-color',
-			'dark:bg-background-color dark:text-font-color'
+			'bg-color-white text-color-black',
+			'dark:bg-color-black dark:text-color-white'
 		]}
 	>
 		<Header />
@@ -45,15 +51,5 @@ const { seo } = Astro.props
 		</main>
 		<Footer />
 		<TailwindIndicator align="right" />
-		<style is:global>
-			:root {
-				--font-color: theme('colors.zinc.100');
-				--background-color: theme('colors.zinc.900');
-			}
-			html.dark {
-				--font-color: theme('colors.zinc.900');
-				--background-color: theme('colors.zinc.100');
-			}
-		</style>
 	</body>
 </html>

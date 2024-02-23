@@ -1,0 +1,50 @@
+---
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout seo={{ title: 'Colors', description: 'About the colors used',openGraph: { basic: { title: 'Colors', type: 'article', image: '/open-graph.jpg' } } }}>
+	<article class="my-16 flex-grow py-4 text-3xl lg:text-5xl font-black uppercase">
+
+		<h1 class="mb-24 text-4xl lg:text-6xl">About Colors</h1>
+
+		<h2 class="text-color-primary-darker">Primary Darker</h2>
+		<h2 class="text-color-primary-dark">Primary Dark</h2>
+		<h2 class="text-color-primary">Primary Default</h2>
+		<h2 class="text-color-primary-light">Primary Light</h2>
+		<h2 class="text-color-primary-lighter">Primary Lighter</h2>
+		<br />
+		<h2 class="text-color-secondary-darker">Secondary Darker</h2>
+		<h2 class="text-color-secondary-dark">Secondary Dark</h2>
+		<h2 class="text-color-secondary">Secondary Default</h2>
+		<h2 class="text-color-secondary-light">Secondary Light</h2>
+		<h2 class="text-color-secondary-lighter">Secondary Lighter</h2>
+		<br />
+		<h2 class="text-color-accent-darker">Accent Darker</h2>
+		<h2 class="text-color-accent-dark">Accent Dark</h2>
+		<h2 class="text-color-accent">Accent Default</h2>
+		<h2 class="text-color-accent-light">Accent Light</h2>
+		<h2 class="text-color-accent-lighter">Accent Lighter</h2>
+		<br />
+		<h2 class="text-color-black bg-color-white">Black</h2>
+		<h2 class="text-color-white bg-color-black">White</h2>
+		<br />
+		<h2 class="text-color-success-dark bg-color-success-light">Success Dark</h2>
+		<h2 class="text-color-success">Success Default</h2>
+		<h2 class="text-color-success-light bg-color-success-dark">Success Light</h2>
+		<br />
+		<h2 class="text-color-error-dark bg-color-error-light">Error Dark</h2>
+		<h2 class="text-color-error">Error Default</h2>
+		<h2 class="text-color-error-light bg-color-error-dark">Error Light</h2>
+		<br />
+		<h2 class="text-color-warning-dark bg-color-warning-light">Warning Dark</h2>
+		<h2 class="text-color-warning">Warning Default</h2>
+		<h2 class="text-color-warning-light bg-color-warning-dark">Warning Light</h2>
+		<br />
+		<!-- <h2 class="text-color-primary-darker">Darker</h2>
+		<h2 class="text-[var(--color-primary-darker)/20]">Darker</h2>
+		<h2 class="text-[color:var(--color-primary-dark)]">Dark</h2>
+		<h2 class="text-[color:var(--color-primary)]">Default</h2>
+		<h2 class="text-[color:var(--color-primary-light)]">Light</h2>
+		<h2 class="text-[color:var(--color-primary-lighter)]">Lighter</h2> -->
+	</article>
+</Layout>

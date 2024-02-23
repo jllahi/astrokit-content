@@ -3,7 +3,7 @@
 export default {
 	// ...standardConfig,
 	useTabs: true,
-	tabWidth: 4,
+	tabWidth: 2,
 	singleQuote: true,
 	trailingComma: 'none',
 	semi: false,
@@ -13,6 +13,7 @@ export default {
 	plugins: [
 		'prettier-plugin-astro',
 		'prettier-plugin-organize-imports',
+		'prettier-plugin-packagejson',
 		'prettier-plugin-tailwindcss'
 	],
 	overrides: [
