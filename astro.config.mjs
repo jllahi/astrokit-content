@@ -5,6 +5,7 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import debugcss from 'astro-debugcss'
+import AstroDevtoolbarTailwind from 'astro-devtoolbar-tailwind'
 import embeds from 'astro-embed/integration'
 import astroExpressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
@@ -33,7 +34,8 @@ export default defineConfig({
 			}
 		}),
 		debugcss(),
-		metaTags()
+		metaTags(),
+		AstroDevtoolbarTailwind(),
 	]
 	// markdown: {
 	// 	remarkPlugins: [

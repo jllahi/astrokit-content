@@ -38,6 +38,9 @@ dependencies:
   astro:
     specifier: ^4.4.3
     version: 4.4.3(typescript@5.3.3)
+  astro-devtoolbar-tailwind:
+    specifier: ^0.0.8
+    version: 0.0.8(astro@4.4.3)
   astro-embed:
     specifier: ^0.6.1
     version: 0.6.1(astro@4.4.3)
@@ -2147,6 +2150,15 @@ packages:
       astro: 4.4.3(typescript@5.3.3)
     dev: false
 
+  /astro-devtoolbar-tailwind@0.0.8(astro@4.4.3):
+    resolution: {integrity: sha512-PESdO8/0WGeiNPZWAuqpBZMw4d/KzcJKP6p30Jim5vwCj5n3fgzZX8FCyKPwekeICqKjyAjtU7OxWUcD2gLE1A==}
+    peerDependencies:
+      astro: ^4.0.0
+    dependencies:
+      astro: 4.4.3(typescript@5.3.3)
+      astro-integration-kit: 0.0.6(astro@4.4.3)
+    dev: false
+
   /astro-embed@0.6.1(astro@4.4.3):
     resolution: {integrity: sha512-lHO8ZJJ3AjXpdBD3irGQdD+jnFBE6nPNzT6Edfr6/8dj6Z8lWoB1lmAgd6Yp4YSu0RSU5bZIJ9U2kJqE622BDA==}
     peerDependencies:
@@ -2194,6 +2206,17 @@ packages:
       '@iconify/utils': 2.1.20
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /astro-integration-kit@0.0.6(astro@4.4.3):
+    resolution: {integrity: sha512-MbYMqxg0nMPx9SwcqbBGFmlCUf2nkpFOTgvNhPoiwbVzAJNqs1z2Rm5cr+K/aLNpekRn6weumgywaryfLCKUGg==}
+    peerDependencies:
+      astro: ^4.0.0
+    dependencies:
+      astro: 4.4.3(typescript@5.3.3)
+      defu: 6.1.4
+      pathe: 1.1.2
+      unctx: 2.3.1
     dev: false
 
   /astro-meta-tags@0.2.1(astro@4.4.3):
@@ -2837,6 +2860,10 @@ packages:
       has-property-descriptors: 1.0.2
       object-keys: 1.1.1
     dev: true
+
+  /defu@6.1.4:
+    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
+    dev: false
 
   /dequal@2.0.3:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
@@ -6770,6 +6797,15 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
+  /unctx@2.3.1:
+    resolution: {integrity: sha512-PhKke8ZYauiqh3FEMVNm7ljvzQiph0Mt3GBRve03IJm7ukfaON2OBK795tLwhbyfzknuRRkW0+Ze+CQUmzOZ+A==}
+    dependencies:
+      acorn: 8.11.3
+      estree-walker: 3.0.3
+      magic-string: 0.30.7
+      unplugin: 1.7.1
+    dev: false
+
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
     dev: false
@@ -6897,6 +6933,15 @@ packages:
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.5.0
     dev: true
+
+  /unplugin@1.7.1:
+    resolution: {integrity: sha512-JqzORDAPxxs8ErLV4x+LL7bk5pk3YlcWqpSNsIkAZj972KzFZLClc/ekppahKkOczGkwIG6ElFgdOgOlK4tXZw==}
+    dependencies:
+      acorn: 8.11.3
+      chokidar: 3.6.0
+      webpack-sources: 3.2.3
+      webpack-virtual-modules: 0.6.1
+    dev: false
 
   /update-browserslist-db@1.0.13(browserslist@4.22.2):
     resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
@@ -7171,11 +7216,14 @@ packages:
   /webpack-sources@3.2.3:
     resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
     engines: {node: '>=10.13.0'}
-    dev: true
 
   /webpack-virtual-modules@0.5.0:
     resolution: {integrity: sha512-kyDivFZ7ZM0BVOUteVbDFhlRt7Ah/CSPwJdi8hBpkK7QLumUqdLtVfm/PX/hkcnrvr0i77fO5+TjZ94Pe+C9iw==}
     dev: true
+
+  /webpack-virtual-modules@0.6.1:
+    resolution: {integrity: sha512-poXpCylU7ExuvZK8z+On3kX+S8o/2dQ/SVYueKA0D4WEMXROXgY8Ez50/bQEUmvoSMMrWcrJqCHuhAbsiwg7Dg==}
+    dev: false
 
   /whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
