@@ -13,26 +13,26 @@ interface Props {
 const { page } = Astro.props
 ---
 
-<div class="my-8 flex w-full flex-row justify-between">
-	<div class:list={['rounded', 'hover:bg-font-color hover:text-background-color']}>
-		{
-			page.url.prev && (
+<div class="my-10 flex w-full flex-row justify-between">
+	{
+		page.url.prev && (
+			<div class:list={['p-8', 'hover:bg-font-color hover:text-background-color']}>
 				<Link href={page.url.prev} rel="prev">
 					&lt; Previous
 				</Link>
-			)
-		}
-	</div>
-	<!-- <div>
-    {page.currentPage}
-    </div> -->
+			</div>
+		)
+	}
 	<div>
-		{
-			page.url.next && (
+		<!-- {page.currentPage} -->
+	</div>
+	{
+		page.url.next && (
+			<div class="p-8">
 				<Link href={page.url.next} rel="next">
 					Next &gt;
 				</Link>
-			)
-		}
-	</div>
+			</div>
+		)
+	}
 </div>

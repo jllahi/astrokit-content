@@ -7,6 +7,8 @@ import Layout from '@/layouts/Layout.astro'
 // import Tag from '@/components/Tag.astro'
 import getUniqueTags from '@/utils/getUniqueTags'
 import { site } from '@/data/site'
+import Title from '@/components/ui/Title.astro'
+import Link from '@/components/ui/Link.astro'
 
 const posts = await getCollection('posts')
 
@@ -18,10 +20,24 @@ let tags = getUniqueTags(posts)
 	<!-- <Header activeNav="tags" /> -->
 	<!-- <Main pageTitle="Tags" pageDesc="All the tags used in posts."> -->
 	<main>
-		<ul>
-			<!-- {tags.map(({ tag }) => <Tag {tag} size="lg" />)} -->
-			{tags.map(({ tag }) => <p>{tag}</p>)}
-		</ul>
+		<Title>Tags</Title>
+		<!-- <ul> -->
+		<!-- {tags.map(({ tag }) => <Tag {tag} size="lg" />)} -->
+		<!-- {tags.map(({ tag }) => <p>{tag}</p>)} -->
+		<!-- </ul> -->
+		{
+			tags && (
+				<ul class="flex flex-row place-items-center gap-2">
+					{tags.map((tag) => (
+						<li class="inline">
+							<Link size="sm" class="text-sm uppercase" href={`/${site.urls.tags}/${tag.tag}`}>
+								{tag.tagName}
+							</Link>
+						</li>
+					))}
+				</ul>
+			)
+		}
 	</main>
 	<!-- <Footer /> -->
 </Layout>

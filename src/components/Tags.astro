@@ -1,7 +1,7 @@
 ---
 import { slugify } from '@/utils/content'
 import Link from '@/components/ui/Link.astro'
-import { Icon } from 'astro-icon/components'
+// import { Icon } from 'astro-icon/components'
 import { site } from '@/data/site'
 
 interface Props {
@@ -13,12 +13,17 @@ const { tags } = Astro.props
 
 {
 	tags && (
-		<ul class="flex flex-row place-items-center gap-2">
-			<Icon name="ri:price-tag-3-line" title="Tags" />
+		<ul class="flex flex-row gap-2 m-0 p-0">
+			<!-- <Icon name="ri:price-tag-3-line" title="Tags" /> -->
 			{tags.map((tag) => (
 				<li class="inline">
-					<Link size="sm" class="text-sm uppercase" href={`/${site.urls.tags}/${slugify(tag)}`}>
-						{tag}
+					<Link
+						size="sm"
+						style="tag"
+						class="text-sm uppercase"
+						href={`/${site.urls.tags}/${slugify(tag)}`}
+					>
+						# {tag}
 					</Link>
 				</li>
 			))}

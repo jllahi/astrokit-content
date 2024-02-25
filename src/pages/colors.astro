@@ -1,0 +1,58 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Article from '@/components/ui/Article.astro'
+---
+
+<Layout
+	seo={{
+		title: 'Colors',
+		description: 'About the colors used',
+		openGraph: { basic: { title: 'Colors', type: 'article', image: '/open-graph.jpg' } }
+	}}
+>
+	<Article class="my-16 flex-grow py-4">
+		<h1 class="mb-24 font-heading text-4xl lg:text-6xl">Colors</h1>
+
+		<aside class="pose not-prose text-3xl font-black uppercase lg:text-5xl">
+			<h2 class="text-color-primary-darker">Primary Darker</h2>
+			<h2 class="text-color-primary-dark">Primary Dark</h2>
+			<h2 class="text-color-primary">Primary Default</h2>
+			<h2 class="text-color-primary-light">Primary Light</h2>
+			<h2 class="text-color-primary-lighter">Primary Lighter</h2>
+			<br />
+			<h2 class="text-color-secondary-darker">Secondary Darker</h2>
+			<h2 class="text-color-secondary-dark">Secondary Dark</h2>
+			<h2 class="text-color-secondary">Secondary Default</h2>
+			<h2 class="text-color-secondary-light">Secondary Light</h2>
+			<h2 class="text-color-secondary-lighter">Secondary Lighter</h2>
+			<br />
+			<h2 class="text-color-accent-darker">Accent Darker</h2>
+			<h2 class="text-color-accent-dark">Accent Dark</h2>
+			<h2 class="text-color-accent">Accent Default</h2>
+			<h2 class="text-color-accent-light">Accent Light</h2>
+			<h2 class="text-color-accent-lighter">Accent Lighter</h2>
+			<br />
+			<h2 class="bg-color-white text-color-black">Black</h2>
+			<h2 class="bg-color-black text-color-white">White</h2>
+			<br />
+			<h2 class="bg-color-success-light text-color-success-dark">Success Dark</h2>
+			<h2 class="text-color-success">Success Default</h2>
+			<h2 class="bg-color-success-dark text-color-success-light">Success Light</h2>
+			<br />
+			<h2 class="bg-color-error-light text-color-error-dark">Error Dark</h2>
+			<h2 class="text-color-error">Error Default</h2>
+			<h2 class="bg-color-error-dark text-color-error-light">Error Light</h2>
+			<br />
+			<h2 class="bg-color-warning-light text-color-warning-dark">Warning Dark</h2>
+			<h2 class="text-color-warning">Warning Default</h2>
+			<h2 class="bg-color-warning-dark text-color-warning-light">Warning Light</h2>
+			<br />
+			<!-- <h2 class="text-color-primary-darker">Darker</h2>
+		<h2 class="text-[var(--color-primary-darker)/20]">Darker</h2>
+		<h2 class="text-[color:var(--color-primary-dark)]">Dark</h2>
+		<h2 class="text-[color:var(--color-primary)]">Default</h2>
+		<h2 class="text-[color:var(--color-primary-light)]">Light</h2>
+		<h2 class="text-[color:var(--color-primary-lighter)]">Lighter</h2> -->
+		</aside>
+	</Article>
+</Layout>

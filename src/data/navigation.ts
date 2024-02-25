@@ -1,10 +1,6 @@
-export interface NavigationItem {
-	title: string
-	path: string // | URL
-	// children?: NavItem[] // | NavItem
-}
+import type { NavigationMenu } from './types'
 
-export const navigation: NavigationItem[] = [
+export const navigation: NavigationMenu[] = [
 	{
 		title: 'Home',
 		path: '/'

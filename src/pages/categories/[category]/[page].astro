@@ -5,6 +5,10 @@ import getUniqueCategories from '@/utils/getUniqueCategories'
 import getPostsByCategory from '@/utils/getPostsByCategory'
 import getPageNumbers from '@/utils/getPageNumbers'
 import getPagination from '@/utils/getPagination'
+import Title from '@/components/ui/Title.astro'
+import Layout from '@/layouts/Layout.astro'
+import PostList from '@/components/PostList.astro'
+import Section from '@/components/ui/Section.astro'
 
 export interface Props {
 	post: CollectionEntry<'posts'>
@@ -41,6 +45,10 @@ const pagination = getPagination({
 })
 ---
 
-<!-- <CategoryPosts {...pagination} {category} {categoryName} /> -->
-<p>{category}</p>
-<p>{categoryName}</p>
+<Layout seo={{ title: 'Category ' + categoryName }}>
+	<!-- <CategoryPosts {...pagination} {category} {categoryName} /> -->
+	<Section>
+		<Title>{categoryName}</Title>
+		<PostList posts={postsByCategory} />
+	</Section>
+</Layout>

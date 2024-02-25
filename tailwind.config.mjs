@@ -1,4 +1,4 @@
-import defaultTheme from 'tailwindcss/defaultTheme'
+import theme from 'tailwindcss/defaultTheme'
 const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
@@ -8,9 +8,9 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
-				heading: ['Montserrat Variable', ...defaultTheme.fontFamily.sans],
-				logo: ['Montserrat Variable', ...defaultTheme.fontFamily.sans]
+				sans: ['Inter Variable', ...theme.fontFamily.sans],
+				heading: ['Montserrat Variable', ...theme.fontFamily.sans],
+				logo: ['Montserrat Variable', ...theme.fontFamily.sans]
 			},
 			colors: {
 				'color-black': colors.gray[900],
@@ -49,6 +49,12 @@ export default {
 				'color-warning': colors.yellow[500],
 				'color-warning-light': colors.yellow[200]
 			}
+			// borderColor: ({ theme }) => ({
+			// 	...theme('colors'),
+			// 	DEFAULT: theme('colors.gray.200', 'currentColor'),
+			// 	'color-light': colors.gray[200],
+			// 	'color-dark:': colors.gray[800]
+			// })
 		}
 	},
 	plugins: [require('@tailwindcss/typography')]

@@ -1,9 +1,4 @@
-interface Icon {
-	title?: string
-	id: string
-	name: string
-	collection: string
-}
+import type { Icon } from './types'
 
 export const icons: Icon[] = [
 	{

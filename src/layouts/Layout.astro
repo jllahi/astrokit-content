@@ -16,7 +16,7 @@ interface Props {
 const { seo } = Astro.props
 ---
 
-<html lang="en">
+<html lang={site.language}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -30,7 +30,7 @@ const { seo } = Astro.props
 				basic: {
 					title: seo?.title || site.title,
 					type: 'website', // https://ogp.me/#types
-					image: '/open-graph.jpg'
+					image: site.opengraph.image || '/open-graph.jpg'
 				}
 			}}
 			{...seo}
@@ -40,7 +40,11 @@ const { seo } = Astro.props
 	</head>
 	<body
 		class:list={[
-			'container mx-auto flex h-screen flex-col items-start justify-between p-6 font-sans transition-all duration-300',
+			// {
+			// 	'[&_*]:outline [&_*]:outline-1 [&_*]:outline-red-300':
+			// 		process.env.NODE_ENV === 'development'
+			// },
+			'container mx-auto flex h-screen flex-col items-start justify-between p-6 font-sans transition-all duration-300 lg:p-10',
 			'bg-color-white text-color-black',
 			'dark:bg-color-black dark:text-color-white'
 		]}
@@ -51,5 +55,10 @@ const { seo } = Astro.props
 		</main>
 		<Footer />
 		<TailwindIndicator align="right" />
+		<!-- <style is:global>
+			* {
+				outline: 1px solid tomato;
+			}
+		</style> -->
 	</body>
 </html>

@@ -7,6 +7,8 @@ import Layout from '@/layouts/Layout.astro'
 import Spotify from '@/components/embed/Spotify.astro'
 import Date from '@/components/utils/Date.astro'
 import Tags from '@/components/Tags.astro'
+import Article from '@/components/ui/Article.astro'
+import Title from '@/components/ui/Title.astro'
 
 // export async function getStaticPaths({ paginate }) {
 export async function getStaticPaths() {
@@ -41,34 +43,41 @@ const { Content } = await post.render()
 		}
 	}}
 >
-	<article
+	<Article>
+		<!-- <Article
 		class="article-grid text-md w-xl my-4 grid max-w-2xl gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl"
-	>
-		<h1
+	> -->
+		<header>
+			<Title transition:name={`post-title-${post.data.title}`}>
+				{post.data.title}
+			</Title>
+			<!-- <h1
 			class="mt-4 text-balance text-5xl font-black"
 			transition:name={`post-title-${post.data.title}`}
 		>
 			{post.data.title}
-		</h1>
-
-		<p class="text-left">{post.data.description}</p>
+		</h1> -->
+			<p class="text-left">{post.data.description}</p>
+		</header>
 
 		<Image
 			alt={post.data.title}
 			src={post.data.image}
-			class="my-4 aspect-video w-full rounded object-cover bg-gray-200 dark:bg-gray-800"
+			class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
 			width="720"
 			transition:name={`post-image-${post.data.title}`}
 		/>
 
-		<div class="flex flex-row justify-between">
+		<div class="my-2 flex flex-row justify-between">
 			<Date date={post.data.date} />
 			<!-- <span>Reading time: {post.data.reading}</span> -->
 			<Tags tags={post.data.tags} />
 		</div>
 
-		<div class="prose-lg prose-gray text-pretty prose-img:rounded prose-img:bg-gray-200 dark:prose-img:bg-gray-800 prose-blockquote:border-l-8">
+		<div
+			class="prose-lg prose-gray text-pretty prose-blockquote:border-l-8 prose-img:rounded prose-img:bg-gray-200 dark:prose-h2:text-color-white dark:prose-a:text-color-white dark:prose-blockquote:border-l-color-black dark:prose-blockquote:text-color-white dark:prose-img:bg-gray-800"
+		>
 			<Content components={{ Spotify }} />
 		</div>
-	</article>
+	</Article>
 </Layout>

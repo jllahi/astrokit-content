@@ -5,6 +5,10 @@ import getUniqueTags from '@/utils/getUniqueTags'
 import getPostsByTag from '@/utils/getPostsByTag'
 import getPageNumbers from '@/utils/getPageNumbers'
 import getPagination from '@/utils/getPagination'
+import Layout from '@/layouts/Layout.astro'
+import Title from '@/components/ui/Title.astro'
+import PostList from '@/components/PostList.astro'
+import Section from '@/components/ui/Section.astro'
 
 export interface Props {
 	post: CollectionEntry<'posts'>
@@ -41,6 +45,10 @@ const pagination = getPagination({
 })
 ---
 
-<!-- <TagPosts {...pagination} {tag} {tagName} /> -->
-<p>{tag}</p>
-<p>{tagName}</p>
+<Layout seo={{ title: 'Tag ' + tagName }}>
+	<!-- <TagPosts {...pagination} {tag} {tagName} /> -->
+	<Section>
+		<Title># {tagName}</Title>
+		<PostList posts={postsByTag} />
+	</Section>
+</Layout>

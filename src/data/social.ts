@@ -1,13 +1,4 @@
-export interface Social {
-	github?: {
-		link: string
-		icon?: 'ri:github-line' | string
-	}
-	twitter?: {
-		link: string
-		icon?: 'ri:twitter-x-line' | string
-	}
-}
+import type { Social } from './types'
 
 export const social: Social = {
 	github: {

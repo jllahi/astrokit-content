@@ -8,7 +8,10 @@ interface Props {
 const { date } = Astro.props
 ---
 
-<time datetime={date.toISOString()} class="flex flex-row place-items-center gap-3">
+<time
+	datetime={date.toISOString()}
+	class="flex flex-row place-items-center gap-3 font-heading text-base"
+>
 	<Icon name="ri:calendar-2-line" title="Date" />
 	<small>
 		{

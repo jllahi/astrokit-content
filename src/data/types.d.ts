@@ -19,3 +19,27 @@ interface Site {
 	pagination: number
 	scheduled: number
 }
+
+export interface NavigationMenu {
+	title: string
+	path: string // | URL
+	// children?: NavItem[] // | NavItem
+}
+
+interface Icon {
+	title?: string
+	id: string
+	name: string
+	collection: string
+}
+
+export interface Social {
+	github?: {
+		link: string
+		icon?: 'ri:github-line' | string
+	}
+	twitter?: {
+		link: string
+		icon?: 'ri:twitter-x-line' | string
+	}
+}

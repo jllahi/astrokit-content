@@ -4,11 +4,11 @@ import site from '@/data/site'
 import ResponsiveMenu from './ResponsiveMenu.astro'
 ---
 
-<header class:list={['flex w-full flex-row justify-between', 'my-1 pb-4 sm:my-4']}>
+<header class:list={['flex w-full flex-row justify-between', 'my-1 sm:my-4']}>
 	<a href="/" class="z-40">
 		<h2
 			class:list={[
-				'border-2 border-color-black dark:border-color-white p-2 font-logo text-2xl font-black uppercase no-underline',
+				'border-2 border-color-black p-2 font-logo text-2xl font-black uppercase no-underline dark:border-color-white',
 				'transition-all duration-300 ease-out',
 				'text-color-black dark:text-color-white',
 				'hover:bg-color-black hover:text-color-white',

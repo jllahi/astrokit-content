@@ -7,6 +7,8 @@ import Layout from '@/layouts/Layout.astro'
 // import Category from '@/components/Category.astro'
 import getUniqueCategories from '@/utils/getUniqueCategories'
 import { site } from '@/data/site'
+import Title from '@/components/ui/Title.astro'
+import Link from '@/components/ui/Link.astro'
 
 const posts = await getCollection('posts')
 
@@ -18,9 +20,14 @@ let categories = getUniqueCategories(posts)
 	<!-- <Header activeNav="categories" /> -->
 	<!-- <Main pageTitle="Categories" pageDesc="All the categories used in posts."> -->
 	<main>
+		<Title>Categories</Title>
 		<ul>
 			<!-- {categories.map(({ category }) => <Category {category} size="lg" />)} -->
-			{categories.map(({ category }) => <p>{category}</p>)}
+			{
+				categories.map(({ category }) => (
+					<Link href={`/${site.urls.category}/${category}`}>{category}</Link>
+				))
+			}
 		</ul>
 	</main>
 	<!-- <Footer /> -->

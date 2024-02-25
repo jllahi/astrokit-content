@@ -1,9 +1,0 @@
-{
-	"title": "AstroKit",
-	"description": "We are all made of stars",
-	"url": "https://astrokit.vercel.app",
-	"logo": {
-		"src": "/images/image-default.jpg",
-		"alt": "AstroKit logo"
-	}
-}
