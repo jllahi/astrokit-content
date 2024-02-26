@@ -13,10 +13,10 @@ interface Props {
 const { page } = Astro.props
 ---
 
-<div class="my-10 flex w-full flex-row justify-between">
+<div class="mt-4 flex w-full flex-row justify-between">
 	{
 		page.url.prev && (
-			<div class:list={['p-8', 'hover:bg-font-color hover:text-background-color']}>
+			<div class:list={['p-2', 'hover:bg-font-color hover:text-background-color']}>
 				<Link href={page.url.prev} rel="prev">
 					&lt; Previous
 				</Link>
@@ -24,11 +24,13 @@ const { page } = Astro.props
 		)
 	}
 	<div>
-		<!-- {page.currentPage} -->
+		{
+			// page.currentPage
+		}
 	</div>
 	{
 		page.url.next && (
-			<div class="p-8">
+			<div class="p-2">
 				<Link href={page.url.next} rel="next">
 					Next &gt;
 				</Link>

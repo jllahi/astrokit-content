@@ -1,0 +1,34 @@
+---
+import Link from '@/components/ui/Link.astro'
+// import { Icon } from 'astro-icon/components'
+import { site } from '@/data/site'
+import { getCollection } from 'astro:content'
+import getUniqueCategories from '@/utils/getUniqueCategories'
+
+// interface Props {
+// 	categories: string[] | undefined
+// }
+const posts = await getCollection('posts')
+
+let categories = getUniqueCategories(posts)
+
+// const { categories } = Astro.props
+---
+
+{
+	categories && (
+		<ul class="m-0 flex flex-row gap-2 p-0">
+			{categories && (
+				<ul class="my-4 flex flex-row place-items-center gap-6">
+					{categories.map((category) => (
+						<li class="inline">
+							<Link size="lg" style="tag" href={`/${site.urls.category}/${category.category}`}>
+								{category.categoryName}
+							</Link>
+						</li>
+					))}
+				</ul>
+			)}
+		</ul>
+	)
+}

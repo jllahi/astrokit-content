@@ -6,5 +6,16 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"files.autoSave": "onFocusChange",
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.expand": false,
+	"explorer.fileNesting.patterns": {
+		"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock",
+		".prettierrc.js": ".prettierignore",
+		"README.md": "CONTRIBUTING.md"
+	},
+	"editor.linkedEditing": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "explicit"
+	}
 }

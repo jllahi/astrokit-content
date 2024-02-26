@@ -1,0 +1,44 @@
+---
+import Button from '@/components/ui/Button.astro'
+import ComponentLayout from '@/layouts/ComponentLayout.astro'
+
+const intents = [undefined, 'primary', 'secondary', 'accent', 'ghost'] as const
+const sizes = [undefined, 'large', 'medium', 'small'] as const
+---
+
+<ComponentLayout seo={{ title: 'Buttons' }}>
+	<!-- <main class:list={['grid', 'h-full w-full', 'p-6']}> -->
+	<table
+		class:list={[
+			'relative',
+			'h-max w-max',
+			'self-center justify-self-center',
+			'[&_:where(th,td)]:p-2'
+		]}
+	>
+		<thead>
+			<tr>
+				<th></th>
+				{intents.map((intent) => <th scope="col">{intent || 'default'}</th>)}
+			</tr>
+		</thead>
+		<tbody>
+			{
+				sizes.map((size) => (
+					<tr>
+						<th scope="row">{size || 'default'}</th>
+						{intents.map((intent) => (
+							// <td scope="col">
+							<td>
+								<Button {...(intent && { intent })} {...(size && { size })}>
+									{intent || 'default'}&nbsp;{size || 'default'} button
+								</Button>
+							</td>
+						))}
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
+	<!-- {console.dir(button({ intent: 'primary', size: 'medium' }))} -->
+</ComponentLayout>

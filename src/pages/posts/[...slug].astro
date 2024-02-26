@@ -6,11 +6,10 @@ import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
 import Spotify from '@/components/embed/Spotify.astro'
 import Date from '@/components/utils/Date.astro'
-import Tags from '@/components/Tags.astro'
+import TagsPost from '@/components/TagsPost.astro'
 import Article from '@/components/ui/Article.astro'
 import Title from '@/components/ui/Title.astro'
 
-// export async function getStaticPaths({ paginate }) {
 export async function getStaticPaths() {
 	const posts = await getCollection('posts')
 
@@ -18,11 +17,8 @@ export async function getStaticPaths() {
 		params: { slug: post.slug },
 		props: { post }
 	}))
-	// return paginate(allPokemon, { pageSize: 10 });
 }
 // type Props = CollectionEntry<'posts'>
-// const post = Astro.props
-
 // const post: CollectionEntry<'blog'> = Astro.props.post
 
 const { post } = Astro.props
@@ -44,20 +40,23 @@ const { Content } = await post.render()
 	}}
 >
 	<Article>
-		<!-- <Article
-		class="article-grid text-md w-xl my-4 grid max-w-2xl gap-y-4 font-sans leading-relaxed md:gap-y-4 md:text-xl"
-	> -->
 		<header>
+			<!-- {
+				post.data.category && (
+					<Link
+						size={'lg'}
+						style={'inverted'}
+						href={`/${site.urls.category}/${slugifyStr(post.data.category)}`}
+						class="my-14"
+					>
+						{post.data.category}
+					</Link>
+				)
+			} -->
 			<Title transition:name={`post-title-${post.data.title}`}>
 				{post.data.title}
 			</Title>
-			<!-- <h1
-			class="mt-4 text-balance text-5xl font-black"
-			transition:name={`post-title-${post.data.title}`}
-		>
-			{post.data.title}
-		</h1> -->
-			<p class="text-left">{post.data.description}</p>
+			<p class="mb-8 text-xl">{post.data.description}</p>
 		</header>
 
 		<Image
@@ -71,11 +70,14 @@ const { Content } = await post.render()
 		<div class="my-2 flex flex-row justify-between">
 			<Date date={post.data.date} />
 			<!-- <span>Reading time: {post.data.reading}</span> -->
-			<Tags tags={post.data.tags} />
+			<TagsPost tags={post.data.tags} />
 		</div>
 
 		<div
-			class="prose-lg prose-gray text-pretty prose-blockquote:border-l-8 prose-img:rounded prose-img:bg-gray-200 dark:prose-h2:text-color-white dark:prose-a:text-color-white dark:prose-blockquote:border-l-color-black dark:prose-blockquote:text-color-white dark:prose-img:bg-gray-800"
+			class:list={[
+				'prose-lg prose-gray text-pretty prose-blockquote:border-l-8 prose-img:rounded prose-img:bg-gray-200',
+				'dark:prose-h2:text-color-white dark:prose-a:text-color-white dark:prose-blockquote:border-l-color-black dark:prose-blockquote:text-color-white dark:prose-img:bg-gray-800'
+			]}
 		>
 			<Content components={{ Spotify }} />
 		</div>

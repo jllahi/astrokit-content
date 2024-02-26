@@ -1,19 +1,16 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Article from '@/components/ui/Article.astro'
+import ComponentLayout from '@/layouts/ComponentLayout.astro'
 ---
 
-<Layout
+<ComponentLayout
 	seo={{
 		title: 'Colors',
 		description: 'About the colors used',
 		openGraph: { basic: { title: 'Colors', type: 'article', image: '/open-graph.jpg' } }
 	}}
 >
-	<Article class="my-16 flex-grow py-4">
-		<h1 class="mb-24 font-heading text-4xl lg:text-6xl">Colors</h1>
-
-		<aside class="pose not-prose text-3xl font-black uppercase lg:text-5xl">
+	<article class="pose not-prose flex w-full flex-row text-2xl font-black uppercase lg:text-3xl">
+		<div class="w-full">
 			<h2 class="text-color-primary-darker">Primary Darker</h2>
 			<h2 class="text-color-primary-dark">Primary Dark</h2>
 			<h2 class="text-color-primary">Primary Default</h2>
@@ -32,6 +29,8 @@ import Article from '@/components/ui/Article.astro'
 			<h2 class="text-color-accent-light">Accent Light</h2>
 			<h2 class="text-color-accent-lighter">Accent Lighter</h2>
 			<br />
+		</div>
+		<div class="w-full">
 			<h2 class="bg-color-white text-color-black">Black</h2>
 			<h2 class="bg-color-black text-color-white">White</h2>
 			<br />
@@ -53,6 +52,6 @@ import Article from '@/components/ui/Article.astro'
 		<h2 class="text-[color:var(--color-primary)]">Default</h2>
 		<h2 class="text-[color:var(--color-primary-light)]">Light</h2>
 		<h2 class="text-[color:var(--color-primary-lighter)]">Lighter</h2> -->
-		</aside>
-	</Article>
-</Layout>
+		</div>
+	</article>
+</ComponentLayout>

@@ -1,43 +1,15 @@
 ---
-import { getCollection } from 'astro:content'
-// import Header from '@/components/Header.astro'
-// import Footer from '@/components/Footer.astro'
 import Layout from '@/layouts/Layout.astro'
-// import Main from '@/layouts/Main.astro'
-// import Tag from '@/components/Tag.astro'
-import getUniqueTags from '@/utils/getUniqueTags'
-import { site } from '@/data/site'
 import Title from '@/components/ui/Title.astro'
-import Link from '@/components/ui/Link.astro'
-
-const posts = await getCollection('posts')
-
-let tags = getUniqueTags(posts)
+import Section from '@/components/ui/Section.astro'
+import Tags from '@/components/Tags.astro'
 ---
 
 <Layout seo={{ title: 'Tags' }}>
-	<!-- <Layout title={`Tags | ${site.title}`}> -->
-	<!-- <Header activeNav="tags" /> -->
-	<!-- <Main pageTitle="Tags" pageDesc="All the tags used in posts."> -->
 	<main>
-		<Title>Tags</Title>
-		<!-- <ul> -->
-		<!-- {tags.map(({ tag }) => <Tag {tag} size="lg" />)} -->
-		<!-- {tags.map(({ tag }) => <p>{tag}</p>)} -->
-		<!-- </ul> -->
-		{
-			tags && (
-				<ul class="flex flex-row place-items-center gap-2">
-					{tags.map((tag) => (
-						<li class="inline">
-							<Link size="sm" class="text-sm uppercase" href={`/${site.urls.tags}/${tag.tag}`}>
-								{tag.tagName}
-							</Link>
-						</li>
-					))}
-				</ul>
-			)
-		}
+		<Section>
+			<Title>Tags</Title>
+			<Tags />
+		</Section>
 	</main>
-	<!-- <Footer /> -->
 </Layout>

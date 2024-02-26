@@ -7,7 +7,7 @@ export const site: Site = {
 	opengraph: {
 		title: 'AstroKit',
 		description: 'We are all made from stars',
-		image: './open-graph.jpg'
+		image: '/open-graph.jpg'
 	},
 	urls: {
 		posts: 'posts',

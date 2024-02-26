@@ -53,6 +53,18 @@ export function formatDate(date: string | number | Date) {
 		day: 'numeric'
 	})
 }
+export function getDay(date: string | number | Date) {
+	return new Date(date).toLocaleDateString(site.language, {
+		timeZone: 'UTC',
+		day: 'numeric'
+	})
+}
+export function getMonth(date: string | number | Date) {
+	return new Date(date).toLocaleDateString(site.language, {
+		timeZone: 'UTC',
+		month: 'short'
+	})
+}
 
 export function slugify(text: string) {
 	return text

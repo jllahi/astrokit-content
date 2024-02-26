@@ -1,0 +1,33 @@
+---
+import Link from '@/components/ui/Link.astro'
+// import { Icon } from 'astro-icon/components'
+import { site } from '@/data/site'
+import { slugifyStr } from '@/utils/slugify'
+
+interface Props {
+	tags: string[] | undefined
+	style?: 'tag' | 'outline' | 'primary' | 'inverted'
+	size?: 'md' | 'sm' | 'lg'
+}
+
+const { tags, style = 'tag', size = 'sm' } = Astro.props
+// <Icon name="ri:price-tag-3-line" title="Tags" />
+---
+
+{
+	tags && (
+		<ul class="m-0 flex flex-row gap-2 p-0">
+			{tags && (
+				<ul class="my-4 flex flex-row place-items-center gap-2">
+					{tags.map((tag) => (
+						<li class="inline">
+							<Link size={size} style={style} href={`/${site.urls.tags}/${slugifyStr(tag)}`}>
+								#{tag}
+							</Link>
+						</li>
+					))}
+				</ul>
+			)}
+		</ul>
+	)
+}

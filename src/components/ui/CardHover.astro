@@ -7,9 +7,10 @@ import site from '@/data/site'
 
 interface Props extends HTMLAttributes<'a'> {
 	post: CollectionEntry<ContentCollectionKey>
+	featured?: boolean
 }
 
-const { post, ...props } = Astro.props
+const { post, featured, ...props } = Astro.props
 ---
 
 <a
@@ -47,7 +48,7 @@ const { post, ...props } = Astro.props
 						)
 					}
 					<h3
-						class="text-balance text-xl font-semibold sm:text-2xl"
+						class="text-balance font-heading text-xl font-semibold sm:text-2xl"
 						transition:name={`post-title-${post.data.title}`}
 					>
 						{post.data.title}

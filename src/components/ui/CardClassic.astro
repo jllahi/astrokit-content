@@ -1,0 +1,72 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
+import { Image } from 'astro:assets'
+import site from '@/data/site'
+import { formatDate } from '@/utils/content'
+
+interface Props extends HTMLAttributes<'a'> {
+	post: CollectionEntry<ContentCollectionKey>
+	featured?: boolean
+}
+
+const { post, featured, ...props } = Astro.props
+---
+
+<a
+	href={`/${site.urls.posts}/${post.slug}`}
+	class:list={[
+		'cursor-pointer rounded p-2 hover:outline hover:outline-gray-300',
+		{ 'col-span-3': featured },
+		{ 'row-span-2': featured }
+		// 'rounded py-1 px-2',
+		// 'hover:bg-font-color hover:text-background-color',
+	]}
+	{...props}
+>
+	<article class="relative overflow-hidden">
+		{
+			post.data.image && (
+				<Image
+					src={post.data.image}
+					alt={post.data.description ?? post.data.title}
+					width={featured ? 1200 : 600}
+					height={featured ? 1200 : 800}
+					class:list={[
+						'w-full rounded bg-gray-200 object-cover dark:bg-gray-800',
+						{ 'h-96': featured },
+						{ 'h-80': !featured }
+					]}
+					transition:name={`post-image-${post.data.title}`}
+				/>
+			)
+		}
+		<header class="h-full w-full">
+			<div class="relative flex h-full w-full items-start px-0 py-4">
+				<div class="h-26 w-full max-w-full">
+					<div class="flex w-full flex-row items-center justify-between pb-2">
+						{
+							post.data.category && (
+								<ul class="flex gap-4 text-sm uppercase">
+									<li>{post.data.category}</li>
+								</ul>
+							)
+						}
+						{
+							post.data.draft && (
+								<div class="rounded bg-color-error p-1 text-xs text-color-white">DRAFT</div>
+							)
+						}
+						<div class="text-sm">{formatDate(post.data.date)}</div>
+					</div>
+					<h2
+						class="text-xl font-semibold sm:text-2xl"
+						transition:name={`post-title-${post.data.title}`}
+					>
+						{post.data.title}
+					</h2>
+				</div>
+			</div>
+		</header>
+	</article>
+</a>

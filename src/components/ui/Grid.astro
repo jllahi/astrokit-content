@@ -1,7 +1,17 @@
 ---
+// import type { HTMLAttributes } from 'astro/types'
+import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
+import Card from './Card.astro'
 
+interface Props {
+	posts: CollectionEntry<ContentCollectionKey>[]
+}
+
+const { posts } = Astro.props
 ---
 
-<div class="grid grid-cols-1 gap-10 sm:gap-10 md:grid-cols-2 lg:grid-cols-3 xl:gap-12">
-	<slot />
+<!-- <div class="grid grid-cols-1 gap-10 sm:gap-10 md:grid-cols-2 lg:grid-cols-3 xl:gap-12"> -->
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+	{posts.map((post, key) => <Card post={post} featured={key == 0} />)}
+	<!-- <slot /> -->
 </div>
