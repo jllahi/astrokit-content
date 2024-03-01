@@ -52,7 +52,11 @@ const { intent, size, class: className, ...rest } = Astro.props
 			<ul class={navigation({ intent, size, className })} data-name="ui-navigation" {...rest}>
 				{navigationData.map((item: NavigationMenu) => (
 					<li>
-						<Link href={item.path} size={size} intent="inverted">
+						<Link
+							href={item.path}
+							size={size}
+							intent={intent === 'vertical' ? 'inverted' : 'primary'}
+						>
 							{item.title}
 						</Link>
 					</li>
