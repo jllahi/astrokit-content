@@ -2,7 +2,7 @@ import type { CollectionEntry } from 'astro:content'
 import postFilter from './postFilter'
 import { slugifyStr } from './slugify'
 
-interface Tag {
+export interface Tag {
 	tag: string
 	tagName: string
 }

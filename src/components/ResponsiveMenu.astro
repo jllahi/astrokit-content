@@ -6,13 +6,13 @@ import Navigation from './Navigation.astro'
 	(
 		<div class="justify-content-center flex flex-row items-center">
 			<div class="hidden pl-4 lg:block">
-				<Navigation />
+				<Navigation intent="horizontal" />
 			</div>
 			<div class="block pl-10 lg:hidden" id="burger-menu">
 				<span />
 			</div>
-			<div id="menu" class="flex flex-col px-6 text-left">
-				<Navigation style="vertical" />
+			<div id="menu" class="flex flex-col px-6 text-right">
+				<Navigation intent="vertical" size="lg" />
 			</div>
 		</div>
 	)

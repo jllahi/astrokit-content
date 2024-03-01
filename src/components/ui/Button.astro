@@ -1,35 +1,38 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import { cva, type VariantProps } from 'class-variance-authority'
+// import { cva, type VariantProps } from 'class-variance-authority'
+import { tv, type VariantProps } from 'tailwind-variants'
 
-export const button = cva('button', {
+export const button = tv({
+	base: 'rounded transition-all duration-500 ease-out',
 	variants: {
 		intent: {
-			primary: ['bg-blue-500', 'text-white', 'border-transparent', 'hover:bg-blue-600'],
-			secondary: ['bg-white', 'text-gray-800', 'border-gray-400', 'hover:bg-gray-100'],
-			accent: ['bg-color-accent text-white border-transparent hover:bg-color-accent-dark'],
+			primary: 'bg-blue-500 text-white border-transparent hover:bg-blue-600',
+			secondary: 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100',
+			accent: 'bg-color-accent text-white border-transparent hover:bg-color-accent-dark',
 			ghost: [
-				'bg-transparent text-gray-800 dark:text-gray-300 hover:border-gray-600 dark:hover:border-gray-300 border-transparent border'
+				'bg-transparent text-gray-800 hover:border-gray-600 border-transparent border',
+				'dark:text-gray-300 dark:hover:border-gray-300'
 			]
 		},
 		size: {
-			small: ['text-sm', 'py-1', 'px-2'],
-			medium: ['text-base', 'py-2', 'px-4'],
-			large: ['text-xl', 'py-3', 'px-6']
+			small: 'text-sm py-1 px-2',
+			medium: 'text-base py-2 px-4',
+			large: 'text-xl py-3 px-6'
 		}
+	},
+	defaultVariants: {
+		size: 'large',
+		intent: 'primary'
 	}
 	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
 })
 
 export interface Props extends HTMLAttributes<'button'>, VariantProps<typeof button> {}
 
-/**
- * For Astro components, we recommend setting your defaultVariants within
- * Astro.props (which are `undefined` by default)
- */
-const { intent = 'primary', size = 'medium' } = Astro.props
+const { intent, size, class: className, ...rest } = Astro.props
 ---
 
-<button class:list={[button({ intent, size }), 'transition-all duration-500 ease-out']}>
+<button class={button({ intent, size, className })} data-name="ui-button" {...rest}>
 	<slot />
 </button>

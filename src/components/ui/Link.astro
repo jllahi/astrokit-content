@@ -1,38 +1,44 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import { tv, type VariantProps } from 'tailwind-variants'
 
-interface Props extends HTMLAttributes<'a'> {
-	block?: boolean
-	class?: string
-	size?: 'sm' | 'md' | 'lg'
-	style?: 'outline' | 'primary' | 'inverted' | 'tag'
-}
+export const link = tv({
+	base: 'transition-all duration-300 ease-in-out place-content-center p-1 font-logo uppercase',
+	variants: {
+		intent: {
+			outline: 'border border-black hover:bg-black text-black hover:text-white',
+			primary: [
+				'border border-black hover:bg-black text-black hover:text-white',
+				'border dark:text-white dark:border-white'
+			],
+			inverted: [
+				'border border-black bg-color-black hover:bg-color-white text-color-white hover:text-color-black',
+				'border-white bg-color-white hover:bg-color-black text-color-black hover:text-color-white'
+			],
+			tag: [
+				'border-color-black bg-color-white text-black border no-underline px-2 hover:text-white hover:bg-color-black',
+				'dark:border-color-white dark:bg-color-black dark:text-white'
+			]
+		},
+		size: {
+			sm: 'pb-1 px-2 text-xs font-bold',
+			md: 'py-2 px-3 gap-2 text-lg',
+			lg: 'py-3 px-4 gap-4 text-xl'
+		}
+	},
+	defaultVariants: {
+		size: 'md',
+		intent: 'primary'
+	}
+	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
+})
 
-const sizes = {
-	sm: 'pb-1 px-1 text-sm',
-	md: 'pb-1 px-2 text-base',
-	lg: 'py-2 px-3 text-lg'
-}
+// const { size = 'md', style = 'primary', block, class: className, ...rest } = Astro.props
+export interface Props extends HTMLAttributes<'a'>, VariantProps<typeof link> {}
 
-const styles = {
-	outline: 'border-2 border-black hover:bg-black text-black hover:text-white',
-	primary: 'bg-background-color text-font-color hover:bg-font-color hover:text-background-color',
-	inverted: 'bg-font-color text-background-color hover:bg-background-color hover:text-font-color',
-	tag: 'border-font-color border rounded-full no-underline px-2'
-}
-
-const { size = 'md', style = 'primary', block, class: className, ...rest } = Astro.props
+const { intent, size, class: className, ...rest } = Astro.props
 ---
 
-<a
-	class:list={[
-		'place-content-center rounded p-1 font-logo uppercase duration-300 ease-out',
-		block && 'w-full',
-		sizes[size],
-		styles[style],
-		className
-	]}
-	{...rest}
->
+<a class={link({ intent, size, className })} data-name="ui-link" {...rest}>
 	<slot />
 </a>

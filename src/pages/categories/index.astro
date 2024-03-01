@@ -1,15 +1,20 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Title from '@/components/ui/Title.astro'
-import Section from '@/components/ui/Section.astro'
 import Categories from '@/components/Categories.astro'
+import Section from '@/components/ui/Section.astro'
+import Title from '@/components/ui/Title.astro'
+import Layout from '@/layouts/Layout.astro'
+import getUniqueCategories from '@/utils/getUniqueCategories'
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('posts')
+let categories = getUniqueCategories(posts)
 ---
 
 <Layout seo={{ title: 'Categories' }}>
 	<main>
 		<Section>
 			<Title>Categories</Title>
-			<Categories />
+			<Categories {categories} size="lg" />
 		</Section>
 	</main>
 </Layout>

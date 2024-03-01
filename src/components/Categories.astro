@@ -1,34 +1,54 @@
 ---
 import Link from '@/components/ui/Link.astro'
-// import { Icon } from 'astro-icon/components'
 import { site } from '@/data/site'
-import { getCollection } from 'astro:content'
-import getUniqueCategories from '@/utils/getUniqueCategories'
+import type { Category } from '@/utils/getUniqueCategories'
+import type { HTMLAttributes } from 'astro/types'
+import { tv, type VariantProps } from 'tailwind-variants'
 
-// interface Props {
-// 	categories: string[] | undefined
-// }
-const posts = await getCollection('posts')
+export const categoriesVariants = tv({
+	base: 'm-0 flex flex-wrap gap-2 p-0 place-items-center',
+	variants: {
+		intent: {
+			outline: 'border-2 border-black hover:bg-black text-black hover:text-white',
+			primary: 'bg-color-primary text-white hover:bg-color-primary-dark',
+			// inverted: '',
+			tag: ''
+		},
+		size: {
+			sm: 'my-2 gap-2 md:gap-3 text-xs',
+			md: 'my-4 gap-3 md:gap-4 text-base',
+			lg: 'my-8 gap-4 md:gap-8 text-xl'
+		}
+	},
+	defaultVariants: {
+		size: 'md',
+		intent: 'tag'
+	}
+	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
+})
 
-let categories = getUniqueCategories(posts)
-
-// const { categories } = Astro.props
+export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof categoriesVariants> {
+	categories: Category[] | undefined
+}
+const { categories, intent, size, class: className, ...rest } = Astro.props
+// <Icon name="ri:bookmark-line" title="Categories" class="align-center mb-1 inline size-4" />
 ---
 
 {
 	categories && (
-		<ul class="m-0 flex flex-row gap-2 p-0">
-			{categories && (
-				<ul class="my-4 flex flex-row place-items-center gap-6">
-					{categories.map((category) => (
-						<li class="inline">
-							<Link size="lg" style="tag" href={`/${site.urls.category}/${category.category}`}>
-								{category.categoryName}
-							</Link>
-						</li>
-					))}
-				</ul>
-			)}
+		<ul class={categoriesVariants({ intent, size, className })} data-name="ui-categories" {...rest}>
+			{categories.map((category) => (
+				<li>
+					<Link
+						size={size}
+						intent={intent}
+						href={`/${site.urls.category}/${category.category}`}
+						class="leading-10"
+					>
+						//&nbsp;{category.categoryName}
+					</Link>
+				</li>
+			))}
 		</ul>
 	)
 }

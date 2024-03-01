@@ -1,15 +1,20 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Title from '@/components/ui/Title.astro'
-import Section from '@/components/ui/Section.astro'
 import Tags from '@/components/Tags.astro'
+import Section from '@/components/ui/Section.astro'
+import Title from '@/components/ui/Title.astro'
+import Layout from '@/layouts/Layout.astro'
+import getUniqueTags from '@/utils/getUniqueTags'
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('posts')
+let tags = getUniqueTags(posts)
 ---
 
 <Layout seo={{ title: 'Tags' }}>
 	<main>
 		<Section>
 			<Title>Tags</Title>
-			<Tags />
+			<Tags {tags} size="lg" />
 		</Section>
 	</main>
 </Layout>

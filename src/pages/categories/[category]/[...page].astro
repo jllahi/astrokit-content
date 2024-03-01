@@ -31,6 +31,9 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 		})
 	})
 }
+
+const posts = await getCollection('posts')
+let categories = getUniqueCategories(posts)
 const { page, categoryName } = Astro.props
 // const params = Astro.params
 ---
@@ -38,7 +41,7 @@ const { page, categoryName } = Astro.props
 <Layout seo={{ title: 'Category ' + categoryName }}>
 	<!-- <CategoryPosts {...pagination} {category} {categoryName} /> -->
 	<Section>
-		<header class="mb-8 flex flex-col">
+		<header class="mb-2 flex flex-col">
 			<Title>{categoryName}</Title>
 		</header>
 		<PostList posts={page.data} />
@@ -49,6 +52,6 @@ const { page, categoryName } = Astro.props
 
 	<Section>
 		<h2 class="text-3xl font-black">Other categories</h2>
-		<Categories />
+		<Categories {categories} />
 	</Section>
 </Layout>

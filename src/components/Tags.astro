@@ -1,41 +1,55 @@
 ---
 import Link from '@/components/ui/Link.astro'
-// import { Icon } from 'astro-icon/components'
 import { site } from '@/data/site'
-import { getCollection } from 'astro:content'
-import getUniqueTags from '@/utils/getUniqueTags'
+import type { Tag } from '@/utils/getUniqueTags'
+import { slugifyStr } from '@/utils/slugify'
+import type { HTMLAttributes } from 'astro/types'
+import { tv, type VariantProps } from 'tailwind-variants'
 
-interface Props {
-	// tags: string[] | undefined
-	style?: "tag" | "outline" | "primary" | "inverted"
-	size?: "md" | "sm" | "lg"
+export const tagsVariants = tv({
+	base: 'my-4 flex flex-wrap gap-2 p-0 place-items-center',
+	variants: {
+		intent: {
+			outline: '',
+			primary: '',
+			// inverted: '',
+			tag: ''
+		},
+		size: {
+			sm: 'my-2 gap-2 md:gap-3 text-xs',
+			md: 'my-4 gap-3 md:gap-4 text-base',
+			lg: 'my-8 gap-4 md:gap-8 text-xl'
+		}
+	},
+	defaultVariants: {
+		size: 'md',
+		intent: 'tag'
+	}
+	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
+})
+
+export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof tagsVariants> {
+	tags: Tag[] | string[] | undefined
 }
-const posts = await getCollection('posts')
-
-let tags = getUniqueTags(posts)
-
-const { style="tag", size="md" } = Astro.props
+const { tags, intent, size, class: className, ...rest } = Astro.props
+// <Icon name="ri:price-tag-3-line" title="Tags" class="align-center mb-1 inline size-4" />
 ---
 
 {
 	tags && (
-		<ul class="flex flex-row gap-2 m-0 p-0">
-			<!-- <Icon name="ri:price-tag-3-line" title="Tags" /> -->
-			{
-			tags && (
-				<ul class="flex flex-row place-items-center gap-6 my-4">
-					{tags.map((tag) => (
-						<li class="inline">
-							<Link size={size} style={style} href={`/${site.urls.tags}/${tag.tag}`}>
-								{tag.tagName}
-							</Link>
-						</li>
-					))}
-				</ul>
-			)
-		}
+		<ul class={tagsVariants({ intent, size, className })} data-name="ui-tags" {...rest}>
+			{tags.map((tag) => (
+				<li>
+					<Link
+						size={size}
+						intent={intent}
+						href={`/${site.urls.tags}/${typeof tag === 'string' ? slugifyStr(tag) : tag.tag}`}
+						class="leading-10"
+					>
+						#&nbsp;{typeof tag === 'string' ? tag : tag.tagName}
+					</Link>
+				</li>
+			))}
 		</ul>
 	)
 }
-
-
