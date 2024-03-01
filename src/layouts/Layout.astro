@@ -55,5 +55,10 @@ const { seo } = Astro.props
 		</main>
 		<Footer />
 		<TailwindIndicator align="right" />
+		<style is:global>
+			* {
+				border-color: var(--border-color-black);
+			}
+		</style>
 	</body>
 </html>
