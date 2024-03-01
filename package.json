@@ -28,6 +28,7 @@
 		"@iconify-json/ri": "^1.1.20",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/typography": "^0.5.10",
+		"@vercel/analytics": "^1.2.2",
 		"astro": "^4.4.6",
 		"astro-devtoolbar-tailwind": "^0.0.8",
 		"astro-embed": "^0.6.1",
