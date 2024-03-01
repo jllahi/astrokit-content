@@ -13,9 +13,20 @@ import metaTags from 'astro-meta-tags'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig } from 'astro/config'
 
+import vercel from '@astrojs/vercel/serverless'
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://astrokit-content.vercel.app',
+	output: 'hybrid',
+	adapter: vercel({
+		webAnalytics: {
+			enabled: true
+		}
+		// imagesConfig: {
+		//   sizes: [320, 640, 1280],
+		// },
+	}),
 	integrations: [
 		// sentry(),
 		// spotlightjs(),
@@ -35,7 +46,7 @@ export default defineConfig({
 		}),
 		debugcss(),
 		metaTags(),
-		AstroDevtoolbarTailwind(),
+		AstroDevtoolbarTailwind()
 	]
 	// markdown: {
 	// 	remarkPlugins: [
