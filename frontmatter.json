@@ -1,0 +1,79 @@
+{
+	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
+	"frontMatter.framework.id": "astro",
+	"frontMatter.preview.host": "http://localhost:4321",
+	"frontMatter.content.publicFolder": {
+		"path": "src/assets",
+		"relative": true
+	},
+	"frontMatter.content.pageFolders": [
+		{
+			"title": "posts",
+			"path": "[[workspace]]/src/content/posts"
+		}
+	],
+	"frontMatter.taxonomy.contentTypes": [
+		{
+			"name": "posts",
+			"previewPath": "'posts'",
+			"pageBundle": false,
+			"clearEmpty": true,
+			"fields": [
+				{
+					"title": "title",
+					"name": "title",
+					"type": "string"
+				},
+				{
+					"title": "description",
+					"name": "description",
+					"type": "string"
+				},
+				{
+					"name": "date",
+					"type": "datetime",
+					"default": "{{now}}",
+					"required": true,
+					"isPublishDate": true
+				},
+				{
+					"name": "updated",
+					"type": "datetime",
+					"default": "{{now}}",
+					"isModifiedDate": true
+				},
+				{
+					"name": "image",
+					"type": "image",
+					"required": true,
+					"isPreviewImage": true
+				},
+				{
+					"name": "category",
+					"type": "string",
+					"single": true,
+					"required": true
+				},
+				{
+					"name": "tags",
+					"type": "tags",
+					"default": []
+				},
+				{
+					"name": "draft",
+					"type": "draft"
+				},
+				{
+					"name": "featured",
+					"type": "boolean"
+				},
+				{
+					"name": "reading",
+					"type": "string",
+					"single": true
+				}
+			]
+		}
+	],
+	"frontMatter.git.enabled": true
+}
