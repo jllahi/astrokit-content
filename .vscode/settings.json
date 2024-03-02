@@ -17,5 +17,7 @@
 	"editor.linkedEditing": true,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit"
-	}
+	},
+	"[markdown]": {},
+	"frontMatter.dashboard.openOnStart": true
 }

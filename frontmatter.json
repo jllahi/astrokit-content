@@ -2,78 +2,99 @@
 	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
 	"frontMatter.framework.id": "astro",
 	"frontMatter.preview.host": "http://localhost:4321",
+	"frontMatter.website.host": "https://astrokit-content.vercel.app",
+	"frontMatter.git.enabled": true,
+	"frontMatter.framework.startCommand": "pnpm run dev",
+	"frontMatter.content.supportedFileTypes": ["md", "mdx"],
+	"frontMatter.content.defaultFileType": "mdx",
+	"frontMatter.dashboard.openOnStart": true,
 	"frontMatter.content.publicFolder": {
-		"path": "src/assets",
+		"path": "[[workspace]]/src/assets/images",
 		"relative": true
 	},
 	"frontMatter.content.pageFolders": [
 		{
 			"title": "posts",
-			"path": "[[workspace]]/src/content/posts"
+			"path": "[[workspace]]/src/content/posts",
+			"contentTypes": ["default", "posts"]
 		}
 	],
 	"frontMatter.taxonomy.contentTypes": [
 		{
-			"name": "posts",
-			"previewPath": "'posts'",
+			"name": "default",
+			"previewPath": "'/posts/[[slug]]'",
 			"pageBundle": false,
 			"clearEmpty": true,
+			"template": "[[workspace]]/.frontmatter/templates/post.mdx",
+			"filePrefix": null,
+			"fileType": "mdx",
+			// "template": "post.mdx",
 			"fields": [
 				{
-					"title": "title",
+					"title": "Title",
 					"name": "title",
-					"type": "string"
+					"type": "string",
+					"required": true
 				},
 				{
-					"title": "description",
+					"title": "Description",
 					"name": "description",
 					"type": "string"
 				},
 				{
+					"title": "Date",
 					"name": "date",
 					"type": "datetime",
 					"default": "{{now}}",
+					"dateFormat": "yyyy-MM-dd",
 					"required": true,
 					"isPublishDate": true
 				},
 				{
+					"title": "Updated",
 					"name": "updated",
 					"type": "datetime",
 					"default": "{{now}}",
+					"dateFormat": "yyyy-MM-dd",
 					"isModifiedDate": true
 				},
 				{
+					"title": "Image",
 					"name": "image",
 					"type": "image",
 					"required": true,
 					"isPreviewImage": true
 				},
 				{
+					"title": "Category",
 					"name": "category",
-					"type": "string",
-					"single": true,
-					"required": true
+					"type": "categories",
+					"required": true,
+					"singleValueAsString": true
 				},
 				{
+					"title": "Tags",
 					"name": "tags",
 					"type": "tags",
 					"default": []
 				},
 				{
+					"title": "Draft",
 					"name": "draft",
 					"type": "draft"
 				},
 				{
+					"title": "Featured",
 					"name": "featured",
 					"type": "boolean"
-				},
-				{
-					"name": "reading",
-					"type": "string",
-					"single": true
 				}
 			]
 		}
 	],
-	"frontMatter.git.enabled": true
+	"frontMatter.content.snippets": {
+		"Spotify": {
+			"description": "Playlist from Spotify",
+			"body": ["<Spotify title=\"Lorem\" playlist=\"xxxxxxxxxxxxxxx\" />", ""]
+		}
+	}
 }

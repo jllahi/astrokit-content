@@ -40,7 +40,16 @@ export default defineConfig({
 			iconDir: 'src/assets/icons',
 			include: {
 				heroicons: ['sun', 'moon'],
-				ri: ['github-line', 'twitter-x-line', 'calendar-2-line', 'price-tag-3-line']
+				ri: [
+					'github-line',
+					'twitter-x-line',
+					'calendar-2-line',
+					'price-tag-3-line',
+					'arrow-left-double-fill',
+					'twitter-x-line',
+					'whatsapp-line',
+					'mail-line'
+				]
 				// uis: ['*'],
 			}
 		}),
