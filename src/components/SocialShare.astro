@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+	url?: string
+	title?: string
+	description?: string
+	via?: string
+}
+
+const { url = Astro.request.url, title, description, via } = Astro.props
+
+let urlW = `whatsapp://send?text=`
+let urlX = `https://twitter.com/intent/tweet?url=${url}`
+let urlM = `mailto:?subject=${title}&body=${description}%0A${url}`
+
+// if (description) URL += `${description} `
+// URL += `${url}`
+if (description) urlW += `${description} `
+urlW += `${url}`
+---
+
+<aside class="my-8 flex flex-row gap-2 border-y-0 p-4">
+	<h3 class="uppercase">Share this:</h3>
+	<ul class="flex flex-row gap-2">
+		<li>
+			<a href={urlX} target="_blank">
+				<Icon name="ri:twitter-x-line" title="X" class="align-center size-6" />
+				<span class="sr-only">Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href={urlW}>
+				<Icon name="ri:whatsapp-line" title="WhatsApp" class="align-center size-6" />
+				<span class="sr-only">WhatsApp</span>
+			</a>
+		</li>
+		<li>
+			<a href={urlM}>
+				<Icon name="ri:mail-line" title="Mail" class="align-center size-6" />
+				<span class="sr-only">Mail</span>
+			</a>
+		</li>
+	</ul>
+</aside>

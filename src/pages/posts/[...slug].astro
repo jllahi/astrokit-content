@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 
+import SocialShare from '@/components/SocialShare.astro'
 import TableContents from '@/components/TableContents.astro'
 import Tags from '@/components/Tags.astro'
 import Spotify from '@/components/embed/Spotify.astro'
@@ -93,7 +94,11 @@ const { Content, headings } = await post.render()
 			<TableContents {headings} />
 			<Content components={{ Spotify }} />
 		</div>
+		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
 	</Article>
+	<!-- <Section>
+		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
+	</Section> -->
 	<!-- <Section>
 		<h2>Related</h2>
 		<PostListCategory category={post.data.category} />
