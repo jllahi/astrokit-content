@@ -16,12 +16,12 @@
 		"start": "astro dev"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.5.6",
-		"@astrojs/mdx": "^2.1.1",
+		"@astrojs/check": "^0.5.7",
+		"@astrojs/mdx": "^2.2.0",
 		"@astrojs/rss": "^4.0.5",
 		"@astrojs/sitemap": "^3.1.1",
 		"@astrojs/tailwind": "^5.1.0",
-		"@astrojs/vercel": "^7.3.4",
+		"@astrojs/vercel": "^7.3.6",
 		"@fontsource-variable/inter": "^5.0.17",
 		"@fontsource-variable/montserrat": "^5.0.18",
 		"@iconify-json/heroicons": "^1.1.20",
@@ -29,7 +29,7 @@
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/typography": "^0.5.10",
 		"@vercel/analytics": "^1.2.2",
-		"astro": "^4.4.9",
+		"astro": "^4.5.0",
 		"astro-devtoolbar-tailwind": "^0.0.8",
 		"astro-embed": "^0.6.1",
 		"astro-expressive-code": "^0.33.4",
@@ -44,13 +44,13 @@
 		"tailwind-variants": "^0.2.0",
 		"tailwindcss": "^3.4.1",
 		"tailwindcss-animate": "^1.0.7",
-		"typescript": "^5.3.3"
+		"typescript": "^5.4.2"
 	},
 	"devDependencies": {
-		"@sentry/astro": "^7.104.0",
+		"@sentry/astro": "^7.106.0",
 		"@spotlightjs/astro": "^1.0.16",
-		"@typescript-eslint/eslint-plugin": "^7.1.0",
-		"@typescript-eslint/parser": "^7.1.0",
+		"@typescript-eslint/eslint-plugin": "^7.1.1",
+		"@typescript-eslint/parser": "^7.1.1",
 		"astro-debugcss": "github:jllahi/astro-debugcss",
 		"class-variance-authority": "^0.7.0",
 		"eslint": "^8.57.0",
@@ -61,7 +61,7 @@
 		"prettier-plugin-astro": "^0.13.0",
 		"prettier-plugin-organize-imports": "^3.2.4",
 		"prettier-plugin-packagejson": "^2.4.12",
-		"prettier-plugin-tailwindcss": "^0.5.11",
+		"prettier-plugin-tailwindcss": "^0.5.12",
 		"rimraf": "^5.0.5"
 	}
 }
