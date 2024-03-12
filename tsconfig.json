@@ -1,9 +1,13 @@
 {
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
-		"baseUrl": "src",
+		"baseUrl": "/home/jllahi/Code/Projects/astrokit-content/src",
 		"paths": {
 			"@/*": ["./*"]
-		}
+		},
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
+		// "moduleResolution": "bundler",
+		// "importsNotUsedAsValues": "remove"
 	}
 }

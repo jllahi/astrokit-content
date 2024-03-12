@@ -1,0 +1,7 @@
+---
+import YouTubeLiteEmbed from './YouTubeLiteEmbed'
+// const { id, title, cover, poster } = Astro.props as typeof YouTubeLiteEmbedProps
+const { id, title, cover, poster } = Astro.props // as typeof YouTubeLiteEmbedProps
+---
+
+<YouTubeLiteEmbed client:idle {id} {title} />

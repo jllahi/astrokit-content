@@ -27,6 +27,30 @@ const posts = defineCollection({
 		})
 })
 
+const pages = defineCollection({
+	type: 'content',
+	// Type-check frontmatter using a schema
+	schema: ({ image }) =>
+		z.object({
+			// slug: z.string().optional(),
+			title: z.string().trim().max(180),
+			description: z.string().trim().max(256),
+			// Transform string to Date object
+			date: z.coerce.date().optional(),
+			updated: z.coerce.date().optional(),
+			image: image()
+				.refine((img) => img.width >= 400, {
+					message: 'Cover image must be at least 400 pixels wide!'
+				})
+				.optional(),
+			// categories: z.array(z.string()).default(['Uncategorized']),
+			// categories: reference("categories"),
+			// tags: z.array(reference("tags")).optional(),
+			draft: z.boolean().optional()
+			// author: z.string().default(SITE.author),
+		})
+})
+
 // const links = defineCollection({
 //   type: "data",
 //   schema: z.object({
@@ -36,4 +60,4 @@ const posts = defineCollection({
 //   }),
 // })
 
-export const collections = { posts }
+export const collections = { posts, pages }

@@ -2,45 +2,38 @@
 import { getCollection } from 'astro:content'
 
 import Prose from '@/components/Prose.astro'
-import SocialShare from '@/components/SocialShare.astro'
-import TableContents from '@/components/TableContents.astro'
-import Tags from '@/components/Tags.astro'
 import Spotify from '@/components/embed/SpotifyKeystatic'
-import YouTube from '@/components/embed/YouTube.astro'
 import Article from '@/components/ui/Article.astro'
 import Title from '@/components/ui/Title.astro'
-import Date from '@/components/utils/Date.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
-// import { YouTube } from 'astro-embed'
-import { Picture } from 'astro:assets'
 
 export async function getStaticPaths() {
-	const posts = await getCollection('posts')
+	const pages = await getCollection('pages')
 
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: { post }
+	return pages.map((page) => ({
+		params: { slug: page.slug },
+		props: { page }
 	}))
 }
 // type Props = CollectionEntry<'posts'>
 // const post: CollectionEntry<'blog'> = Astro.props.post
 
-const { post } = Astro.props
-const { Content, headings } = await post.render()
+const { page } = Astro.props
+const { Content, headings } = await page.render()
 ---
 
 <Layout
 	seo={{
-		title: post.data.title,
-		description: post.data.description ?? site.description,
-		openGraph: {
-			basic: {
-				title: post.data.title,
-				type: 'article',
-				image: post.data.image.src
-			}
-		}
+		title: page.data.title,
+		description: page.data.description ?? site.description
+		// openGraph: {
+		// 	basic: {
+		// 		title: page.data.title,
+		// 		type: 'article',
+		// 		image: page.data.image.src
+		// 	}
+		// }
 	}}
 >
 	<Article>
@@ -57,13 +50,13 @@ const { Content, headings } = await post.render()
 					</Link>
 				)
 			} -->
-			<Title transition:name={`post-title-${post.data.title}`}>
-				{post.data.title}
+			<Title transition:name={`post-title-${page.data.title}`}>
+				{page.data.title}
 			</Title>
-			<p class="mb-8 text-xl">{post.data.description}</p>
+			<p class="mb-8 text-xl">{page.data.description}</p>
 		</header>
 
-		<Picture
+		<!-- <Picture
 			alt={post.data.title}
 			src={post.data.image}
 			class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
@@ -71,8 +64,8 @@ const { Content, headings } = await post.render()
 			loading="eager"
 			formats={['webp']}
 			widths={[540, 780, 1020]}
-			quality={88}
-		/>
+			quality={85}
+		/> -->
 		<!-- <Image
 			alt={post.data.title}
 			src={post.data.image}
@@ -82,18 +75,17 @@ const { Content, headings } = await post.render()
 			loading="eager"
 		/> -->
 
-		<div class="my-2 flex flex-col justify-between md:flex-row">
-			<Date date={post.data.date} />
-			<!-- <span>Reading time: {post.data.reading}</span> -->
-			<Tags tags={post.data.tags} size="sm" intent="tag" />
-		</div>
+		<!-- <div class="my-2 flex flex-col justify-between md:flex-row">
+			<Date date={page.data.date} />
+		<Tags tags={page.data.tags} size="sm" intent="tag" />
+	</Article> -->
 
 		<Prose>
-			<TableContents {headings} />
-			<Content components={{ YouTube, Spotify }} />
+			<!-- <TableContents {headings} /> -->
+			<Content components={{ Spotify }} />
 		</Prose>
 
-		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
+		<!-- <SocialShare description={page.data.description} title={page.data.title} via="AstroKit" /> -->
 	</Article>
 	<!-- <Section>
 		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />

@@ -1,7 +1,7 @@
 ---
 import Link from '@/components/ui/Link.astro'
-// import { navigation as navigationData } from '@/data/navigation'
-import { mainNav as navigationData } from '@/data/navigation.json'
+import { navigation as navigationData } from '@/data/navigation'
+import type { NavigationMenu } from '@/data/types'
 import type { HTMLAttributes } from 'astro/types'
 import { tv, type VariantProps } from 'tailwind-variants'
 
@@ -50,14 +50,14 @@ const { intent, size, class: className, ...rest } = Astro.props
 	navigationData && (
 		<nav>
 			<ul class={navigation({ intent, size, className })} data-name="ui-navigation" {...rest}>
-				{navigationData.map((item) => (
+				{navigationData.map((item: NavigationMenu) => (
 					<li>
 						<Link
-							href={item.url}
+							href={item.path}
 							size={size}
 							intent={intent === 'vertical' ? 'inverted' : 'primary'}
 						>
-							{item.name}
+							{item.title}
 						</Link>
 					</li>
 				))}

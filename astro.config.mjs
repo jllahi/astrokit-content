@@ -2,8 +2,11 @@
 // import sentry from '@sentry/astro'
 // import spotlightjs from '@spotlightjs/astro'
 import mdx from '@astrojs/mdx'
+import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
+import vercel from '@astrojs/vercel/serverless'
+import keystatic from '@keystatic/astro'
 import debugcss from 'astro-debugcss'
 import AstroDevtoolbarTailwind from 'astro-devtoolbar-tailwind'
 import embeds from 'astro-embed/integration'
@@ -12,8 +15,6 @@ import icon from 'astro-icon'
 import metaTags from 'astro-meta-tags'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig } from 'astro/config'
-
-import vercel from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
@@ -55,8 +56,15 @@ export default defineConfig({
 		}),
 		debugcss(),
 		metaTags(),
+		react(),
+		keystatic(),
 		AstroDevtoolbarTailwind()
-	]
+	],
+	vite: {
+		ssr: {
+			external: ['@keystatic/core']
+		}
+	}
 	// markdown: {
 	// 	remarkPlugins: [
 	// 		remarkReadingTime
