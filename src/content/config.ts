@@ -51,6 +51,32 @@ const pages = defineCollection({
 		})
 })
 
+const navigation = defineCollection({
+	type: 'data',
+	schema: z.object({
+		mainNav: z.array(
+			z.object({
+				name: z.string(),
+				url: z.string(), // .startsWith('/').or(z.literal('/')),
+				description: z.string().optional()
+			})
+		)
+	})
+})
+
+// const navigationFooter = defineCollection({
+// 	type: 'data',
+// 	schema: z.object({
+// 		mainNav: z.array(
+// 			z.object({
+// 				name: z.string(),
+// 				url: z.string(), // .startsWith('/').or(z.literal('/')),
+// 				description: z.string().optional()
+// 			})
+// 		)
+// 	})
+// })
+
 // const links = defineCollection({
 //   type: "data",
 //   schema: z.object({
@@ -60,4 +86,4 @@ const pages = defineCollection({
 //   }),
 // })
 
-export const collections = { posts, pages }
+export const collections = { posts, pages, navigation }

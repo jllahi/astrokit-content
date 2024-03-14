@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/navigation.schema.json",
+	"mainNav": [
+		{
+			"name": "About us",
+			"url": "/about"
+		},
+		{
+			"name": "Blog",
+			"url": "/posts"
+		},
+		{
+			"name": "Contact",
+			"url": "/contact"
+		}
+	]
+}

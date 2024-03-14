@@ -42,14 +42,12 @@ export default defineConfig({
 			include: {
 				heroicons: ['sun', 'moon'],
 				ri: [
-					'github-line',
-					'twitter-x-line',
-					'calendar-2-line',
-					'price-tag-3-line',
 					'arrow-left-double-fill',
+					'calendar-2-line',
+					'github-line',
+					'mail-line',
 					'twitter-x-line',
-					'whatsapp-line',
-					'mail-line'
+					'whatsapp-line'
 				]
 				// uis: ['*'],
 			}
@@ -64,6 +62,10 @@ export default defineConfig({
 		ssr: {
 			external: ['@keystatic/core']
 		}
+	},
+	experimental: {
+		contentCollectionCache: false,
+		contentCollectionJsonSchema: true
 	}
 	// markdown: {
 	// 	remarkPlugins: [

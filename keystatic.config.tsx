@@ -21,7 +21,7 @@ export default config({
 		brand: { name: 'Astrokit Keystatic' },
 		navigation: {
 			Content: ["posts", "pages"],
-			Settings: ["tags", "navigation", "site"],
+			Settings: ["site", "tags", "navigation"],
 		},
 	},
 	// CONTENT COLLECTIONS
@@ -34,6 +34,7 @@ export default config({
 			format: { contentField: 'content' },
 			entryLayout: 'content',
 			columns: ['date'],
+			// biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
 			previewUrl: `/posts/{slug}`,
 			schema: {
 				title: fields.slug({
@@ -115,12 +116,14 @@ export default config({
 							),
 							schema: {
 								id: fields.text({
-									label: 'Video ID', validation: {
+									label: 'Video ID',
+									validation: {
 										isRequired: true
 									}
 								}),
 								title: fields.text({
-									label: 'Video title', validation: {
+									label: 'Video title',
+									validation: {
 										isRequired: true
 									}
 								}),
@@ -133,12 +136,14 @@ export default config({
 							),
 							schema: {
 								playlist: fields.text({
-									label: 'Playlist ID', validation: {
+									label: 'Playlist ID',
+									validation: {
 										isRequired: true
 									}
 								}),
 								title: fields.text({
-									label: 'Playlist title', validation: {
+									label: 'Playlist title',
+									validation: {
 										isRequired: true
 									}
 								}),
@@ -170,12 +175,25 @@ export default config({
 			label: "Pages",
 			slugField: "title",
 			path: "src/content/pages/*",
+			// biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
 			previewUrl: `/{slug}`,
 			entryLayout: "content",
 			format: { contentField: "content" },
 			schema: {
-				title: fields.slug({ name: { label: "Title" } }),
-				description: fields.text({ label: "Description" }),
+				title: fields.slug({
+					name: {
+						label: "Title",
+						validation: {
+							isRequired: true,
+						}
+					}
+				}),
+				description: fields.text({
+					label: "Description",
+					validation: {
+						isRequired: true,
+					}
+				}),
 				content: fields.mdx({
 					label: "Content",
 					options: {
@@ -198,12 +216,25 @@ export default config({
 			path: "src/data/site",
 			format: { data: "json" },
 			schema: {
-				title: fields.text({ label: "Title" }),
-				description: fields.text({ label: "Description" }),
+				title: fields.text({
+					label: "Title",
+					validation: {
+						isRequired: true,
+					}
+				}),
+				description: fields.text({
+					label: "Description",
+					validation: {
+						isRequired: true,
+					}
+				}),
 				image: fields.image({
 					label: "Image",
 					description: "Image used for SEO",
 					directory: "src/assets/images/site",
+					validation: {
+						isRequired: true,
+					}
 				}),
 			},
 		}),
@@ -214,36 +245,41 @@ export default config({
 			format: { data: "json" },
 			schema: {
 				tags: fields.array(
-					fields.text({ label: "Posts Tags" }),
+					fields.text({
+						label: "Post Tag",
+						validation: {
+							isRequired: true,
+						}
+					}),
 					// Labelling options
 					{
-						label: "Tag",
+						label: "Tags for posts",
 						itemLabel: (props) => props.value,
-					}
+					},
 				),
 			},
 		}),
 		// NAVIGATION SINGLETON
 		navigation: singleton({
 			label: "Navigation",
-			path: "src/data/navigation",
+			path: "src/content/navigation/main",
 			format: { data: "json" },
 			schema: {
-				// tags: fields.array(
-				// 	fields.text({ label: 'Tag' }),
-				// 	// Labelling options
-				// 	{
-				// 		label: 'Tag',
-				// 		itemLabel: (props) => props.value,
-				// 	}
-				// ),
 				mainNav: fields.array(
 					fields.object({
 						name: fields.text({
 							label: "Name",
 							description: "Usually the name of the link",
+							validation: {
+								isRequired: true,
+							}
 						}),
-						url: fields.url({ label: "URL" }),
+						url: fields.url({
+							label: "URL",
+							validation: {
+								isRequired: true,
+							}
+						}),
 						// projects: fields.array(
 						// 	fields.relationship({
 						// 		label: 'Posts',
@@ -266,5 +302,40 @@ export default config({
 				),
 			},
 		}),
+		// NAVIGATION SINGLETON
+		// navigationFooter: singleton({
+		// 	label: "Footer Navigation",
+		// 	path: "src/content/navigation/footer",
+		// 	format: { data: "json" },
+		// 	schema: {
+		// 		footerNav: fields.array(
+		// 			fields.object({
+		// 				name: fields.text({
+		// 					label: "Name",
+		// 					description: "Usually the name of the link",
+		// 				}),
+		// 				url: fields.url({ label: "URL" }),
+		// 				// projects: fields.array(
+		// 				// 	fields.relationship({
+		// 				// 		label: 'Posts',
+		// 				// 		collection: 'posts',
+		// 				// 		validation: {
+		// 				// 			isRequired: true,
+		// 				// 		},
+		// 				// 	}),
+		// 				// 	{
+		// 				// 		label: 'Posts',
+		// 				// 		itemLabel: (props) => props.value ?? 'Select a post',
+		// 				// 	}
+		// 				// ),
+		// 			}),
+		// 			// Labelling options
+		// 			{
+		// 				label: "Footer Navigation",
+		// 				itemLabel: (props) => props.fields.name.value,
+		// 			}
+		// 		),
+		// 	},
+		// }),
 	}
 })

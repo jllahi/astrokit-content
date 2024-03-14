@@ -1,5 +1,4 @@
 {
-	// "editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"prettier.documentSelectors": ["**/*.astro"],
 	"[astro]": {
@@ -18,6 +17,10 @@
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit"
 	},
-	"[markdown]": {},
-	"frontMatter.dashboard.openOnStart": true
+	"json.schemas": [
+		{
+			"fileMatch": ["/src/content/navigation/**"],
+			"url": "./.astro/collections/navigation.schema.json"
+		}
+	]
 }
