@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection, reference, z } from 'astro:content'
 // import { rssSchema } from '@astrojs/rss';
 
 const posts = defineCollection({
@@ -18,7 +18,8 @@ const posts = defineCollection({
 			// categories: z.array(z.string()).default(['Uncategorized']),
 			// categories: reference("categories"),
 			// tags: z.array(reference("tags")).optional(),
-			category: z.string(), // .optional(),
+			category: reference('categories'), // .optional(),
+			// category: z.string(), // .optional(),
 			tags: z.array(z.string()).default([]), // optional(),
 			draft: z.boolean().optional(),
 			featured: z.boolean().optional()
@@ -49,6 +50,18 @@ const pages = defineCollection({
 			draft: z.boolean().optional()
 			// author: z.string().default(SITE.author),
 		})
+})
+
+const categories = defineCollection({
+	type: 'content',
+	schema: z.object({
+		title: z.string(),
+		description: z.string()
+		// Reference a single author from the `authors` collection by `id`
+		// author: reference('authors'),
+		// Reference an array of related posts from the `blog` collection by `slug`
+		// relatedPosts: z.array(reference('blog')),
+	})
 })
 
 const navigation = defineCollection({

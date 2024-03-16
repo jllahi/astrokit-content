@@ -18,12 +18,13 @@ export default config({
 	ui: {
 		brand: { name: 'Astrokit Keystatic' },
 		navigation: {
-			Content: ['posts', 'pages'],
+			Content: ['posts', 'pages', 'categories'],
 			Settings: ['site', 'tags', 'navigation']
 		}
 	},
 
 	// CONTENT COLLECTIONS
+
 	collections: {
 		// POSTS COLLECTION
 		posts: collection({
@@ -74,16 +75,21 @@ export default config({
 						isRequired: true
 					}
 				}),
-				category: fields.text({
+				category: fields.relationship({
 					label: 'Category',
-					validation: {
-						isRequired: true,
-						length: {
-							min: 3,
-							max: 125
-						}
-					}
+					// description: 'The country this person lives in',
+					collection: 'categories',
 				}),
+				// category: fields.text({
+				// 	label: 'Category',
+				// 	validation: {
+				// 		isRequired: true,
+				// 		length: {
+				// 			min: 3,
+				// 			max: 125
+				// 		}
+				// 	}
+				// }),
 				tags: fields.array(fields.text({ label: 'Tag' }), {
 					label: 'Tag',
 					itemLabel: (props) => props.value
@@ -225,10 +231,52 @@ export default config({
 					}
 				})
 			}
+		}),
+
+		// CATEGORIES COLLECTION
+		categories: collection({
+			label: 'Categories',
+			slugField: 'title',
+			columns: ['title'],
+			path: 'src/content/categories/*',
+			previewUrl: `/categories/{slug}`,
+			entryLayout: 'form',
+			format: { contentField: 'content' },
+			// format: { contentField: 'description' },
+			schema: {
+				title: fields.slug({
+					name: {
+						label: 'Title',
+						validation: {
+							isRequired: true
+						}
+					}
+				}),
+				description: fields.text({
+					label: 'Description',
+					multiline: true,
+					validation: {
+						isRequired: true
+					}
+				}),
+				content: fields.mdx({
+					label: 'Content',
+					options: {
+						// divider: true,
+						// link: true,
+						// image: {
+						// 	directory: 'src/assets/images/pages',
+						// 	publicPath: '../../assets/images/pages/'
+						// }
+					}
+				})
+
+			}
 		})
 	},
 
 	// SETTINGS SINGLETONS
+
 	singletons: {
 		// SITE SINGLETON
 		site: singleton({

@@ -1,10 +1,9 @@
 ---
 import site from '@/data/site'
 import { getDay, getMonth } from '@/utils/content'
-import { slugifyStr } from '@/utils/slugify'
 import type { HTMLAttributes } from 'astro/types'
 import { getImage } from 'astro:assets'
-import type { CollectionEntry } from 'astro:content'
+import { getEntry, type CollectionEntry } from 'astro:content'
 import Link from './Link.astro'
 
 interface Props extends HTMLAttributes<'article'> {
@@ -21,6 +20,10 @@ const optimizedBackground = await getImage({
 	width: featured ? 1200 : 600,
 	quality: 85
 })
+
+const relatedCategory = await getEntry(post.data.category)
+
+// console.dir(relatedCategory)
 ---
 
 <article
@@ -36,8 +39,8 @@ const optimizedBackground = await getImage({
 	>
 	</div>
 	<div class="absolute left-0 right-0 top-0 mx-5 mt-2 flex items-center justify-between">
-		<Link href={`/${site.urls.category}/${slugifyStr(post.data.category)}`} size="sm" intent="tag"
-			>{post.data.category}
+		<Link href={`/${site.urls.category}/${relatedCategory.slug}`} size="sm" intent="tag"
+			>{relatedCategory.data.title}
 		</Link>
 		<div class="font-regular flex flex-col justify-start text-white">
 			<span class="leading-0 text-3xl font-semibold drop-shadow-md">{getDay(post.data.date)}</span>

@@ -3,11 +3,13 @@ import Categories from '@/components/Categories.astro'
 import Section from '@/components/ui/Section.astro'
 import Title from '@/components/ui/Title.astro'
 import Layout from '@/layouts/Layout.astro'
-import getUniqueCategories from '@/utils/getUniqueCategories'
 import { getCollection } from 'astro:content'
 
-const posts = await getCollection('posts')
-let categories = getUniqueCategories(posts)
+// const posts = await getCollection('posts')
+// let categories = getUniqueCategories(posts)
+// let categories = await getCategories()
+const categories = await getCollection('categories')
+// console.dir(categories)
 ---
 
 <Layout seo={{ title: 'Categories' }}>

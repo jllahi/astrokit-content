@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content'
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content'
 // import { YouTube } from 'astro-embed'
 import Prose from '@/components/Prose.astro'
 import SocialShare from '@/components/SocialShare.astro'
@@ -14,7 +14,6 @@ import DateFormat from '@/components/utils/DateFormat.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
 import postFilter from '@/utils/postFilter'
-import { slugifyStr } from '@/utils/slugify'
 
 export async function getStaticPaths() {
 	const posts = (await getCollection('posts')).filter(postFilter)
@@ -31,6 +30,9 @@ interface Props {
 
 const { post } = Astro.props
 const { Content, headings } = await post.render()
+
+const category = await getEntry(post.data.category)
+console.dir(category)
 ---
 
 <Layout
@@ -81,12 +83,8 @@ const { Content, headings } = await post.render()
 			<DateFormat date={post.data.date} />
 			<!-- <span>Reading time: {post.data.reading}</span> -->
 			<div class="my-4 flex-wrap place-items-center gap-3 p-0 md:flex">
-				<Link
-					size="sm"
-					intent="tag"
-					href={`/${site.urls.category}/${slugifyStr(post.data.category)}`}
-				>
-					{post.data.category}
+				<Link size="sm" intent="tag" href={`/${site.urls.category}/${category.slug}`}>
+					{category.data.title}
 				</Link>
 
 				<Tags tags={post.data.tags} size="sm" intent="tag" />
