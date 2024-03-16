@@ -3,12 +3,11 @@ import Categories from '@/components/Categories.astro'
 import Section from '@/components/ui/Section.astro'
 import Title from '@/components/ui/Title.astro'
 import Layout from '@/layouts/Layout.astro'
-import { getCollection } from 'astro:content'
 
 // const posts = await getCollection('posts')
 // let categories = getUniqueCategories(posts)
 // let categories = await getCategories()
-const categories = await getCollection('categories')
+// const categories = await getCollection('categories')
 // console.dir(categories)
 ---
 
@@ -16,7 +15,7 @@ const categories = await getCollection('categories')
 	<main>
 		<Section>
 			<Title>Categories</Title>
-			<Categories {categories} size="lg" />
+			<Categories size="lg" />
 		</Section>
 	</main>
 </Layout>

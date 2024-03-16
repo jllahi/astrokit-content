@@ -99,4 +99,4 @@ const navigation = defineCollection({
 //   }),
 // })
 
-export const collections = { posts, pages, navigation }
+export const collections = { posts, pages, categories, navigation }

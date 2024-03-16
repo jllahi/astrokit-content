@@ -78,7 +78,7 @@ export default config({
 				category: fields.relationship({
 					label: 'Category',
 					// description: 'The country this person lives in',
-					collection: 'categories',
+					collection: 'categories'
 				}),
 				// category: fields.text({
 				// 	label: 'Category',
@@ -270,7 +270,6 @@ export default config({
 						// }
 					}
 				})
-
 			}
 		})
 	},

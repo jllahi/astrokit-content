@@ -101,21 +101,21 @@ export function getAllTags(posts: CollectionEntry<'posts'>[]) {
 		})
 }
 
-export function getAllCategories(posts: CollectionEntry<'posts'>[]) {
-	const categories: string[] = [
-		...new Set(posts.flatMap((post) => post.data.category!).filter(Boolean))
-	]
-	return categories
-		.map((category) => {
-			return {
-				name: category,
-				slug: slugify(category)
-			}
-		})
-		.filter((obj, pos, arr) => {
-			return arr.map((mapObj) => mapObj.slug).indexOf(obj.slug) === pos
-		})
-}
+// export function getAllCategories(posts: CollectionEntry<'posts'>[]) {
+// 	const categories: string[] = [
+// 		...new Set(posts.flatMap((post) => post.data.category!).filter(Boolean))
+// 	]
+// 	return categories
+// 		.map((category) => {
+// 			return {
+// 				name: category,
+// 				slug: slugify(category)
+// 			}
+// 		})
+// 		.filter((obj, pos, arr) => {
+// 			return arr.map((mapObj) => mapObj.slug).indexOf(obj.slug) === pos
+// 		})
+// }
 
 export function getPostsByTag(posts: CollectionEntry<'posts'>[], tagSlug: string) {
 	const filteredPosts: CollectionEntry<'posts'>[] = posts.filter((post) =>
@@ -128,7 +128,9 @@ export async function getPostsByCategory(category: string) {
 	const posts = (await getCollection('posts'))
 		.filter(
 			(post) =>
-				post.data.category === category && post.data.draft !== undefined && !import.meta.env.DEV
+				post.data.category.slug === category &&
+				post.data.draft !== undefined &&
+				!import.meta.env.DEV
 		)
 		// .filter(
 		// 	(post) =>
