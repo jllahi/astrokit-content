@@ -13,9 +13,10 @@ const getUniqueCategories = (posts: CollectionEntry<'posts'>[]) => {
 		.flatMap((post) => post.data.category)
 		.map((category) => ({ category: slugifyStr(category), categoryName: category }))
 		.filter(
-			(value, index, self) => self.findIndex((tag) => tag.category === value.category) === index
+			(value, index, self) =>
+				self.findIndex((category) => category.category === value.category) === index
 		)
-		.sort((tagA, tagB) => tagA.category.localeCompare(tagB.category))
+		.sort((categoryA, categoryB) => categoryA.category.localeCompare(categoryB.category))
 	return categories
 }
 

@@ -20,9 +20,9 @@ export default config({
 	ui: {
 		brand: { name: 'Astrokit Keystatic' },
 		navigation: {
-			Content: ["posts", "pages"],
-			Settings: ["site", "tags", "navigation"],
-		},
+			Content: ['posts', 'pages'],
+			Settings: ['site', 'tags', 'navigation']
+		}
 	},
 	// CONTENT COLLECTIONS
 	collections: {
@@ -33,7 +33,7 @@ export default config({
 			path: 'src/content/posts/*',
 			format: { contentField: 'content' },
 			entryLayout: 'content',
-			columns: ['date'],
+			columns: ['title', 'date'],
 			// biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
 			previewUrl: `/posts/{slug}`,
 			schema: {
@@ -109,6 +109,26 @@ export default config({
 						}
 					},
 					components: {
+						// Image: block({
+						// 	label: 'Image',
+						// 	ContentView: (props) => (
+						// 		<Image src={props.value.src} alt={props.value.alt} />
+						// 	),
+						// 	schema: {
+						// 		src: fields.text({
+						// 			label: 'Source',
+						// 			validation: {
+						// 				isRequired: true
+						// 			}
+						// 		}),
+						// 		alt: fields.text({
+						// 			label: 'Text alternative',
+						// 			validation: {
+						// 				isRequired: true
+						// 			}
+						// 		}),
+						// 	}
+						// }),
 						YouTube: block({
 							label: 'YouTube video',
 							ContentView: (props) => (
@@ -126,7 +146,7 @@ export default config({
 									validation: {
 										isRequired: true
 									}
-								}),
+								})
 							}
 						}),
 						Spotify: block({
@@ -146,7 +166,7 @@ export default config({
 									validation: {
 										isRequired: true
 									}
-								}),
+								})
 							}
 						})
 						// Testimonial: wrapper({
@@ -172,114 +192,115 @@ export default config({
 		}),
 		// PAGES COLLECTION
 		pages: collection({
-			label: "Pages",
-			slugField: "title",
-			path: "src/content/pages/*",
+			label: 'Pages',
+			slugField: 'title',
+			columns: ['title'],
+			path: 'src/content/pages/*',
 			// biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
 			previewUrl: `/{slug}`,
-			entryLayout: "content",
-			format: { contentField: "content" },
+			entryLayout: 'content',
+			format: { contentField: 'content' },
 			schema: {
 				title: fields.slug({
 					name: {
-						label: "Title",
+						label: 'Title',
 						validation: {
-							isRequired: true,
+							isRequired: true
 						}
 					}
 				}),
 				description: fields.text({
-					label: "Description",
+					label: 'Description',
 					validation: {
-						isRequired: true,
+						isRequired: true
 					}
 				}),
 				content: fields.mdx({
-					label: "Content",
+					label: 'Content',
 					options: {
 						divider: true,
 						link: true,
 						image: {
-							directory: "src/assets/images/pages",
-							publicPath: "../../assets/images/pages/",
-						},
-					},
-				}),
-			},
-		}),
+							directory: 'src/assets/images/pages',
+							publicPath: '../../assets/images/pages/'
+						}
+					}
+				})
+			}
+		})
 	},
 	// SETTINGS SINGLETONS
 	singletons: {
 		// SITE SINGLETON
 		site: singleton({
-			label: "Site",
-			path: "src/data/site",
-			format: { data: "json" },
+			label: 'Site',
+			path: 'src/data/site',
+			format: { data: 'json' },
 			schema: {
 				title: fields.text({
-					label: "Title",
+					label: 'Title',
 					validation: {
-						isRequired: true,
+						isRequired: true
 					}
 				}),
 				description: fields.text({
-					label: "Description",
+					label: 'Description',
 					validation: {
-						isRequired: true,
+						isRequired: true
 					}
 				}),
 				image: fields.image({
-					label: "Image",
-					description: "Image used for SEO",
-					directory: "src/assets/images/site",
+					label: 'Image',
+					description: 'Image used for SEO',
+					directory: 'src/assets/images/site',
 					validation: {
-						isRequired: true,
+						isRequired: true
 					}
-				}),
-			},
+				})
+			}
 		}),
 		// TAGS POSTS SINGLETON
 		tags: singleton({
-			label: "Tags",
-			path: "src/data/tags",
-			format: { data: "json" },
+			label: 'Tags',
+			path: 'src/data/tags',
+			format: { data: 'json' },
 			schema: {
 				tags: fields.array(
 					fields.text({
-						label: "Post Tag",
+						label: 'Post Tag',
 						validation: {
-							isRequired: true,
+							isRequired: true
 						}
 					}),
 					// Labelling options
 					{
-						label: "Tags for posts",
-						itemLabel: (props) => props.value,
-					},
-				),
-			},
+						label: 'Tags for posts',
+						itemLabel: (props) => props.value
+					}
+				)
+			}
 		}),
 		// NAVIGATION SINGLETON
 		navigation: singleton({
-			label: "Navigation",
-			path: "src/content/navigation/main",
-			format: { data: "json" },
+			label: 'Navigation',
+			path: 'src/content/navigation/main',
+			format: { data: 'json' },
 			schema: {
 				mainNav: fields.array(
 					fields.object({
 						name: fields.text({
-							label: "Name",
-							description: "Usually the name of the link",
+							label: 'Name',
+							description: 'Usually the name of the link',
 							validation: {
-								isRequired: true,
+								isRequired: true
 							}
 						}),
 						url: fields.url({
-							label: "URL",
+							label: 'URL',
 							validation: {
-								isRequired: true,
+								isRequired: true
 							}
-						}),
+						})
 						// projects: fields.array(
 						// 	fields.relationship({
 						// 		label: 'Posts',
@@ -296,12 +317,12 @@ export default config({
 					}),
 					// Labelling options
 					{
-						label: "Main Navigation",
-						itemLabel: (props) => props.fields.name.value,
+						label: 'Main Navigation',
+						itemLabel: (props) => props.fields.name.value
 					}
-				),
-			},
-		}),
+				)
+			}
+		})
 		// NAVIGATION SINGLETON
 		// navigationFooter: singleton({
 		// 	label: "Footer Navigation",

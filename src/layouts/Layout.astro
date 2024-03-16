@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import ThemeInit from '@/components/theme/ThemeInit.astro'
@@ -7,7 +8,6 @@ import { site } from '@/data/site'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/montserrat'
 import { SEO, type Props as SEOProps } from 'astro-seo'
-import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
 	seo?: SEOProps

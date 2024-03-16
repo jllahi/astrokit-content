@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content'
-
 import Prose from '@/components/Prose.astro'
-import Spotify from '@/components/embed/SpotifyKeystatic'
+import TableContents from '@/components/TableContents.astro'
+import { componentsEmbed } from '@/components/embed/ComponentsEmbed'
 import Article from '@/components/ui/Article.astro'
 import Title from '@/components/ui/Title.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
 	const pages = await getCollection('pages')
@@ -16,8 +16,6 @@ export async function getStaticPaths() {
 		props: { page }
 	}))
 }
-// type Props = CollectionEntry<'posts'>
-// const post: CollectionEntry<'blog'> = Astro.props.post
 
 const { page } = Astro.props
 const { Content, headings } = await page.render()
@@ -38,60 +36,17 @@ const { Content, headings } = await page.render()
 >
 	<Article>
 		<header>
-			<!-- {
-				post.data.category && (
-					<Link
-						size={'lg'}
-						style={'inverted'}
-						href={`/${site.urls.category}/${slugifyStr(post.data.category)}`}
-						class="my-14"
-					>
-						{post.data.category}
-					</Link>
-				)
-			} -->
 			<Title transition:name={`post-title-${page.data.title}`}>
 				{page.data.title}
 			</Title>
 			<p class="mb-8 text-xl">{page.data.description}</p>
 		</header>
 
-		<!-- <Picture
-			alt={post.data.title}
-			src={post.data.image}
-			class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
-			transition:name={`post-image-${post.id}`}
-			loading="eager"
-			formats={['webp']}
-			widths={[540, 780, 1020]}
-			quality={85}
-		/> -->
-		<!-- <Image
-			alt={post.data.title}
-			src={post.data.image}
-			class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
-			width="720"
-			transition:name={`post-image-${post.data.title}`}
-			loading="eager"
-		/> -->
-
-		<!-- <div class="my-2 flex flex-col justify-between md:flex-row">
-			<Date date={page.data.date} />
-		<Tags tags={page.data.tags} size="sm" intent="tag" />
-	</Article> -->
-
 		<Prose>
-			<!-- <TableContents {headings} /> -->
-			<Content components={{ Spotify }} />
+			<TableContents {headings} />
+			<Content components={componentsEmbed} />
 		</Prose>
 
 		<!-- <SocialShare description={page.data.description} title={page.data.title} via="AstroKit" /> -->
 	</Article>
-	<!-- <Section>
-		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
-	</Section> -->
-	<!-- <Section>
-		<h2>Related</h2>
-		<PostListCategory category={post.data.category} />
-	</Section> -->
 </Layout>

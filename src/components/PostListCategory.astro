@@ -11,7 +11,6 @@ interface Props {
 const { category } = Astro.props
 const posts = await getCollection('posts')
 const filteredPosts = getPostsByCategory(posts, category)
-console.dir(posts)
 ---
 
 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

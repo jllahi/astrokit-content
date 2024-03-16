@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content'
 import Link from '@/components/ui/Link.astro'
+import { getCollection } from 'astro:content'
 // import { navigation as navigationData } from '@/data/navigation'
 // import { mainNav as navigationData } from '@/data/navigation.json'
 import type { HTMLAttributes } from 'astro/types'
-import { type VariantProps, tv } from 'tailwind-variants'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 // interface Props extends HTMLAttributes<'a'> {
 // interface Props {
@@ -60,6 +60,8 @@ const mainNav = navigationData[0].data.mainNav
 							href={item.url}
 							size={size}
 							intent={intent === 'vertical' ? 'inverted' : 'primary'}
+							title={item.name}
+							aria-label={item.name}
 						>
 							{item.name}
 						</Link>

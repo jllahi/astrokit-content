@@ -1,16 +1,16 @@
 {
-  "mainNav": [
-    {
-      "name": "About us",
-      "url": "/about"
-    },
-    {
-      "name": "Blog",
-      "url": "/posts"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
-    }
-  ]
+	"mainNav": [
+		{
+			"name": "About us",
+			"url": "/about"
+		},
+		{
+			"name": "Blog",
+			"url": "/posts"
+		},
+		{
+			"name": "Contact",
+			"url": "/contact"
+		}
+	]
 }

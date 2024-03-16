@@ -1,10 +1,11 @@
 ---
 // import type { HTMLAttributes } from 'astro/types'
-import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 import Card from './Card.astro'
 
 interface Props {
-	posts: CollectionEntry<ContentCollectionKey>[]
+	// posts: CollectionEntry<ContentCollectionKey>[]
+	posts: CollectionEntry<'posts'>[]
 }
 
 const { posts } = Astro.props

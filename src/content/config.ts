@@ -21,9 +21,9 @@ const posts = defineCollection({
 			category: z.string(), // .optional(),
 			tags: z.array(z.string()).default([]), // optional(),
 			draft: z.boolean().optional(),
-			featured: z.boolean().optional(),
+			featured: z.boolean().optional()
 			// author: z.string().default(SITE.author),
-			reading: z.string().optional()
+			// reading: z.string().optional()
 		})
 })
 

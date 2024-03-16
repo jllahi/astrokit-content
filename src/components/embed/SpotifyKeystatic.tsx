@@ -14,7 +14,6 @@ export default function SpotifyKeystatic({ title, playlist, height = 372 }: Prop
 			height={height}
 			allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 			loading="lazy"
-		>
-		</iframe>
+		></iframe>
 	)
 }
