@@ -50,9 +50,9 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 [] prefers-color-scheme
 [] mobile menu
-[] card image clickable
+[X] card image clickable
 [] remove astro-embed
-[] mobile height 100%
+[X] mobile height 100%
 [] search
 [] photo gallery
 [] suscribe

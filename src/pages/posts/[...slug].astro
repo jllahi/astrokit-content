@@ -32,7 +32,6 @@ const { post } = Astro.props
 const { Content, headings } = await post.render()
 
 const category = await getEntry(post.data.category)
-console.dir(category)
 ---
 
 <Layout
@@ -98,9 +97,6 @@ console.dir(category)
 
 		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
 	</Article>
-	<!-- <Section>
-		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
-	</Section> -->
 	<!-- <Section>
 		<h2>Related</h2>
 		<PostListCategory category={post.data.category} />
