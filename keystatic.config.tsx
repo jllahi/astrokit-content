@@ -6,16 +6,14 @@ import { block } from '@keystatic/core/content-components'
 // const isDev = import.meta.env.DEV
 
 export default config({
-	// storage: isDev
-	// 	? { kind: 'local' }
-	// 	: {
-	// 		kind: 'github',
-	// 		repo: { owner: 'jllahi', name: 'astrokit-content' },
-	// 		branchPrefix: 'keystatic/'
-	// 	},
-	storage: {
-		kind: 'local'
-	},
+	storage: import.meta.env.DEV
+		? { kind: 'local' }
+		: {
+			kind: 'github',
+			repo: { owner: 'jllahi', name: 'astrokit-content' },
+			branchPrefix: 'keystatic/'
+		},
+
 	// KEYSTATIC UI
 	ui: {
 		brand: { name: 'Astrokit Keystatic' },
@@ -24,6 +22,7 @@ export default config({
 			Settings: ['site', 'tags', 'navigation']
 		}
 	},
+
 	// CONTENT COLLECTIONS
 	collections: {
 		// POSTS COLLECTION
@@ -34,7 +33,6 @@ export default config({
 			format: { contentField: 'content' },
 			entryLayout: 'content',
 			columns: ['title', 'date'],
-			// biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
 			previewUrl: `/posts/{slug}`,
 			schema: {
 				title: fields.slug({
@@ -109,10 +107,10 @@ export default config({
 						}
 					},
 					components: {
-						// Image: block({
-						// 	label: 'Image',
+						// Gallery: block({
+						// 	label: 'Gallery',
 						// 	ContentView: (props) => (
-						// 		<Image src={props.value.src} alt={props.value.alt} />
+						// 		<Gallery src={props.value.src} alt={props.value.alt} />
 						// 	),
 						// 	schema: {
 						// 		src: fields.text({
@@ -190,13 +188,13 @@ export default config({
 				// }),
 			}
 		}),
+
 		// PAGES COLLECTION
 		pages: collection({
 			label: 'Pages',
 			slugField: 'title',
 			columns: ['title'],
 			path: 'src/content/pages/*',
-			// biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
 			previewUrl: `/{slug}`,
 			entryLayout: 'content',
 			format: { contentField: 'content' },
@@ -229,6 +227,7 @@ export default config({
 			}
 		})
 	},
+
 	// SETTINGS SINGLETONS
 	singletons: {
 		// SITE SINGLETON
@@ -259,6 +258,7 @@ export default config({
 				})
 			}
 		}),
+
 		// TAGS POSTS SINGLETON
 		tags: singleton({
 			label: 'Tags',
@@ -280,6 +280,7 @@ export default config({
 				)
 			}
 		}),
+
 		// NAVIGATION SINGLETON
 		navigation: singleton({
 			label: 'Navigation',
@@ -323,40 +324,5 @@ export default config({
 				)
 			}
 		})
-		// NAVIGATION SINGLETON
-		// navigationFooter: singleton({
-		// 	label: "Footer Navigation",
-		// 	path: "src/content/navigation/footer",
-		// 	format: { data: "json" },
-		// 	schema: {
-		// 		footerNav: fields.array(
-		// 			fields.object({
-		// 				name: fields.text({
-		// 					label: "Name",
-		// 					description: "Usually the name of the link",
-		// 				}),
-		// 				url: fields.url({ label: "URL" }),
-		// 				// projects: fields.array(
-		// 				// 	fields.relationship({
-		// 				// 		label: 'Posts',
-		// 				// 		collection: 'posts',
-		// 				// 		validation: {
-		// 				// 			isRequired: true,
-		// 				// 		},
-		// 				// 	}),
-		// 				// 	{
-		// 				// 		label: 'Posts',
-		// 				// 		itemLabel: (props) => props.value ?? 'Select a post',
-		// 				// 	}
-		// 				// ),
-		// 			}),
-		// 			// Labelling options
-		// 			{
-		// 				label: "Footer Navigation",
-		// 				itemLabel: (props) => props.fields.name.value,
-		// 			}
-		// 		),
-		// 	},
-		// }),
 	}
 })
