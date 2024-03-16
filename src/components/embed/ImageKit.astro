@@ -31,7 +31,7 @@ const { src, alt, loading = 'lazy', ...attrs } = Astro.props
 	{src}
 	class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
 	transition:name={`image-${src}`}
-	loading="lazy"
+	{loading}
 	formats={['webp']}
 	widths={[540, 780, 1020]}
 	quality={88}
