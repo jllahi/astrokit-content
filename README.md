@@ -49,10 +49,17 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 ## TODO
 
 [] prefers-color-scheme
-[] mobile menu
+[X] mobile menu
+[X] sitemap
+[X] robots
+[X] tailwind
+[X] seo
+[X] mdx
+[X] react
+[X] vercel analytics
 [X] card image clickable
-[] remove astro-embed
 [X] mobile height 100%
+[] remove astro-embed
 [] search
 [] photo gallery
 [] suscribe
