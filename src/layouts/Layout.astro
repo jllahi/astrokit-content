@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import ThemeInit from '@/components/theme/ThemeInit.astro'
@@ -8,6 +7,7 @@ import { site } from '@/data/site'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/montserrat'
 import { SEO, type Props as SEOProps } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
 	seo?: SEOProps
@@ -44,7 +44,7 @@ const { seo } = Astro.props
 			// 	'[&_*]:outline [&_*]:outline-1 [&_*]:outline-red-300':
 			// 		process.env.NODE_ENV === 'development'
 			// },
-			'container mx-auto flex h-screen flex-col items-start justify-between p-6 font-sans transition-all duration-300 lg:p-10',
+			'container mx-auto flex h-dvh flex-col items-start justify-between p-6 font-sans transition-all duration-300 lg:p-10',
 			'bg-color-white text-color-black',
 			'dark:bg-color-black dark:text-color-white'
 		]}
