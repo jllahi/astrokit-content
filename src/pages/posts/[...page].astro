@@ -1,18 +1,19 @@
 ---
 // https://docs.astro.build/en/guides/content-collections/#generating-routes-from-content
-import { type GetStaticPaths, type Page } from 'astro'
-import { type CollectionEntry, getCollection } from 'astro:content'
+import type { GetStaticPaths, Page } from 'astro'
+import { getCollection, type CollectionEntry } from 'astro:content'
 
+import PostList from '@/components/PostList.astro'
+import Section from '@/components/ui/Section.astro'
+import Title from '@/components/ui/Title.astro'
 import Pagination from '@/components/utils/Pagination.astro'
+import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
 import { filterContent } from '@/utils/content'
-import PostList from '@/components/PostList.astro'
-import Title from '@/components/ui/Title.astro'
-import Section from '@/components/ui/Section.astro'
-import site from '@/data/site'
+import postFilter from '@/utils/postFilter'
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-	const posts = await getCollection('posts')
+	const posts = (await getCollection('posts')).filter(postFilter)
 	const filteredPosts = filterContent(posts)
 
 	return paginate(filteredPosts, { pageSize: site.pagination })

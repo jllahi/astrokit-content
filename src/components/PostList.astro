@@ -1,9 +1,10 @@
 ---
 import Card from '@/components/ui/Card.astro'
-import type { CollectionEntry, ContentCollectionKey } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 
 interface Props {
-	posts: CollectionEntry<ContentCollectionKey>[]
+	// posts: CollectionEntry<ContentCollectionKey>[]
+	posts: CollectionEntry<'posts'>[]
 }
 
 const { posts } = Astro.props

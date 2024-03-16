@@ -1,0 +1,67 @@
+---
+import Link from '@/components/ui/Link.astro'
+import { navigation as navigationData } from '@/data/navigation'
+import type { NavigationMenu } from '@/data/types'
+import type { HTMLAttributes } from 'astro/types'
+import { tv, type VariantProps } from 'tailwind-variants'
+
+// interface Props extends HTMLAttributes<'a'> {
+// interface Props {
+// 	block?: boolean
+// 	class?: string
+// 	// size?: 'md' | 'lg'
+// 	style?: 'horizontal' | 'vertical'
+// }
+
+export const navigation = tv({
+	base: 'transition-all duration-300 ease-in-out place-content-center p-1 font-logo uppercase flex gap-4',
+	variants: {
+		intent: {
+			horizontal: 'flex-row uppercase font-heading font-medium',
+			vertical: 'flex-col font-black text-4xl uppercase font-heading mt-10 gap-10'
+		},
+		size: {
+			sm: 'pb-1 px-2 text-xs',
+			md: 'pb-1 px-2 text-base',
+			lg: 'py-2 px-3 text-xl'
+		}
+	},
+	defaultVariants: {
+		size: 'md',
+		intent: 'horizontal'
+	}
+	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
+})
+
+// const {
+// 	// size = 'md',
+// 	style = 'horizontal',
+// 	// block,
+// 	class: className,
+// 	...rest
+// } = Astro.props
+
+export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof navigation> {}
+
+const { intent, size, class: className, ...rest } = Astro.props
+---
+
+{
+	navigationData && (
+		<nav>
+			<ul class={navigation({ intent, size, className })} data-name="ui-navigation" {...rest}>
+				{navigationData.map((item: NavigationMenu) => (
+					<li>
+						<Link
+							href={item.path}
+							size={size}
+							intent={intent === 'vertical' ? 'inverted' : 'primary'}
+						>
+							{item.title}
+						</Link>
+					</li>
+				))}
+			</ul>
+		</nav>
+	)
+}

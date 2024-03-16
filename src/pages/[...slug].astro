@@ -1,0 +1,52 @@
+---
+import Prose from '@/components/Prose.astro'
+import TableContents from '@/components/TableContents.astro'
+import { componentsEmbed } from '@/components/embed/ComponentsEmbed'
+import Article from '@/components/ui/Article.astro'
+import Title from '@/components/ui/Title.astro'
+import site from '@/data/site'
+import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+	const pages = await getCollection('pages')
+
+	return pages.map((page) => ({
+		params: { slug: page.slug },
+		props: { page }
+	}))
+}
+
+const { page } = Astro.props
+const { Content, headings } = await page.render()
+---
+
+<Layout
+	seo={{
+		title: page.data.title,
+		description: page.data.description ?? site.description
+		// openGraph: {
+		// 	basic: {
+		// 		title: page.data.title,
+		// 		type: 'article',
+		// 		image: page.data.image.src
+		// 	}
+		// }
+	}}
+>
+	<Article>
+		<header>
+			<Title transition:name={`post-title-${page.data.title}`}>
+				{page.data.title}
+			</Title>
+			<p class="mb-8 text-xl">{page.data.description}</p>
+		</header>
+
+		<Prose>
+			<TableContents {headings} />
+			<Content components={componentsEmbed} />
+		</Prose>
+
+		<!-- <SocialShare description={page.data.description} title={page.data.title} via="AstroKit" /> -->
+	</Article>
+</Layout>

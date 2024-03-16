@@ -8,7 +8,8 @@ interface Props {
 	via?: string
 }
 
-const { url = Astro.request.url, title, description, via } = Astro.props
+// const { url = Astro.request.url, title, description, via } = Astro.props
+const { url = Astro.request.url, title, description } = Astro.props
 
 let urlW = `whatsapp://send?text=`
 let urlX = `https://twitter.com/intent/tweet?url=${url}`

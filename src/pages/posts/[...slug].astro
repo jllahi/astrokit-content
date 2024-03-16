@@ -1,27 +1,33 @@
 ---
-import { getCollection } from 'astro:content'
-
+import { getCollection, type CollectionEntry } from 'astro:content'
+// import { YouTube } from 'astro-embed'
+import Prose from '@/components/Prose.astro'
 import SocialShare from '@/components/SocialShare.astro'
 import TableContents from '@/components/TableContents.astro'
 import Tags from '@/components/Tags.astro'
-import Spotify from '@/components/embed/Spotify.astro'
+import { componentsEmbed } from '@/components/embed/ComponentsEmbed'
+import ImageKit from '@/components/embed/ImageKit.astro'
 import Article from '@/components/ui/Article.astro'
+import Link from '@/components/ui/Link.astro'
 import Title from '@/components/ui/Title.astro'
-import Date from '@/components/utils/Date.astro'
+import DateFormat from '@/components/utils/DateFormat.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
-import { Picture } from 'astro:assets'
+import postFilter from '@/utils/postFilter'
+import { slugifyStr } from '@/utils/slugify'
 
 export async function getStaticPaths() {
-	const posts = await getCollection('posts')
+	const posts = (await getCollection('posts')).filter(postFilter)
 
 	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: { post }
 	}))
 }
-// type Props = CollectionEntry<'posts'>
-// const post: CollectionEntry<'blog'> = Astro.props.post
+
+interface Props {
+	post: CollectionEntry<'posts'>
+}
 
 const { post } = Astro.props
 const { Content, headings } = await post.render()
@@ -42,34 +48,26 @@ const { Content, headings } = await post.render()
 >
 	<Article>
 		<header>
-			<!-- {
-				post.data.category && (
-					<Link
-						size={'lg'}
-						style={'inverted'}
-						href={`/${site.urls.category}/${slugifyStr(post.data.category)}`}
-						class="my-14"
-					>
-						{post.data.category}
-					</Link>
-				)
-			} -->
 			<Title transition:name={`post-title-${post.data.title}`}>
 				{post.data.title}
 			</Title>
 			<p class="mb-8 text-xl">{post.data.description}</p>
 		</header>
 
+		<ImageKit src={post.data.image} alt={post.data.title} loading="eager" />
+
+		<!-- 
 		<Picture
 			alt={post.data.title}
 			src={post.data.image}
 			class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
 			transition:name={`post-image-${post.id}`}
 			loading="eager"
-			formats={['avif', 'webp']}
+			formats={['webp']}
 			widths={[540, 780, 1020]}
-			quality={99}
+			quality={88}
 		/>
+-->
 		<!-- <Image
 			alt={post.data.title}
 			src={post.data.image}
@@ -80,20 +78,26 @@ const { Content, headings } = await post.render()
 		/> -->
 
 		<div class="my-2 flex flex-col justify-between md:flex-row">
-			<Date date={post.data.date} />
+			<DateFormat date={post.data.date} />
 			<!-- <span>Reading time: {post.data.reading}</span> -->
-			<Tags tags={post.data.tags} size="sm" intent="tag" />
-		</div>
+			<div class="my-4 flex-wrap place-items-center gap-3 p-0 md:flex">
+				<Link
+					size="sm"
+					intent="tag"
+					href={`/${site.urls.category}/${slugifyStr(post.data.category)}`}
+				>
+					{post.data.category}
+				</Link>
 
-		<div
-			class:list={[
-				'prose-lg prose-gray text-pretty prose-blockquote:border-l-8 prose-img:rounded prose-img:bg-gray-200',
-				'dark:prose-h2:text-color-white dark:prose-a:text-color-white dark:prose-blockquote:border-l-color-black dark:prose-blockquote:text-color-white dark:prose-img:bg-gray-800'
-			]}
-		>
-			<TableContents {headings} />
-			<Content components={{ Spotify }} />
+				<Tags tags={post.data.tags} size="sm" intent="tag" />
+			</div>
 		</div>
+		<Prose>
+			<TableContents {headings} />
+			<!-- <Content components={{ img: ImageKit, YouTube, Spotify }} /> -->
+			<Content components={componentsEmbed} />
+		</Prose>
+
 		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
 	</Article>
 	<!-- <Section>

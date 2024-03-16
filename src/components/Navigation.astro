@@ -1,7 +1,8 @@
 ---
 import Link from '@/components/ui/Link.astro'
-import { navigation as navigationData } from '@/data/navigation'
-import type { NavigationMenu } from '@/data/types'
+import { getCollection } from 'astro:content'
+// import { navigation as navigationData } from '@/data/navigation'
+// import { mainNav as navigationData } from '@/data/navigation.json'
 import type { HTMLAttributes } from 'astro/types'
 import { tv, type VariantProps } from 'tailwind-variants'
 
@@ -44,20 +45,25 @@ export const navigation = tv({
 export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof navigation> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
+
+const navigationData = await getCollection('navigation')
+const mainNav = navigationData[0].data.mainNav
 ---
 
 {
-	navigationData && (
+	mainNav && (
 		<nav>
 			<ul class={navigation({ intent, size, className })} data-name="ui-navigation" {...rest}>
-				{navigationData.map((item: NavigationMenu) => (
+				{mainNav.map((item) => (
 					<li>
 						<Link
-							href={item.path}
+							href={item.url}
 							size={size}
 							intent={intent === 'vertical' ? 'inverted' : 'primary'}
+							title={item.name}
+							aria-label={item.name}
 						>
-							{item.title}
+							{item.name}
 						</Link>
 					</li>
 				))}

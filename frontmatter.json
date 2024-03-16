@@ -8,7 +8,7 @@
 	"frontMatter.framework.startCommand": "pnpm run dev",
 	"frontMatter.content.supportedFileTypes": ["md", "mdx"],
 	"frontMatter.content.defaultFileType": "mdx",
-	"frontMatter.dashboard.openOnStart": true,
+	"frontMatter.dashboard.openOnStart": false,
 	"frontMatter.content.publicFolder": {
 		"path": "[[workspace]]/src/assets/images",
 		"relative": true

@@ -1,9 +1,10 @@
 import site from '@/data/site'
-import { getCollection, type CollectionEntry, type ContentCollectionKey } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 
 // export function filterContent<items>(
 export function filterContent(
-	items: CollectionEntry<ContentCollectionKey>[],
+	// items: CollectionEntry<ContentCollectionKey>[],
+	items: CollectionEntry<'posts'>[],
 	{
 		filterOutDrafts = true,
 		filterOutFuture = true,
@@ -23,7 +24,7 @@ export function filterContent(
 		if (filterOutDrafts && draft && !import.meta.env.DEV) return false
 
 		// filterOutFuturePosts if true
-		if (filterOutFuture && new Date(date) > new Date()) return false
+		if (filterOutFuture && date && new Date(date) > new Date()) return false
 
 		return true
 	})
