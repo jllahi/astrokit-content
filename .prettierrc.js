@@ -1,7 +1,5 @@
-// import standardConfig from 'prettier-config-standard'
 /** @type {import("prettier").Config} */
 export default {
-	// ...standardConfig,
 	useTabs: true,
 	tabWidth: 2,
 	singleQuote: true,

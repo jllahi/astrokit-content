@@ -9,10 +9,10 @@ export default config({
 	storage: import.meta.env.DEV
 		? { kind: 'local' }
 		: {
-				kind: 'github',
-				repo: { owner: 'jllahi', name: 'astrokit-content' },
-				branchPrefix: 'keystatic/'
-			},
+			kind: 'github',
+			repo: { owner: 'jllahi', name: 'astrokit-content' },
+			branchPrefix: 'keystatic/'
+		},
 
 	// KEYSTATIC UI
 	ui: {

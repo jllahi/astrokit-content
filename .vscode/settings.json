@@ -1,5 +1,6 @@
 {
 	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"prettier.documentSelectors": ["**/*.astro"],
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -22,5 +23,12 @@
 			"fileMatch": ["/src/content/navigation/**"],
 			"url": "./.astro/collections/navigation.schema.json"
 		}
+	],
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"astro", // Enable .astro
+		"typescript", // Enable .ts
+		"typescriptreact" // Enable .tsx
 	]
 }
