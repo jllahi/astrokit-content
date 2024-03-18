@@ -9,10 +9,10 @@ export default config({
 	storage: import.meta.env.DEV
 		? { kind: 'local' }
 		: {
-			kind: 'github',
-			repo: { owner: 'jllahi', name: 'astrokit-content' },
-			branchPrefix: 'keystatic/'
-		},
+				kind: 'github',
+				repo: { owner: 'jllahi', name: 'astrokit-content' },
+				branchPrefix: 'keystatic/'
+			},
 
 	// KEYSTATIC UI
 	ui: {
@@ -135,7 +135,7 @@ export default config({
 						// }),
 						YouTube: block({
 							label: 'YouTube video',
-							ContentView: (props) => (
+							ContentView: (props: { value: { title: string; id: string } }) => (
 								<YouTubeLiteEmbed title={props.value.title} id={props.value.id} />
 							),
 							schema: {
@@ -155,7 +155,7 @@ export default config({
 						}),
 						Spotify: block({
 							label: 'Spotify playlist',
-							ContentView: (props) => (
+							ContentView: (props: { value: { title: string; playlist: string } }) => (
 								<SpotifyKeystatic title={props.value.title} playlist={props.value.playlist} />
 							),
 							schema: {
