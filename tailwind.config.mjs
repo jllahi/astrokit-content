@@ -3,7 +3,16 @@ const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	darkMode: ['class'], // '[data-mode="dark"]'],
+	darkMode: [
+		'variant',
+		[
+			'@media (prefers-color-scheme: dark) { &:where(:not(.light *, .light)) }',
+			'&:where(.dark *, .dark)'
+		]
+	],
+	// darkMode: ['class', '[data-mode="dark"]'],
+	// darkMode: ['class'], // '[data-mode="dark"]'],
+	// darkMode: ['selector'], // '[data-mode="dark"]'],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
