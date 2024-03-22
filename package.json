@@ -53,7 +53,7 @@
 		"typescript": "^5.4.3"
 	},
 	"devDependencies": {
-		"@sentry/astro": "^7.107.0",
+		"@sentry/astro": "^7.108.0",
 		"@spotlightjs/astro": "^1.0.17",
 		"@typescript-eslint/eslint-plugin": "^7.3.1",
 		"@typescript-eslint/parser": "^7.3.1",
@@ -64,7 +64,7 @@
 		"astro-themes": "^0.2.5",
 		"class-variance-authority": "^0.7.0",
 		"eslint": "^8.57.0",
-		"eslint-plugin-astro": "^0.31.4",
+		"eslint-plugin-astro": "^0.32.0",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"eslint-plugin-react": "^7.34.1",
 		"prettier": "^3.2.5",
