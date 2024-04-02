@@ -219,8 +219,9 @@ export default config({
 						isRequired: true
 					}
 				}),
-				date: fields.text({
+				date: fields.date({
 					label: 'Date',
+					defaultValue: { kind: 'today' },
 					validation: {
 						isRequired: false
 					}
