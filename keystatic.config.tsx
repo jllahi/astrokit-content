@@ -219,6 +219,12 @@ export default config({
 						isRequired: true
 					}
 				}),
+				date: fields.text({
+					label: 'Date',
+					validation: {
+						isRequired: false
+					}
+				}),
 				content: fields.mdx({
 					label: 'Content',
 					options: {
