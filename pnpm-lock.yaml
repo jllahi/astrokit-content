@@ -40,10 +40,10 @@ dependencies:
     version: 1.1.20
   '@keystatic/astro':
     specifier: ^5.0.0
-    version: 5.0.0(@keystatic/core@0.5.10)(astro@4.5.13)(react-dom@18.2.0)(react@18.2.0)
+    version: 5.0.0(@keystatic/core@0.5.11)(astro@4.5.13)(react-dom@18.2.0)(react@18.2.0)
   '@keystatic/core':
-    specifier: ^0.5.10
-    version: 0.5.10(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.5.11
+    version: 0.5.11(react-dom@18.2.0)(react@18.2.0)
   '@tailwindcss/container-queries':
     specifier: ^0.1.1
     version: 0.1.1(tailwindcss@3.4.3)
@@ -1761,7 +1761,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@keystatic/astro@5.0.0(@keystatic/core@0.5.10)(astro@4.5.13)(react-dom@18.2.0)(react@18.2.0):
+  /@keystatic/astro@5.0.0(@keystatic/core@0.5.11)(astro@4.5.13)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-ahPtok9c1IEwjXwL7Ud6ooRPA7CpVGTQV/uHk560zznNX913E2QX9MlmO10qQtgvUwl2mPK7U68ucpwLp3fWfw==}
     peerDependencies:
       '@keystatic/core': '*'
@@ -1770,7 +1770,7 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@babel/runtime': 7.23.9
-      '@keystatic/core': 0.5.10(react-dom@18.2.0)(react@18.2.0)
+      '@keystatic/core': 0.5.11(react-dom@18.2.0)(react@18.2.0)
       '@types/react': 18.2.74
       astro: 4.5.13(typescript@5.4.3)
       cookie: 0.5.0
@@ -1779,8 +1779,8 @@ packages:
       set-cookie-parser: 2.6.0
     dev: false
 
-  /@keystatic/core@0.5.10(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-TaeqvsiJepkC+FRilOgjuGdNZCw9+2w8cC0hYdcwxjrwjr2vCKXO5usxZnY6/B+bS1m+4jWwCJbhTXjtOws45Q==}
+  /@keystatic/core@0.5.11(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-LC3RANu9sH74ixNluIbMf4iTNLycCYhkBmK8DfwoZNWb5v3AnLMkVly0NV2yxuGChOowqnmtbHWlkHCvNsNlFA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -1829,7 +1829,7 @@ packages:
       js-base64: 3.7.7
       js-yaml: 4.1.0
       lib0: 0.2.92
-      lru-cache: 7.18.3
+      lru-cache: 10.2.0
       match-sorter: 6.3.4
       mdast-util-from-markdown: 2.0.0
       mdast-util-gfm: 3.0.0
@@ -7321,6 +7321,11 @@ packages:
     resolution: {integrity: sha512-/1clY/ui8CzjKFyjdvwPWJUYKiFVXG2I2cY0ssG7h4+hwk+XOIX7ZSG9Q7TW8TW3Kp3BUSqgFWBLgL4PJ+Blag==}
     engines: {node: 14 || >=16.14}
 
+  /lru-cache@10.2.0:
+    resolution: {integrity: sha512-2bIM8x+VAf6JT4bKAljS1qUWgMsqZRPGJS6FSahIMPVvctcNhyVp7AJu7quxOW9jwkryBReKZY5tY5JYv2n/7Q==}
+    engines: {node: 14 || >=16.14}
+    dev: false
+
   /lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
     dependencies:
@@ -7331,11 +7336,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
-
-  /lru-cache@7.18.3:
-    resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
-    engines: {node: '>=12'}
-    dev: false
 
   /magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
