@@ -28,7 +28,7 @@
 		"@iconify-json/heroicons": "^1.1.20",
 		"@iconify-json/ri": "^1.1.20",
 		"@keystatic/astro": "^5.0.0",
-		"@keystatic/core": "^0.5.10",
+		"@keystatic/core": "^0.5.11",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/typography": "^0.5.12",
 		"@types/react": "^18.2.74",
