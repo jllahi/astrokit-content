@@ -55,7 +55,7 @@
 	"devDependencies": {
 		"@sentry/astro": "^7.109.0",
 		"@spotlightjs/astro": "^1.0.20",
-		"@typescript-eslint/eslint-plugin": "^7.5.0",
+		"@typescript-eslint/eslint-plugin": "^7.6.0",
 		"@typescript-eslint/parser": "^7.6.0",
 		"astro-debugcss": "github:jllahi/astro-debugcss",
 		"astro-devtoolbar-tailwind": "^0.0.8",
