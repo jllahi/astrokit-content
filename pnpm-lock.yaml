@@ -63,8 +63,8 @@ dependencies:
     specifier: ^4.5.18
     version: 4.5.18(typescript@5.4.4)
   astro-embed:
-    specifier: ^0.7.0
-    version: 0.7.0(astro@4.5.18)
+    specifier: ^0.7.1
+    version: 0.7.1(astro@4.5.18)
   astro-expressive-code:
     specifier: ^0.34.1
     version: 0.34.1(astro@4.5.18)
@@ -230,7 +230,7 @@ packages:
     dependencies:
       '@astro-community/astro-embed-link-preview': 0.1.0
       '@astro-community/astro-embed-twitter': 0.5.4(astro@4.5.18)
-      '@astro-community/astro-embed-vimeo': 0.3.6(astro@4.5.18)
+      '@astro-community/astro-embed-vimeo': 0.3.7(astro@4.5.18)
       '@astro-community/astro-embed-youtube': 0.5.1(astro@4.5.18)
       '@types/unist': 2.0.10
       astro: 4.5.18(typescript@5.4.4)
@@ -259,11 +259,12 @@ packages:
       linkedom: 0.14.26
     dev: false
 
-  /@astro-community/astro-embed-vimeo@0.3.6(astro@4.5.18):
-    resolution: {integrity: sha512-WBf1vjabXqEQ0n+F9wxuJt4kGXAe8TEvMb3mF7q3CU1KmRJrBGp9Wy6Mpl9LJIau4OiC3PZ58TmpSohELT26Ug==}
+  /@astro-community/astro-embed-vimeo@0.3.7(astro@4.5.18):
+    resolution: {integrity: sha512-0Y08IOudqSLC/RKiYZagaG/uvfblSt7of+hrIcRky7u+KZK3VrTbZ/Np+nIq81jXLGJQPXN8TNGsOUsY0mw9lw==}
     peerDependencies:
       astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
     dependencies:
+      '@astro-community/astro-embed-utils': 0.1.2
       astro: 4.5.18(typescript@5.4.4)
     dev: false
 
@@ -4447,15 +4448,15 @@ packages:
       astro-integration-kit: 0.0.6(astro@4.5.18)
     dev: true
 
-  /astro-embed@0.7.0(astro@4.5.18):
-    resolution: {integrity: sha512-vyfPinG9n6ocxhNDgN1qthcKmkoIzHLbM78obu9BOIli47ZI/GJvx0PkrA/0MYmJVwQDSKLiL2G7NOFSetWudA==}
+  /astro-embed@0.7.1(astro@4.5.18):
+    resolution: {integrity: sha512-3G7RGVjTCB3iYc2POz7mCW4R5RoO6kCAZDcFkzU1/ewAY3bKqwhHCzKrBgzQhIRA5qjn5NyAfqPy0mYcs9DQ4A==}
     peerDependencies:
       astro: ^2.0.0 || ^3.0.0-beta || ^4.0.0-beta
     dependencies:
       '@astro-community/astro-embed-integration': 0.7.0(astro@4.5.18)
       '@astro-community/astro-embed-link-preview': 0.1.0
       '@astro-community/astro-embed-twitter': 0.5.4(astro@4.5.18)
-      '@astro-community/astro-embed-vimeo': 0.3.6(astro@4.5.18)
+      '@astro-community/astro-embed-vimeo': 0.3.7(astro@4.5.18)
       '@astro-community/astro-embed-youtube': 0.5.1(astro@4.5.18)
       astro: 4.5.18(typescript@5.4.4)
     dev: false
