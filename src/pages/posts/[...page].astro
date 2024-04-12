@@ -6,6 +6,7 @@ import { getCollection, type CollectionEntry } from 'astro:content'
 import PostList from '@/components/content/PostList.astro'
 import Section from '@/components/ui/Section.astro'
 import Title from '@/components/ui/Title.astro'
+import DataDump from '@/components/utils/DataDump.astro'
 import Pagination from '@/components/utils/Pagination.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
@@ -30,9 +31,12 @@ const { page } = Astro.props
 	<Section>
 		<header class="mb-8 flex flex-col">
 			<Title>The Blog</Title>
-			<p class="block text-pretty text-xl font-light">Everything you need to know about websites</p>
+			<p class="block text-pretty text-xl font-light">
+				Everything you need to know about websites
+			</p>
 		</header>
 		<PostList posts={page.data} />
 		<Pagination {page} />
 	</Section>
+	<DataDump data={page} />
 </Layout>

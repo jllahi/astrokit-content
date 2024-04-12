@@ -1,0 +1,20 @@
+---
+const { data } = Astro.props
+---
+
+{
+	!import.meta.env.PROD && (
+		<div class="mt-8 border-0 p-0">
+			<details class="bg-yellow-100 p-4 dark:text-black">
+				<summary>Toggle page data</summary>
+				<pre class="data-json">{JSON.stringify(data, null, 2)}</pre>
+			</details>
+		</div>
+	)
+}
+
+<style>
+	.data-json {
+		@apply mt-4 overflow-auto rounded-md bg-white p-4 text-sm shadow-sm dark:bg-black dark:text-white;
+	}
+</style>

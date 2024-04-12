@@ -2,7 +2,6 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content'
 // import { YouTube } from 'astro-embed'
 import Prose from '@/components/content/Prose.astro'
-import SocialShare from '@/components/utils/SocialShare.astro'
 import TableContents from '@/components/content/TableContents.astro'
 import Tags from '@/components/content/Tags.astro'
 import { componentsEmbed } from '@/components/embed/ComponentsEmbed'
@@ -10,7 +9,9 @@ import ImageKit from '@/components/embed/ImageKit.astro'
 import Article from '@/components/ui/Article.astro'
 import Link from '@/components/ui/Link.astro'
 import Title from '@/components/ui/Title.astro'
+import DataDump from '@/components/utils/DataDump.astro'
 import DateFormat from '@/components/utils/DateFormat.astro'
+import SocialShare from '@/components/utils/SocialShare.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
 import postFilter from '@/utils/postFilter'
@@ -101,4 +102,5 @@ const category = await getEntry(post.data.category)
 		<h2>Related</h2>
 		<PostListCategory category={post.data.category} />
 	</Section> -->
+	<DataDump data={post} />
 </Layout>
