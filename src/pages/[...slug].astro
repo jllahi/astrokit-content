@@ -4,6 +4,7 @@ import TableContents from '@/components/content/TableContents.astro'
 import { componentsEmbed } from '@/components/embed/ComponentsEmbed'
 import Article from '@/components/ui/Article.astro'
 import Title from '@/components/ui/Title.astro'
+import DataDump from '@/components/utils/DataDump.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
 import { getCollection } from 'astro:content'
@@ -49,4 +50,5 @@ const { Content, headings } = await page.render()
 
 		<!-- <SocialShare description={page.data.description} title={page.data.title} via="AstroKit" /> -->
 	</Article>
+	<DataDump data={page} />
 </Layout>

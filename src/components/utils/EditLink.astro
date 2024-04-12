@@ -1,0 +1,39 @@
+---
+export const prerender = false
+
+let cookie = false
+if (Astro.cookies.has('keystatic-gh-access-token')) {
+	cookie = true
+}
+
+const { pathname } = Astro.url
+const segments = pathname.split('/')
+let collection = segments[1]
+let item = segments[2]
+// console.log(collection, item)
+if (item == undefined && collection !== 'posts') {
+	item = collection
+	collection = 'pages'
+}
+---
+
+<div>
+	{
+		!!item && cookie && (
+			<small>
+				<a href={`/keystatic/collection/${collection}/item/${item}`} target="_blank">
+					Edit this page on Keystatic
+				</a>
+			</small>
+		)
+	}
+	{
+		!item && cookie && (
+			<small>
+				<a href={`/keystatic/`} target="_blank">
+					Edit on Keystatic
+				</a>
+			</small>
+		)
+	}
+</div>
