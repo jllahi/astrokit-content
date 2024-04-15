@@ -5,7 +5,8 @@
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"files.autoSave": "onFocusChange",
+	"files.autoSave": "onWindowChange",
+	"files.autoSaveWhenNoErrors": true,
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,

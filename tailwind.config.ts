@@ -1,7 +1,10 @@
+import containerQueries from '@tailwindcss/container-queries'
+import typography from '@tailwindcss/typography'
+import { type Config } from 'tailwindcss'
+import animate from 'tailwindcss-animate'
+import colors from 'tailwindcss/colors'
 import theme from 'tailwindcss/defaultTheme'
-const colors = require('tailwindcss/colors')
 
-/** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: [
 		'variant',
@@ -66,9 +69,5 @@ export default {
 			// })
 		}
 	},
-	plugins: [
-		require('@tailwindcss/container-queries'),
-		require('tailwindcss-animate'),
-		require('@tailwindcss/typography')
-	]
-}
+	plugins: [typography, containerQueries, animate]
+} satisfies Config
