@@ -34,7 +34,7 @@
 		"@types/react": "^18.2.75",
 		"@types/react-dom": "^18.2.24",
 		"@vercel/analytics": "^1.2.2",
-		"astro": "^4.5.18",
+		"astro": "^4.6.1",
 		"astro-embed": "^0.7.0",
 		"astro-expressive-code": "^0.34.1",
 		"astro-icon": "^1.1.0",
