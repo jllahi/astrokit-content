@@ -38,7 +38,7 @@
     "@vercel/analytics": "^1.2.2",
     "astro": "^4.6.1",
     "astro-embed": "^0.7.1",
-    "astro-expressive-code": "^0.34.1",
+    "astro-expressive-code": "^0.34.2",
     "astro-icon": "^1.1.0",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.3",
@@ -56,7 +56,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@sentry/astro": "^7.110.0",
+    "@sentry/astro": "^7.110.1",
     "@spotlightjs/astro": "^1.0.20",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",

@@ -72,8 +72,8 @@ dependencies:
     specifier: ^0.7.1
     version: 0.7.1(astro@4.6.1)
   astro-expressive-code:
-    specifier: ^0.34.1
-    version: 0.34.1(astro@4.6.1)
+    specifier: ^0.34.2
+    version: 0.34.2(astro@4.6.1)
   astro-icon:
     specifier: ^1.1.0
     version: 1.1.0
@@ -122,11 +122,11 @@ dependencies:
 
 devDependencies:
   '@sentry/astro':
-    specifier: ^7.110.0
-    version: 7.110.0(astro@4.6.1)
+    specifier: ^7.110.1
+    version: 7.110.1(astro@4.6.1)
   '@spotlightjs/astro':
     specifier: ^1.0.20
-    version: 1.0.20(@sentry/astro@7.110.0)(astro@4.6.1)
+    version: 1.0.20(@sentry/astro@7.110.1)(astro@4.6.1)
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.6.0
     version: 7.6.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.5)
@@ -779,9 +779,9 @@ packages:
     resolution: {integrity: sha512-s3jaWicZd0pkP0jf5ysyHUI/RE7MHos6qlToFcGWXVp+ykHOy77OUMrfbgJ9it2C5bow7OIQwYYaHjk9XlBQ2A==}
     dev: false
 
-  /@ctrl/tinycolor@3.6.1:
-    resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
-    engines: {node: '>=10'}
+  /@ctrl/tinycolor@4.1.0:
+    resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
+    engines: {node: '>=14'}
     dev: false
 
   /@emmetio/abbreviation@2.3.3:
@@ -1283,13 +1283,13 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@expressive-code/core@0.34.1:
-    resolution: {integrity: sha512-lq9Blzw9wrw0H+g/I96IGb4rxiO1PrfLySa3yRQYzHKH2YJwFFPTqXLSLzoZLUUkdPs5rD9JgeMtrlJ1uVvXkg==}
+  /@expressive-code/core@0.34.2:
+    resolution: {integrity: sha512-YmevSkyUfjOrtQWEBOjsfomwX3N6YImQd0B4/VmRJaHuPuiAt6ee8MOZ48rF8IjJavLRxhsJj7aWV/AdWVGLVQ==}
     dependencies:
-      '@ctrl/tinycolor': 3.6.1
+      '@ctrl/tinycolor': 4.1.0
       hast-util-select: 6.0.2
-      hast-util-to-html: 9.0.0
-      hast-util-to-text: 4.0.0
+      hast-util-to-html: 9.0.1
+      hast-util-to-text: 4.0.1
       hastscript: 9.0.0
       postcss: 8.4.38
       postcss-nested: 6.0.1(postcss@8.4.38)
@@ -1297,23 +1297,23 @@ packages:
       unist-util-visit-parents: 6.0.1
     dev: false
 
-  /@expressive-code/plugin-frames@0.34.1:
-    resolution: {integrity: sha512-OOsIva7/eDWJ5gUp6QaoxovClrYM3OpddvV1izL7CpLWnSETsb/eNtwvMG4JmyTJwV6pfMpbitsithPCli08DQ==}
+  /@expressive-code/plugin-frames@0.34.2:
+    resolution: {integrity: sha512-fV2hBMwsmwaC2ZbgE1IHhFuhkLCtGP33FvgxtDz+VvywWiqpd4AeFKx4Xskcr5OiCC7CdjthbC6d18297AaBoQ==}
     dependencies:
-      '@expressive-code/core': 0.34.1
+      '@expressive-code/core': 0.34.2
     dev: false
 
-  /@expressive-code/plugin-shiki@0.34.1:
-    resolution: {integrity: sha512-kMhxP7slGnGTsh5eo4UUKur/MMSk35wMxIbPgZ1M/H9KR0FdnyMOXqu15vWJrANHBHIhMygjbbndYM37VWvc2g==}
+  /@expressive-code/plugin-shiki@0.34.2:
+    resolution: {integrity: sha512-c94xBU6I7j8FpPExZxcrWeFZITN0pf419RMh6dCY75WIJ4oLiBpr9S+IrumpARC8SFy1MpkdaVIvslReqcorzg==}
     dependencies:
-      '@expressive-code/core': 0.34.1
-      shiki: 1.2.3
+      '@expressive-code/core': 0.34.2
+      shiki: 1.3.0
     dev: false
 
-  /@expressive-code/plugin-text-markers@0.34.1:
-    resolution: {integrity: sha512-V0NI56S5vsYUCMEoEXbpiACcVDgEbteBeeBS4RthV2bltDLkOvMfTRr2xHfO8zNLtjcYyu90nXR/ans8RZit1w==}
+  /@expressive-code/plugin-text-markers@0.34.2:
+    resolution: {integrity: sha512-yHVNoIvqAruxtMnmcITkjhyFaHg6fraitodSXWe5KLZcaBLLJ9AieE/RGhzHIKjRuG0zlEWMNd2y2nh/XIPBew==}
     dependencies:
-      '@expressive-code/core': 0.34.1
+      '@expressive-code/core': 0.34.2
     dev: false
 
   /@floating-ui/core@1.6.0:
@@ -3505,45 +3505,45 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@sentry-internal/feedback@7.110.0:
-    resolution: {integrity: sha512-hrfWa3WkSOiBO5Srcr1j4kuGOlbsQic+REpLOofllVIs56DOo9+Aj9svxT+dcvZERv/nlFSV/E0BfGy9g08IEg==}
+  /@sentry-internal/feedback@7.110.1:
+    resolution: {integrity: sha512-0aR3wuEW+SZKOVNamuy0pTQyPmqDjWPPLrB2GAXGT3ZjrVxjEzzVPqk6DVBYxSV2MuJaD507SZnvfoSPNgoBmw==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry/core': 7.110.0
-      '@sentry/types': 7.110.0
-      '@sentry/utils': 7.110.0
+      '@sentry/core': 7.110.1
+      '@sentry/types': 7.110.1
+      '@sentry/utils': 7.110.1
     dev: true
 
-  /@sentry-internal/replay-canvas@7.110.0:
-    resolution: {integrity: sha512-SNa+AfyfX+vc6Xw0pIfDsa5Qnc9cpexU6M2D19gadtVhmep7qoFBuhBVZrSv6BtdCxvrb5EyYsHYGfjQdIDcvg==}
+  /@sentry-internal/replay-canvas@7.110.1:
+    resolution: {integrity: sha512-zdcCmWFXM4DHOau/BCZVb6jf9zozdbAiJ1MzQ6azuZEuysOl00YfktoWZBbZjjjpWT6025s+wrmFz54t0O+enw==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry/core': 7.110.0
-      '@sentry/replay': 7.110.0
-      '@sentry/types': 7.110.0
-      '@sentry/utils': 7.110.0
+      '@sentry/core': 7.110.1
+      '@sentry/replay': 7.110.1
+      '@sentry/types': 7.110.1
+      '@sentry/utils': 7.110.1
     dev: true
 
-  /@sentry-internal/tracing@7.110.0:
-    resolution: {integrity: sha512-IIHHa9e/mE7uOMJfNELI8adyoELxOy6u6TNCn5t6fphmq84w8FTc9adXkG/FY2AQpglkIvlILojfMROFB2aaAQ==}
+  /@sentry-internal/tracing@7.110.1:
+    resolution: {integrity: sha512-4kTd6EM0OP1SVWl2yLn3KIwlCpld1lyhNDeR8G1aKLm1PN+kVsR6YB/jy9KPPp4Q3lN3W9EkTSES3qhP4jVffQ==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/core': 7.110.0
-      '@sentry/types': 7.110.0
-      '@sentry/utils': 7.110.0
+      '@sentry/core': 7.110.1
+      '@sentry/types': 7.110.1
+      '@sentry/utils': 7.110.1
     dev: true
 
-  /@sentry/astro@7.110.0(astro@4.6.1):
-    resolution: {integrity: sha512-q+AAUmjbGzsyKQim5z2IxAmoii5XnBPDufx2/q2/okFIAKsvg8KXssomhCDvilsAv3w/jo86eAoAToymG1WTyg==}
+  /@sentry/astro@7.110.1(astro@4.6.1):
+    resolution: {integrity: sha512-OpDgO7AoQuywO+G9b/0ZL3uUCq2VooEPvFMAHIRaW9fLBbEHxVoseHfZw5B1xqCBIwGA2gfMUpwy1/R2dAmIzw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       astro: '>=3.x || >=4.0.0-beta'
     dependencies:
-      '@sentry/browser': 7.110.0
-      '@sentry/core': 7.110.0
-      '@sentry/node': 7.110.0
-      '@sentry/types': 7.110.0
-      '@sentry/utils': 7.110.0
+      '@sentry/browser': 7.110.1
+      '@sentry/core': 7.110.1
+      '@sentry/node': 7.110.1
+      '@sentry/types': 7.110.1
+      '@sentry/utils': 7.110.1
       '@sentry/vite-plugin': 2.16.1
       astro: 4.6.1(typescript@5.4.5)
     transitivePeerDependencies:
@@ -3556,17 +3556,17 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  /@sentry/browser@7.110.0:
-    resolution: {integrity: sha512-gIxedVm6ZgkjQfgCDgLWJgAsolq6OxV8hQ2j1+RaDL2RngvelFo/vlX5f2sD6EbjVp77Cri8u5GkMJF+v4p84g==}
+  /@sentry/browser@7.110.1:
+    resolution: {integrity: sha512-H3TZlbdsgxuoVxhotMtBDemvAofx3UPNcS+UjQ40Bd+hKX01IIbEN3i+9RQ0jmcbU6xjf+yhjwp+Ejpm4FmYMw==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry-internal/feedback': 7.110.0
-      '@sentry-internal/replay-canvas': 7.110.0
-      '@sentry-internal/tracing': 7.110.0
-      '@sentry/core': 7.110.0
-      '@sentry/replay': 7.110.0
-      '@sentry/types': 7.110.0
-      '@sentry/utils': 7.110.0
+      '@sentry-internal/feedback': 7.110.1
+      '@sentry-internal/replay-canvas': 7.110.1
+      '@sentry-internal/tracing': 7.110.1
+      '@sentry/core': 7.110.1
+      '@sentry/replay': 7.110.1
+      '@sentry/types': 7.110.1
+      '@sentry/utils': 7.110.1
     dev: true
 
   /@sentry/bundler-plugin-core@2.16.1:
@@ -3672,44 +3672,44 @@ packages:
       - supports-color
     dev: true
 
-  /@sentry/core@7.110.0:
-    resolution: {integrity: sha512-g4suCQO94mZsKVaAbyD1zLFC5YSuBQCIPHXx9fdgtfoPib7BWjWWePkllkrvsKAv4u8Oq05RfnKOhOMRHpOKqg==}
+  /@sentry/core@7.110.1:
+    resolution: {integrity: sha512-yC1yeUFQlmHj9u/KxKmwOMVanBmgfX+4MZnZU31QPqN95adyZTwpaYFZl4fH5kDVnz7wXJI0qRP8SxuMePtqhw==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/types': 7.110.0
-      '@sentry/utils': 7.110.0
+      '@sentry/types': 7.110.1
+      '@sentry/utils': 7.110.1
     dev: true
 
-  /@sentry/node@7.110.0:
-    resolution: {integrity: sha512-YPfweCSzo/omnx5q1xOEZfI8Em3jnPqj7OM4ObXmoSKEK+kM1oUF3BTRzw5BJOaOCSTBFY1RAsGyfVIyrwxWnA==}
+  /@sentry/node@7.110.1:
+    resolution: {integrity: sha512-n6sNzZJ/ChfyCI1FxuGWgloeevC8j2vax3vXM4IZrSIm5hS1d9L2oCJ4HEPuxGUxCkQ1f4kXPcdmNaQsWH0JBw==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry-internal/tracing': 7.110.0
-      '@sentry/core': 7.110.0
-      '@sentry/types': 7.110.0
-      '@sentry/utils': 7.110.0
+      '@sentry-internal/tracing': 7.110.1
+      '@sentry/core': 7.110.1
+      '@sentry/types': 7.110.1
+      '@sentry/utils': 7.110.1
     dev: true
 
-  /@sentry/replay@7.110.0:
-    resolution: {integrity: sha512-EEpGPf3iBJjWejvoxKLVMnLtLNwPTUxHJV1oxUkbcSi3B/tG5hW7LArYDjAcvkfa4VmA8JLCwj2vYU5MQ8tj6g==}
+  /@sentry/replay@7.110.1:
+    resolution: {integrity: sha512-R49fGOuKYsJ97EujPTzMjs3ZSuSkLTFFQmVBbsu/o6beRp4kK9l8H7r2BfLEcWJOXdWO5EU4KpRWgIxHaDK2aw==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry-internal/tracing': 7.110.0
-      '@sentry/core': 7.110.0
-      '@sentry/types': 7.110.0
-      '@sentry/utils': 7.110.0
+      '@sentry-internal/tracing': 7.110.1
+      '@sentry/core': 7.110.1
+      '@sentry/types': 7.110.1
+      '@sentry/utils': 7.110.1
     dev: true
 
-  /@sentry/types@7.110.0:
-    resolution: {integrity: sha512-DqYBLyE8thC5P5MuPn+sj8tL60nCd/f5cerFFPcudn5nJ4Zs1eI6lKlwwyHYTEu5c4KFjCB0qql6kXfwAHmTyA==}
+  /@sentry/types@7.110.1:
+    resolution: {integrity: sha512-sZxOpM5gfyxvJeWVvNpHnxERTnlqcozjqNcIv29SZ6wonlkekmxDyJ3uCuPv85VO54WLyA4uzskPKnNFHacI8A==}
     engines: {node: '>=8'}
     dev: true
 
-  /@sentry/utils@7.110.0:
-    resolution: {integrity: sha512-VBsdLLN+5tf73fhf/Cm7JIsUJ6y9DkJj8h4I6Mxx0rszrvOyH6S5px40K+V4jdLBzMEvVinC7q2Cbf1YM18BSw==}
+  /@sentry/utils@7.110.1:
+    resolution: {integrity: sha512-eibLo2m1a7sHkOHxYYmRujr3D7ek2l9sv26F1SLoQBVDF7Afw5AKyzPmtA1D+4M9P/ux1okj7cGj3SaBrVpxXA==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/types': 7.110.0
+      '@sentry/types': 7.110.1
     dev: true
 
   /@sentry/vite-plugin@2.16.1:
@@ -3722,10 +3722,6 @@ packages:
       - encoding
       - supports-color
     dev: true
-
-  /@shikijs/core@1.2.3:
-    resolution: {integrity: sha512-SM+aiQVaEK2P53dEcsvhq9+LJPr0rzwezHbMQhHaSrPN4OlOB4vp1qTdhVEKfMg6atdq8s9ZotWW/CSCzWftwg==}
-    dev: false
 
   /@shikijs/core@1.3.0:
     resolution: {integrity: sha512-7fedsBfuILDTBmrYZNFI8B6ATTxhQAasUHllHmjvSZPnoq4bULWoTpHwmuQvZ8Aq03/tAa2IGo6RXqWtHdWaCA==}
@@ -3746,13 +3742,13 @@ packages:
       lodash.deburr: 4.1.0
     dev: false
 
-  /@spotlightjs/astro@1.0.20(@sentry/astro@7.110.0)(astro@4.6.1):
+  /@spotlightjs/astro@1.0.20(@sentry/astro@7.110.1)(astro@4.6.1):
     resolution: {integrity: sha512-3j4GqodpdaNPcsP2KbQylg2dF2nlRLe1z8UH/TgWx1MZJM16V2WP474nHUeP54kVmBaFwaJmF9OCkCMBqfKYfw==}
     peerDependencies:
       '@sentry/astro': '>=7.84.0'
       astro: '>=3.4.0 || >=4.0.0-beta'
     dependencies:
-      '@sentry/astro': 7.110.0(astro@4.6.1)
+      '@sentry/astro': 7.110.1(astro@4.6.1)
       '@spotlightjs/overlay': 1.8.3
       '@spotlightjs/sidecar': 1.4.0
       astro: 4.6.1(typescript@5.4.5)
@@ -4691,13 +4687,13 @@ packages:
       - typescript
     dev: true
 
-  /astro-expressive-code@0.34.1(astro@4.6.1):
-    resolution: {integrity: sha512-MoXRdAXnYif0tlxCXNH1tWMCWd4wTQZeBy8l2OMm/U49KqJ/UsBOQa/JjH0R7hLp3TSvmvg1bMCIWo9kwy+6ag==}
+  /astro-expressive-code@0.34.2(astro@4.6.1):
+    resolution: {integrity: sha512-J90/kDlT5QLQC+CYVmMWvhkthmMwYhu3nmwKp7acCZCD+HNkaCCxSjg8OXBygAKL43Uv2DCUMTipGeb/X0hrXw==}
     peerDependencies:
       astro: ^4.0.0-beta || ^3.3.0
     dependencies:
       astro: 4.6.1(typescript@5.4.5)
-      remark-expressive-code: 0.34.1
+      remark-expressive-code: 0.34.2
     dev: false
 
   /astro-icon@1.1.0:
@@ -6266,13 +6262,13 @@ packages:
     requiresBuild: true
     optional: true
 
-  /expressive-code@0.34.1:
-    resolution: {integrity: sha512-tYEmzezu5k/AM6nf52/Ctrj2uPYB3UQtfflWpLgFTvUbhaSPXbcvvaqPlDMgLVUUii55Mg1CFVnhhtbZwgHjDA==}
+  /expressive-code@0.34.2:
+    resolution: {integrity: sha512-b78jwcnm20uy1HtBhZ/f+XruOPt1f210n3YHEOJrZyib9bkXfUS8geRiwQhC5dneqTRLNnFkBQNJs6y6t5iWDQ==}
     dependencies:
-      '@expressive-code/core': 0.34.1
-      '@expressive-code/plugin-frames': 0.34.1
-      '@expressive-code/plugin-shiki': 0.34.1
-      '@expressive-code/plugin-text-markers': 0.34.1
+      '@expressive-code/core': 0.34.2
+      '@expressive-code/plugin-frames': 0.34.2
+      '@expressive-code/plugin-shiki': 0.34.2
+      '@expressive-code/plugin-text-markers': 0.34.2
     dev: false
 
   /extend-shallow@2.0.1:
@@ -6797,24 +6793,6 @@ packages:
     dependencies:
       '@types/hast': 3.0.4
 
-  /hast-util-raw@9.0.1:
-    resolution: {integrity: sha512-5m1gmba658Q+lO5uqL5YNGQWeh1MYWZbZmWrM5lncdcuiXuo5E2HT/CIOp0rLF8ksfSwiCVJ3twlgVRyTGThGA==}
-    dependencies:
-      '@types/hast': 3.0.4
-      '@types/unist': 3.0.2
-      '@ungap/structured-clone': 1.2.0
-      hast-util-from-parse5: 8.0.1
-      hast-util-to-parse5: 8.0.0
-      html-void-elements: 3.0.0
-      mdast-util-to-hast: 13.1.0
-      parse5: 7.1.2
-      unist-util-position: 5.0.0
-      unist-util-visit: 5.0.0
-      vfile: 6.0.1
-      web-namespaces: 2.0.1
-      zwitch: 2.0.4
-    dev: false
-
   /hast-util-raw@9.0.2:
     resolution: {integrity: sha512-PldBy71wO9Uq1kyaMch9AHIghtQvIwxBUkv823pKmkTM3oV1JxtsTNYdevMxvUHqcnOAuO65JKU2+0NOxc2ksA==}
     dependencies:
@@ -6847,7 +6825,7 @@ packages:
       hast-util-whitespace: 3.0.0
       not: 0.1.0
       nth-check: 2.1.1
-      property-information: 6.4.1
+      property-information: 6.5.0
       space-separated-tokens: 2.0.2
       unist-util-visit: 5.0.0
       zwitch: 2.0.4
@@ -6874,23 +6852,6 @@ packages:
       zwitch: 2.0.4
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /hast-util-to-html@9.0.0:
-    resolution: {integrity: sha512-IVGhNgg7vANuUA2XKrT6sOIIPgaYZnmLx3l/CCOAK0PtgfoHrZwX7jCSYyFxHTrGmC6S9q8aQQekjp4JPZF+cw==}
-    dependencies:
-      '@types/hast': 3.0.4
-      '@types/unist': 3.0.2
-      ccount: 2.0.1
-      comma-separated-tokens: 2.0.3
-      hast-util-raw: 9.0.1
-      hast-util-whitespace: 3.0.0
-      html-void-elements: 3.0.0
-      mdast-util-to-hast: 13.1.0
-      property-information: 6.4.1
-      space-separated-tokens: 2.0.2
-      stringify-entities: 4.0.3
-      zwitch: 2.0.4
     dev: false
 
   /hast-util-to-html@9.0.1:
@@ -6948,15 +6909,6 @@ packages:
       '@types/hast': 3.0.4
     dev: false
 
-  /hast-util-to-text@4.0.0:
-    resolution: {integrity: sha512-EWiE1FSArNBPUo1cKWtzqgnuRQwEeQbQtnFJRYV1hb1BWDgrAlBU0ExptvZMM/KSA82cDpm2sFGf3Dmc5Mza3w==}
-    dependencies:
-      '@types/hast': 3.0.4
-      '@types/unist': 3.0.2
-      hast-util-is-element: 3.0.0
-      unist-util-find-after: 5.0.0
-    dev: false
-
   /hast-util-to-text@4.0.1:
     resolution: {integrity: sha512-RHL7Vo2n06ZocCFWqmbyhZ1pCYX/mSKdywt9YD5U6Hquu5syV+dImCXFKLFt02JoK5QxkQFS0PoVdFdPXuPffQ==}
     dependencies:
@@ -6985,7 +6937,7 @@ packages:
       '@types/hast': 3.0.4
       comma-separated-tokens: 2.0.3
       hast-util-parse-selector: 4.0.0
-      property-information: 6.4.1
+      property-information: 6.5.0
       space-separated-tokens: 2.0.2
     dev: false
 
@@ -9325,10 +9277,10 @@ packages:
       rehype-stringify: 10.0.0
       unified: 11.0.4
 
-  /remark-expressive-code@0.34.1:
-    resolution: {integrity: sha512-dUuSaswyUqXDDRN+2YL5KMVfaMgUltKeh6wav2YNnapJ8wBRMCr7ucuxkUPrTZIuElHQ6+VCINALuEvmnPxxmw==}
+  /remark-expressive-code@0.34.2:
+    resolution: {integrity: sha512-gFPdzlcvfq0h56yKP8nd4rpN0hY1Uv6Ti5JbuK9pUMiWTMl1SX/NY6HeaHDl/wFLIblUT7O3916li8OghJEKpQ==}
     dependencies:
-      expressive-code: 0.34.1
+      expressive-code: 0.34.2
     dev: false
 
   /remark-gfm@4.0.0:
@@ -9719,12 +9671,6 @@ packages:
   /shebang-regex@3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
-
-  /shiki@1.2.3:
-    resolution: {integrity: sha512-+v7lO5cJMeV2N2ySK4l+51YX3wTh5I49SLjAOs1ch1DbUfeEytU1Ac9KaZPoZJCVBGycDZ09OBQN5nbcPFc5FQ==}
-    dependencies:
-      '@shikijs/core': 1.2.3
-    dev: false
 
   /shiki@1.3.0:
     resolution: {integrity: sha512-9aNdQy/etMXctnPzsje1h1XIGm9YfRcSksKOGqZWXA/qP9G18/8fpz5Bjpma8bOgz3tqIpjERAd6/lLjFyzoww==}
