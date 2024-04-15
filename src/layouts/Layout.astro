@@ -7,6 +7,7 @@ import TailwindIndicator from '@/components/utils/TailwindIndicator.astro'
 import { site } from '@/data/site'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/montserrat'
+import SpeedInsights from '@vercel/speed-insights/astro'
 import { SEO, type Props as SEOProps } from 'astro-seo'
 import { ViewTransitions } from 'astro:transitions'
 
@@ -58,6 +59,7 @@ const { seo } = Astro.props
 		<!-- <EditLink /> -->
 		<Footer />
 		<TailwindIndicator align="right" />
+		<SpeedInsights />
 		<style is:global>
 			* {
 				border-color: var(--border-color-black);
