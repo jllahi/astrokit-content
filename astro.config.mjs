@@ -16,6 +16,8 @@ import metaTags from 'astro-meta-tags'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig } from 'astro/config'
 
+import db from '@astrojs/db'
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://astrokit-content.vercel.app',
@@ -31,12 +33,11 @@ export default defineConfig({
 	integrations: [
 		// sentry(),
 		// spotlightjs(),
-		tailwind(),
-		embeds(),
+		AstroDevtoolbarTailwind(),
 		astroExpressiveCode(),
-		mdx(),
-		sitemap(),
-		robotsTxt(),
+		db(),
+		debugcss(),
+		embeds(),
 		icon({
 			iconDir: 'src/assets/icons',
 			include: {
@@ -52,11 +53,13 @@ export default defineConfig({
 				// uis: ['*'],
 			}
 		}),
-		debugcss(),
+		keystatic(),
+		mdx(),
 		metaTags(),
 		react(),
-		keystatic(),
-		AstroDevtoolbarTailwind()
+		robotsTxt(),
+		sitemap(),
+		tailwind()
 	],
 	vite: {
 		ssr: {

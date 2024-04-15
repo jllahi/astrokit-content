@@ -6,6 +6,7 @@ import TableContents from '@/components/content/TableContents.astro'
 import Tags from '@/components/content/Tags.astro'
 import { componentsEmbed } from '@/components/embed/ComponentsEmbed'
 import ImageKit from '@/components/embed/ImageKit.astro'
+import LikeButton from '@/components/likes/like-button'
 import Article from '@/components/ui/Article.astro'
 import Link from '@/components/ui/Link.astro'
 import Title from '@/components/ui/Title.astro'
@@ -96,7 +97,10 @@ const category = await getEntry(post.data.category)
 			<Content components={componentsEmbed} />
 		</Prose>
 
-		<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
+		<div class="mt-8 flex w-full flex-row justify-between">
+			<LikeButton slug={post.slug} client:load />
+			<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
+		</div>
 	</Article>
 	<!-- <Section>
 		<h2>Related</h2>
