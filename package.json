@@ -31,7 +31,7 @@
     "@keystatic/core": "^0.5.11",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.12",
-    "@types/react": "^18.2.77",
+    "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
     "@vercel/analytics": "^1.2.2",
     "astro": "^4.6.1",
