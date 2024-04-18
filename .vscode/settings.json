@@ -1,35 +1,36 @@
 {
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"prettier.documentSelectors": ["**/*.astro"],
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"files.autoSave": "onWindowChange",
-	"files.autoSaveWhenNoErrors": true,
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"explorer.fileNesting.enabled": true,
-	"explorer.fileNesting.expand": false,
-	"explorer.fileNesting.patterns": {
-		"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock",
-		".prettierrc.js": ".prettierignore",
-		"README.md": "CONTRIBUTING.md"
-	},
-	"editor.linkedEditing": true,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit"
 	},
-	"json.schemas": [
-		{
-			"fileMatch": ["/src/content/navigation/**"],
-			"url": "./.astro/collections/navigation.schema.json"
-		}
-	],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.linkedEditing": true,
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",
 		"astro", // Enable .astro
 		"typescript", // Enable .ts
 		"typescriptreact" // Enable .tsx
-	]
+	],
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.expand": false,
+	"explorer.fileNesting.patterns": {
+		".prettierrc.js": ".prettierignore",
+		"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock",
+		"README.md": "CONTRIBUTING.md"
+	},
+	"files.autoSave": "onWindowChange",
+	"files.autoSaveWhenNoErrors": true,
+	"json.schemas": [
+		{
+			"fileMatch": ["/src/content/navigation/**"],
+			"url": "./.astro/collections/navigation.schema.json"
+		}
+	],
+	"prettier.documentSelectors": ["**/*.astro"],
+	"typescript.inlayHints.parameterNames.enabled": "all",
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
