@@ -17,11 +17,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
-    "@astrojs/db": "^0.10.4",
-    "@astrojs/mdx": "^2.3.0",
+    "@astrojs/db": "^0.10.5",
+    "@astrojs/mdx": "^2.3.1",
     "@astrojs/react": "^3.3.0",
     "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.2",
+    "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.5.3",
     "@fontsource-variable/inter": "^5.0.17",
@@ -33,13 +33,13 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.12",
     "@tanstack/react-query": "^5.29.2",
-    "@types/react": "^18.2.78",
+    "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
-    "astro": "^4.6.1",
+    "astro": "^4.6.3",
     "astro-embed": "^0.7.1",
-    "astro-expressive-code": "^0.34.2",
+    "astro-expressive-code": "^0.35.2",
     "astro-icon": "^1.1.0",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.3",
@@ -57,10 +57,10 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@sentry/astro": "^7.110.1",
+    "@sentry/astro": "^7.111.0",
     "@spotlightjs/astro": "^1.0.20",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
     "astro-debugcss": "github:jllahi/astro-debugcss",
     "astro-devtoolbar-tailwind": "^0.0.8",
     "astro-eslint-parser": "^0.17.0",
@@ -76,9 +76,9 @@
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-packagejson": "^2.5.0",
-    "prettier-plugin-tailwindcss": "^0.5.13",
+    "prettier-plugin-tailwindcss": "^0.5.14",
     "rimraf": "^5.0.5",
     "serve": "^14.2.1",
-    "typescript-eslint": "^7.6.0"
+    "typescript-eslint": "^7.7.0"
   }
 }
