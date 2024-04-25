@@ -1,3 +1,4 @@
+import LinkPreview from '@/components/embed/LinkPreview'
 import SpotifyKeystatic from '@/components/embed/SpotifyKeystatic'
 import YouTubeLiteEmbed from '@/components/embed/YouTubeLiteEmbed'
 import { collection, config, fields, singleton } from '@keystatic/core'
@@ -134,7 +135,7 @@ export default config({
 						// 	}
 						// }),
 						YouTube: block({
-							label: 'YouTube video',
+							label: 'YouTube Video',
 							ContentView: (props: { value: { title: string; id: string } }) => (
 								<YouTubeLiteEmbed title={props.value.title} id={props.value.id} />
 							),
@@ -154,7 +155,7 @@ export default config({
 							}
 						}),
 						Spotify: block({
-							label: 'Spotify playlist',
+							label: 'Spotify Playlist',
 							ContentView: (props: { value: { title: string; playlist: string } }) => (
 								<SpotifyKeystatic title={props.value.title} playlist={props.value.playlist} />
 							),
@@ -167,6 +168,26 @@ export default config({
 								}),
 								title: fields.text({
 									label: 'Playlist title',
+									validation: {
+										isRequired: true
+									}
+								})
+							}
+						}),
+						LinkPreview: block({
+							label: 'Link Preview',
+							ContentView: (props: { value: { id: string; title: string } }) => (
+								<LinkPreview id={props.value.id} title={props.value.title} />
+							),
+							schema: {
+								id: fields.text({
+									label: 'Link ID',
+									validation: {
+										isRequired: true
+									}
+								}),
+								title: fields.text({
+									label: 'Link title',
 									validation: {
 										isRequired: true
 									}
