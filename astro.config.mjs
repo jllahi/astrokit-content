@@ -1,6 +1,7 @@
 // import mkcert from 'vite-plugin-mkcert'
 // import sentry from '@sentry/astro'
 // import spotlightjs from '@spotlightjs/astro'
+import db from '@astrojs/db'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
@@ -16,11 +17,13 @@ import metaTags from 'astro-meta-tags'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig } from 'astro/config'
 
-import db from '@astrojs/db'
-
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://astrokit-content.vercel.app',
+	// trailingSlash: 'always',
+	// build: {
+	// 	format: 'directory'
+	// },
 	output: 'hybrid',
 	adapter: vercel({
 		webAnalytics: {
@@ -65,6 +68,10 @@ export default defineConfig({
 		ssr: {
 			external: ['@keystatic/core']
 		}
+		// plugins: [mkcert()],
+		// server: {
+		// 	https: true
+		// }
 	},
 	experimental: {
 		contentCollectionCache: true,
@@ -82,12 +89,4 @@ export default defineConfig({
 	// 		],
 	// 	]
 	// },
-	//
-	// image: {
-	//   service: squooshImageService()
-	// }
-	//
-	// vite: {
-	// 	plugins: [mkcert()]
-	// }
 })
