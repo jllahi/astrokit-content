@@ -16,7 +16,7 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
+    "@astrojs/check": "^0.6.0",
     "@astrojs/db": "^0.10.6",
     "@astrojs/mdx": "^2.3.1",
     "@astrojs/react": "^3.3.1",
