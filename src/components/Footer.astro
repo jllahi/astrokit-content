@@ -1,5 +1,6 @@
 ---
-import ThemeIcon from '@/components/theme/ThemeIcon.astro'
+import { ModeToggle } from './theme/ModeToggle'
+
 // import Social from '@/components/Social.astro'
 ---
 
@@ -11,7 +12,8 @@ import ThemeIcon from '@/components/theme/ThemeIcon.astro'
 >
 	<p>Built with Astro</p>
 	<!-- <Social /> -->
-	<ThemeIcon />
+	<!-- <ThemeIcon /> -->
+	<ModeToggle client:load />
 	<!-- <div>
 		<button onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'light' }))">
 			Light

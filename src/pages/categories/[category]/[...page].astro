@@ -27,7 +27,10 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 
 		return paginate(filteredPosts, {
 			params: { category: category.slug },
-			props: { categoryName: category.data.title, categoryDescription: category.data.description },
+			props: {
+				categoryName: category.data.title,
+				categoryDescription: category.data.description
+			},
 			pageSize: site.pagination
 		})
 	})

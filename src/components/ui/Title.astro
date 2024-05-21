@@ -12,7 +12,9 @@ export const title = tv({
 	compoundVariants: [{}]
 })
 
-export interface Props extends HTMLAttributes<'h1'>, VariantProps<typeof title> {}
+export interface Props
+	extends HTMLAttributes<'h1'>,
+		VariantProps<typeof title> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 ---

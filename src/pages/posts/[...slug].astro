@@ -84,7 +84,11 @@ const category = await getEntry(post.data.category)
 			<DateFormat date={post.data.date} />
 			<!-- <span>Reading time: {post.data.reading}</span> -->
 			<div class="my-4 flex-wrap place-items-center gap-3 p-0 md:flex">
-				<Link size="sm" intent="tag" href={`/${site.urls.category}/${category.slug}`}>
+				<Link
+					size="sm"
+					intent="tag"
+					href={`/${site.urls.category}/${category.slug}`}
+				>
 					{category.data.title}
 				</Link>
 
@@ -99,7 +103,11 @@ const category = await getEntry(post.data.category)
 
 		<div class="mt-8 flex w-full flex-row justify-between">
 			<LikeButton slug={post.slug} client:load />
-			<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
+			<SocialShare
+				description={post.data.description}
+				title={post.data.title}
+				via="AstroKit"
+			/>
 		</div>
 	</Article>
 	<!-- <Section>

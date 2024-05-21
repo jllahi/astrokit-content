@@ -74,7 +74,7 @@ function extractComponent(file: string) {
 			<a href="/components" class="z-40">
 				<h2
 					class:list={[
-						'border-2 border-color-black p-2 font-logo text-2xl font-black uppercase no-underline dark:border-color-white',
+						'border-color-black font-logo dark:border-color-white border-2 p-2 text-2xl font-black uppercase no-underline',
 						'transition-all duration-300 ease-out',
 						'text-color-black dark:text-color-white',
 						'hover:bg-color-black hover:text-color-white',
@@ -84,7 +84,7 @@ function extractComponent(file: string) {
 					{site.title} Components
 				</h2>
 			</a>
-			<h1 class="px-2 font-logo text-2xl font-black uppercase">{seo?.title}</h1>
+			<h1 class="font-logo px-2 text-2xl font-black uppercase">{seo?.title}</h1>
 		</header>
 		<!-- <main class="w-full flex-grow"> -->
 		<main class:list={['grid', 'h-fit w-full flex-grow']}>

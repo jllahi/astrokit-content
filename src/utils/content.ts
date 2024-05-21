@@ -32,7 +32,8 @@ export function filterContent(
 	// sortByDate or randomize
 	if (sortByDate) {
 		filteredContent.sort(
-			(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+			(a, b) =>
+				new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 		)
 	} else {
 		filteredContent.sort(() => Math.random() - 0.5)
@@ -88,7 +89,9 @@ export const getSortedPosts = (posts: CollectionEntry<'posts'>[]) =>
 		)
 
 export function getAllTags(posts: CollectionEntry<'posts'>[]) {
-	const tags: string[] = [...new Set(posts.flatMap((post) => post.data.tags || []).filter(Boolean))]
+	const tags: string[] = [
+		...new Set(posts.flatMap((post) => post.data.tags || []).filter(Boolean))
+	]
 	return tags
 		.map((tag) => {
 			return {
@@ -117,7 +120,10 @@ export function getAllTags(posts: CollectionEntry<'posts'>[]) {
 // 		})
 // }
 
-export function getPostsByTag(posts: CollectionEntry<'posts'>[], tagSlug: string) {
+export function getPostsByTag(
+	posts: CollectionEntry<'posts'>[],
+	tagSlug: string
+) {
 	const filteredPosts: CollectionEntry<'posts'>[] = posts.filter((post) =>
 		(post.data.tags || []).map((tag) => slugify(tag)).includes(tagSlug)
 	)

@@ -101,7 +101,8 @@ export default config({
 				}),
 				draft: fields.checkbox({
 					label: 'Draft',
-					description: 'Set this post as draft to prevent it from being published'
+					description:
+						'Set this post as draft to prevent it from being published'
 				}),
 				content: fields.mdx({
 					label: 'Content',
@@ -136,8 +137,13 @@ export default config({
 						// }),
 						YouTube: block({
 							label: 'YouTube Video',
-							ContentView: (props: { value: { title: string; id: string } }) => (
-								<YouTubeLiteEmbed title={props.value.title} id={props.value.id} />
+							ContentView: (props: {
+								value: { title: string; id: string }
+							}) => (
+								<YouTubeLiteEmbed
+									title={props.value.title}
+									id={props.value.id}
+								/>
 							),
 							schema: {
 								id: fields.text({
@@ -156,8 +162,13 @@ export default config({
 						}),
 						Spotify: block({
 							label: 'Spotify Playlist',
-							ContentView: (props: { value: { title: string; playlist: string } }) => (
-								<SpotifyKeystatic title={props.value.title} playlist={props.value.playlist} />
+							ContentView: (props: {
+								value: { title: string; playlist: string }
+							}) => (
+								<SpotifyKeystatic
+									title={props.value.title}
+									playlist={props.value.playlist}
+								/>
 							),
 							schema: {
 								playlist: fields.text({
@@ -176,7 +187,9 @@ export default config({
 						}),
 						LinkPreview: block({
 							label: 'Link Preview',
-							ContentView: (props: { value: { id: string; title: string } }) => (
+							ContentView: (props: {
+								value: { id: string; title: string }
+							}) => (
 								<LinkPreview id={props.value.id} title={props.value.title} />
 							),
 							schema: {

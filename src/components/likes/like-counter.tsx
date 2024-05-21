@@ -1,6 +1,11 @@
 import axios from 'axios'
 
-import { QueryClient, QueryClientProvider, useIsFetching, useQuery } from '@tanstack/react-query'
+import {
+	QueryClient,
+	QueryClientProvider,
+	useIsFetching,
+	useQuery
+} from '@tanstack/react-query'
 import type { LikeResponseData } from './like-type'
 import Spinner from './spinner'
 
@@ -28,7 +33,8 @@ function Component({ slug }: Props) {
 		}
 	})
 
-	const isUpdating = query.status === 'pending' || query.isFetching || isFetching
+	const isUpdating =
+		query.status === 'pending' || query.isFetching || isFetching
 
 	return (
 		<>
@@ -39,7 +45,8 @@ function Component({ slug }: Props) {
 					<>
 						{query.status === 'success' && (
 							<span>
-								({query.data.likesCount} {query.data.likesCount === 1 ? 'like' : 'likes'})
+								({query.data.likesCount}{' '}
+								{query.data.likesCount === 1 ? 'like' : 'likes'})
 							</span>
 						)}
 					</>

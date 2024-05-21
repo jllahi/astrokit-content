@@ -7,7 +7,9 @@ import postFilter from './postFilter'
 // }
 
 const getUniqueTags = (posts: CollectionEntry<'posts'>[]) => {
-	const tags: string[] = posts.filter(postFilter).flatMap((post) => post.data.tags)
+	const tags: string[] = posts
+		.filter(postFilter)
+		.flatMap((post) => post.data.tags)
 	// .map((tag) => ( tag: slugifyStr(tag)))
 	// .filter((value, index, self) => self.findIndex((tag) => tag.tag === value.tag) === index)
 	// .sort((tagA, tagB) => tagA.tag.localeCompare(tagB.tag))

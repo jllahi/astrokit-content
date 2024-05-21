@@ -10,7 +10,7 @@
 	"frontMatter.dashboard.openOnStart": false,
 	"frontMatter.content.publicFolder": {
 		"path": "[[workspace]]/src/assets/images",
-		"relative": true
+		"relative": false
 	},
 	"frontMatter.content.pageFolders": [
 		{

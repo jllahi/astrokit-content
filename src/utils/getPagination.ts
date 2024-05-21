@@ -7,7 +7,11 @@ interface GetPaginationProps<T> {
 	isIndex?: boolean
 }
 
-const getPagination = <T>({ posts, page, isIndex = false }: GetPaginationProps<T[]>) => {
+const getPagination = <T>({
+	posts,
+	page,
+	isIndex = false
+}: GetPaginationProps<T[]>) => {
 	const totalPagesArray = getPageNumbers(posts.length)
 	const totalPages = totalPagesArray.length
 

@@ -43,7 +43,10 @@ function Likes({ slug }: LikeButtonProps) {
 	})
 	const mutation = useMutation({
 		mutationFn: async () => {
-			const response = await axios.post<LikeResponseData>(`/api/likes/${slug}`, { slug })
+			const response = await axios.post<LikeResponseData>(
+				`/api/likes/${slug}`,
+				{ slug }
+			)
 			return response.data
 		},
 		onSuccess: async () => {
@@ -51,7 +54,10 @@ function Likes({ slug }: LikeButtonProps) {
 		}
 	})
 	const isUpdating =
-		query.status === 'pending' || query.isFetching || isFetching || mutation.isPending
+		query.status === 'pending' ||
+		query.isFetching ||
+		isFetching ||
+		mutation.isPending
 
 	return (
 		<div className="flex items-center gap-2">
@@ -68,7 +74,9 @@ function Likes({ slug }: LikeButtonProps) {
 						<Spinner />
 					) : (
 						<span className="font-mono font-medium">
-							{query.data && 'likesCount' in query.data && query.data.likesCount}
+							{query.data &&
+								'likesCount' in query.data &&
+								query.data.likesCount}
 						</span>
 					)}
 				</span>

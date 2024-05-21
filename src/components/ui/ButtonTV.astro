@@ -8,7 +8,8 @@ const buttonTv = tv({
 		intent: {
 			primary: 'border-transparent bg-blue-500 text-white hover:bg-blue-800',
 			secondary: 'border-gray-400 bg-white text-gray-800 hover:bg-gray-100',
-			accent: 'bg-color-accent hover:bg-color-accent-dark border-transparent text-white',
+			accent:
+				'bg-color-accent hover:bg-color-accent-dark border-transparent text-white',
 			ghost: [
 				'border border-transparent bg-transparent text-gray-800 hover:border-gray-600',
 				'dark:text-gray-300 dark:hover:border-gray-300'
@@ -27,16 +28,24 @@ const buttonTv = tv({
 	compoundVariants: [{ intent: 'primary', size: 'large', class: 'uppercase' }]
 })
 
-export interface Props extends HTMLAttributes<'button'>, VariantProps<typeof buttonTv> {}
+export interface Props
+	extends HTMLAttributes<'button'>,
+		VariantProps<typeof buttonTv> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 ---
 
-<button class={buttonTv({ intent, size, className })} data-name="button-tv" {...rest}>
+<button
+	class={buttonTv({ intent, size, className })}
+	data-name="button-tv"
+	{...rest}
+>
 	<slot />
 </button>
 
 <script>
 	const buttonsTV = document.querySelectorAll('button[data-name="button-tv"]')
-	buttonsTV.forEach((btn) => btn.addEventListener('click', () => alert('BANG TV!')))
+	buttonsTV.forEach((btn) =>
+		btn.addEventListener('click', () => alert('BANG TV!'))
+	)
 </script>

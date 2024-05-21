@@ -1,8 +1,9 @@
 ---
-// import '@/assets/styles/global.css'
+import '@/assets/styles/globals.css'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/header/Header.astro'
-import ThemeInit from '@/components/theme/ThemeInit.astro'
+import DarkMode from '@/components/theme/DarkMode.astro'
+// import ThemeInit from '@/components/theme/ThemeInit.astro'
 import TailwindIndicator from '@/components/utils/TailwindIndicator.astro'
 import { site } from '@/data/site'
 import '@fontsource-variable/inter'
@@ -37,9 +38,11 @@ const { seo } = Astro.props
 			}}
 			{...seo}
 		/>
-		<ThemeInit />
+		<!-- <ThemeInit /> -->
+
 		<!-- <Themes /> -->
 		<ViewTransitions />
+		<DarkMode />
 	</head>
 	<body
 		class:list={[

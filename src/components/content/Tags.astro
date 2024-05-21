@@ -28,7 +28,9 @@ export const tagsVariants = tv({
 	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
 })
 
-export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof tagsVariants> {
+export interface Props
+	extends HTMLAttributes<'ul'>,
+		VariantProps<typeof tagsVariants> {
 	tags: Tag[] | string[] | undefined
 }
 const { tags, intent, size, class: className, ...rest } = Astro.props
@@ -37,7 +39,11 @@ const { tags, intent, size, class: className, ...rest } = Astro.props
 
 {
 	tags && (
-		<ul class={tagsVariants({ intent, size, className })} data-name="ui-tags" {...rest}>
+		<ul
+			class={tagsVariants({ intent, size, className })}
+			data-name="ui-tags"
+			{...rest}
+		>
 			{tags.map((tag) => (
 				<li>
 					<Link

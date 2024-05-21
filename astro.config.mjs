@@ -62,7 +62,9 @@ export default defineConfig({
 		react(),
 		robotsTxt(),
 		sitemap(),
-		tailwind()
+		tailwind({
+			applyBaseStyles: false
+		})
 	],
 	vite: {
 		ssr: {

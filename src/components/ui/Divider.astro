@@ -23,9 +23,15 @@ export const divider = tv({
 	compoundVariants: [{}]
 })
 
-export interface Props extends HTMLAttributes<'hr'>, VariantProps<typeof divider> {}
+export interface Props
+	extends HTMLAttributes<'hr'>,
+		VariantProps<typeof divider> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 ---
 
-<hr class={divider({ intent, size, className })} data-name="ui-divider" {...rest} />
+<hr
+	class={divider({ intent, size, className })}
+	data-name="ui-divider"
+	{...rest}
+/>

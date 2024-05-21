@@ -10,7 +10,8 @@ export const categoriesVariants = tv({
 	base: 'm-0 flex flex-wrap gap-2 p-0 place-items-center',
 	variants: {
 		intent: {
-			outline: 'border-2 border-black hover:bg-black text-black hover:text-white',
+			outline:
+				'border-2 border-black hover:bg-black text-black hover:text-white',
 			primary: 'bg-color-primary text-white hover:bg-color-primary-dark',
 			// inverted: '',
 			tag: ''
@@ -28,7 +29,9 @@ export const categoriesVariants = tv({
 	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
 })
 
-export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof categoriesVariants> {
+export interface Props
+	extends HTMLAttributes<'ul'>,
+		VariantProps<typeof categoriesVariants> {
 	// categories: CollectionEntry<'categories'>[] // | undefined
 }
 // const { categories, intent, size, class: className, ...rest } = Astro.props
@@ -40,7 +43,11 @@ const categories = await getCollection('categories')
 
 {
 	categories && (
-		<ul class={categoriesVariants({ intent, size, className })} data-name="ui-categories" {...rest}>
+		<ul
+			class={categoriesVariants({ intent, size, className })}
+			data-name="ui-categories"
+			{...rest}
+		>
 			{categories.map((category) => (
 				<li>
 					<Link
