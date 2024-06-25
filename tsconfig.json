@@ -7,7 +7,5 @@
 		},
 		"jsx": "react-jsx",
 		"jsxImportSource": "react"
-		// "moduleResolution": "bundler",
-		// "importsNotUsedAsValues": "remove"
 	}
 }
