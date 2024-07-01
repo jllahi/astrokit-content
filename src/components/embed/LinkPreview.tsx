@@ -4,7 +4,10 @@ export interface LinkPreviewProps {
 	title?: string
 }
 
-export default function LinkPreviewEmbed({ id, title = 'Link title' }: LinkPreviewProps) {
+export default function LinkPreviewEmbed({
+	id,
+	title = 'Link title',
+}: LinkPreviewProps) {
 	// const meta = await parseOpenGraph(id)
 	// const domain = meta?.url ? new URL(meta.url).hostname.replace('www.', '') : ''
 

@@ -12,12 +12,12 @@ export async function GET(context: APIContext) {
 		title: 'AstroKit',
 		description: 'We are all made of stars',
 		site: context.site as URL,
-		items: posts.map((post) => ({
+		items: posts.map(post => ({
 			title: post.data.title,
 			pubDate: post.data.date,
 			description: post.data.description,
 			// customData: post.data.date,
-			link: `/post/${post.slug}/`
-		}))
+			link: `/post/${post.slug}/`,
+		})),
 	})
 }

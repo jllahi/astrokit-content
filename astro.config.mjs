@@ -1,6 +1,3 @@
-// import mkcert from 'vite-plugin-mkcert'
-// import sentry from '@sentry/astro'
-// import spotlightjs from '@spotlightjs/astro'
 import db from '@astrojs/db'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
@@ -8,7 +5,8 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel/serverless'
 import keystatic from '@keystatic/astro'
-import debugcss from 'astro-debugcss'
+// import sentry from '@sentry/astro'
+// import spotlightjs from '@spotlightjs/astro'
 import AstroDevtoolbarTailwind from 'astro-devtoolbar-tailwind'
 import embeds from 'astro-embed/integration'
 import astroExpressiveCode from 'astro-expressive-code'
@@ -27,8 +25,8 @@ export default defineConfig({
 	output: 'hybrid',
 	adapter: vercel({
 		webAnalytics: {
-			enabled: true
-		}
+			enabled: true,
+		},
 		// imagesConfig: {
 		//   sizes: [320, 640, 1280],
 		// },
@@ -39,7 +37,6 @@ export default defineConfig({
 		AstroDevtoolbarTailwind(),
 		astroExpressiveCode(),
 		db(),
-		debugcss(),
 		embeds(),
 		icon({
 			iconDir: 'src/assets/icons',
@@ -51,10 +48,10 @@ export default defineConfig({
 					'github-line',
 					'mail-line',
 					'twitter-x-line',
-					'whatsapp-line'
-				]
+					'whatsapp-line',
+				],
 				// uis: ['*'],
-			}
+			},
 		}),
 		keystatic(),
 		mdx(),
@@ -62,21 +59,22 @@ export default defineConfig({
 		react(),
 		robotsTxt(),
 		sitemap(),
-		tailwind()
+		tailwind(),
 	],
 	vite: {
 		ssr: {
-			external: ['@keystatic/core']
-		}
+			external: ['@keystatic/core'],
+		},
 		// plugins: [mkcert()],
 		// server: {
 		// 	https: true
 		// }
 	},
 	experimental: {
+		actions: true,
 		contentCollectionCache: true,
-		contentCollectionJsonSchema: true
-	}
+		contentCollectionJsonSchema: true,
+	},
 	// markdown: {
 	// 	remarkPlugins: [
 	// 		remarkReadingTime

@@ -9,7 +9,7 @@ export function filterContent(
 		filterOutDrafts = true,
 		filterOutFuture = true,
 		sortByDate = true,
-		limit = undefined
+		limit = undefined,
 	}: {
 		filterOutDrafts?: boolean
 		filterOutFuture?: boolean
@@ -17,7 +17,7 @@ export function filterContent(
 		limit?: number | undefined
 	} = {}
 ) {
-	const filteredContent = items.filter((item) => {
+	const filteredContent = items.filter(item => {
 		const { date, draft } = item.data
 
 		// filterOutDrafts if true
@@ -32,7 +32,8 @@ export function filterContent(
 	// sortByDate or randomize
 	if (sortByDate) {
 		filteredContent.sort(
-			(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+			(a, b) =>
+				new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 		)
 	} else {
 		filteredContent.sort(() => Math.random() - 0.5)
@@ -51,19 +52,19 @@ export function formatDate(date: string | number | Date) {
 		timeZone: 'UTC',
 		year: 'numeric',
 		month: 'numeric',
-		day: 'numeric'
+		day: 'numeric',
 	})
 }
 export function getDay(date: string | number | Date) {
 	return new Date(date).toLocaleDateString(site.language, {
 		timeZone: 'UTC',
-		day: 'numeric'
+		day: 'numeric',
 	})
 }
 export function getMonth(date: string | number | Date) {
 	return new Date(date).toLocaleDateString(site.language, {
 		timeZone: 'UTC',
-		month: 'short'
+		month: 'short',
 	})
 }
 
@@ -88,16 +89,18 @@ export const getSortedPosts = (posts: CollectionEntry<'posts'>[]) =>
 		)
 
 export function getAllTags(posts: CollectionEntry<'posts'>[]) {
-	const tags: string[] = [...new Set(posts.flatMap((post) => post.data.tags || []).filter(Boolean))]
+	const tags: string[] = [
+		...new Set(posts.flatMap(post => post.data.tags || []).filter(Boolean)),
+	]
 	return tags
-		.map((tag) => {
+		.map(tag => {
 			return {
 				name: tag,
-				slug: slugify(tag)
+				slug: slugify(tag),
 			}
 		})
 		.filter((obj, pos, arr) => {
-			return arr.map((mapObj) => mapObj.slug).indexOf(obj.slug) === pos
+			return arr.map(mapObj => mapObj.slug).indexOf(obj.slug) === pos
 		})
 }
 
@@ -117,9 +120,12 @@ export function getAllTags(posts: CollectionEntry<'posts'>[]) {
 // 		})
 // }
 
-export function getPostsByTag(posts: CollectionEntry<'posts'>[], tagSlug: string) {
-	const filteredPosts: CollectionEntry<'posts'>[] = posts.filter((post) =>
-		(post.data.tags || []).map((tag) => slugify(tag)).includes(tagSlug)
+export function getPostsByTag(
+	posts: CollectionEntry<'posts'>[],
+	tagSlug: string
+) {
+	const filteredPosts: CollectionEntry<'posts'>[] = posts.filter(post =>
+		(post.data.tags || []).map(tag => slugify(tag)).includes(tagSlug)
 	)
 	return filteredPosts
 }
@@ -127,7 +133,7 @@ export function getPostsByTag(posts: CollectionEntry<'posts'>[], tagSlug: string
 export async function getPostsByCategory(category: string) {
 	const posts = (await getCollection('posts'))
 		.filter(
-			(post) =>
+			post =>
 				post.data.category.slug === category &&
 				post.data.draft !== undefined &&
 				!import.meta.env.DEV

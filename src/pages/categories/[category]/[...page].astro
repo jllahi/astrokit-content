@@ -22,13 +22,16 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 	const allCategories = await getCollection('categories')
 	// const allCategories = getUniqueCategories(allPosts)
 
-	return allCategories.flatMap((category) => {
+	return allCategories.flatMap(category => {
 		const filteredPosts = getPostsByCategory(allPosts, category.slug)
 
 		return paginate(filteredPosts, {
 			params: { category: category.slug },
-			props: { categoryName: category.data.title, categoryDescription: category.data.description },
-			pageSize: site.pagination
+			props: {
+				categoryName: category.data.title,
+				categoryDescription: category.data.description,
+			},
+			pageSize: site.pagination,
 		})
 	})
 }

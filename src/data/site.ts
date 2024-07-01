@@ -7,15 +7,15 @@ export const site: Site = {
 	opengraph: {
 		title: 'AstroKit',
 		description: 'We are all made from stars',
-		image: '/open-graph.jpg'
+		image: '/open-graph.jpg',
 	},
 	urls: {
 		posts: 'posts',
 		tags: 'tags',
-		category: 'categories'
+		category: 'categories',
 	},
 	pagination: 6,
-	scheduled: 16000
+	scheduled: 16000,
 }
 
 export default site

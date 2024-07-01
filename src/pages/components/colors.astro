@@ -6,10 +6,14 @@ import ComponentLayout from '@/layouts/ComponentLayout.astro'
 	seo={{
 		title: 'Colors',
 		description: 'About the colors used',
-		openGraph: { basic: { title: 'Colors', type: 'article', image: '/open-graph.jpg' } }
+		openGraph: {
+			basic: { title: 'Colors', type: 'article', image: '/open-graph.jpg' },
+		},
 	}}
 >
-	<article class="pose not-prose flex w-full flex-row text-2xl font-black uppercase lg:text-3xl">
+	<article
+		class="pose not-prose flex w-full flex-row text-2xl font-black uppercase lg:text-3xl"
+	>
 		<div class="w-full">
 			<h2 class="text-color-primary-darker">Primary Darker</h2>
 			<h2 class="text-color-primary-dark">Primary Dark</h2>
@@ -34,17 +38,25 @@ import ComponentLayout from '@/layouts/ComponentLayout.astro'
 			<h2 class="bg-color-white text-color-black">Black</h2>
 			<h2 class="bg-color-black text-color-white">White</h2>
 			<br />
-			<h2 class="bg-color-success-light text-color-success-dark">Success Dark</h2>
+			<h2 class="bg-color-success-light text-color-success-dark">
+				Success Dark
+			</h2>
 			<h2 class="text-color-success">Success Default</h2>
-			<h2 class="bg-color-success-dark text-color-success-light">Success Light</h2>
+			<h2 class="bg-color-success-dark text-color-success-light">
+				Success Light
+			</h2>
 			<br />
 			<h2 class="bg-color-error-light text-color-error-dark">Error Dark</h2>
 			<h2 class="text-color-error">Error Default</h2>
 			<h2 class="bg-color-error-dark text-color-error-light">Error Light</h2>
 			<br />
-			<h2 class="bg-color-warning-light text-color-warning-dark">Warning Dark</h2>
+			<h2 class="bg-color-warning-light text-color-warning-dark">
+				Warning Dark
+			</h2>
 			<h2 class="text-color-warning">Warning Default</h2>
-			<h2 class="bg-color-warning-dark text-color-warning-light">Warning Light</h2>
+			<h2 class="bg-color-warning-dark text-color-warning-light">
+				Warning Light
+			</h2>
 			<br />
 			<!-- <h2 class="text-color-primary-darker">Darker</h2>
 		<h2 class="text-[var(--color-primary-darker)/20]">Darker</h2>

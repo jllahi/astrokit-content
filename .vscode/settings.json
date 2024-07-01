@@ -19,7 +19,10 @@
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
 		".prettierrc.js": ".prettierignore",
-		"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock",
+		".eslintrc.cjs": ".eslintignore",
+		"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock, bun.lockb",
+		// "package.json": "*",
+		// "astro.config.mjs": "",
 		"README.md": "CONTRIBUTING.md"
 	},
 	"files.autoSave": "onWindowChange",

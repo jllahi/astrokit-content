@@ -6,13 +6,15 @@ export const title = tv({
 	base: 'mb-6 font-heading text-4xl font-black lg:text-5xl',
 	variants: {
 		intent: {},
-		size: {}
+		size: {},
 	},
 	defaultVariants: {},
-	compoundVariants: [{}]
+	compoundVariants: [{}],
 })
 
-export interface Props extends HTMLAttributes<'h1'>, VariantProps<typeof title> {}
+export interface Props
+	extends HTMLAttributes<'h1'>,
+		VariantProps<typeof title> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 ---

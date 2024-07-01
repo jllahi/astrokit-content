@@ -14,20 +14,26 @@ export const templateTV = tv({
 			// small: '',
 			// medium: '',
 			// large: ''
-		}
+		},
 	},
 	defaultVariants: {
 		// size: '',
 		// intent: ''
 	},
-	compoundVariants: [{}]
+	compoundVariants: [{}],
 })
 
-export interface Props extends HTMLAttributes<'div'>, VariantProps<typeof templateTV> {}
+export interface Props
+	extends HTMLAttributes<'div'>,
+		VariantProps<typeof templateTV> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 ---
 
-<div class={templateTV({ intent, size, className })} data-name="ui-template" {...rest}>
+<div
+	class={templateTV({ intent, size, className })}
+	data-name="ui-template"
+	{...rest}
+>
 	<slot />
 </div>

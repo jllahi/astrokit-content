@@ -1,25 +1,32 @@
 /** @type {import("prettier").Config} */
-export default {
-	useTabs: true,
-	tabWidth: 2,
-	singleQuote: true,
-	trailingComma: 'none',
-	semi: false,
-	printWidth: 100,
+const prettierConfig = {
 	astroAllowShorthand: true,
-	// pluginSearchDirs: false,
+	arrowParens: 'avoid',
+	bracketSpacing: true,
+	jsxSingleQuote: false,
+	proseWrap: 'always',
+	tabWidth: 2, // indent_size = 2
+	useTabs: true, // indent_style = space
+	endOfLine: 'lf', // end_of_line = lf
+	semi: false, // default: true
+	singleQuote: true, // default: false
+	printWidth: 80, // default: 80
+	trailingComma: 'es5',
+	tailwindAttributes: ['cn'],
+	tailwindFunctions: ['cn'],
 	plugins: [
 		'prettier-plugin-astro',
 		'prettier-plugin-organize-imports',
 		'prettier-plugin-packagejson',
-		'prettier-plugin-tailwindcss'
+		'prettier-plugin-tailwindcss',
 	],
 	overrides: [
 		{
 			files: '*.astro',
 			options: {
-				parser: 'astro'
-			}
-		}
-	]
+				parser: 'astro',
+			},
+		},
+	],
 }
+export default prettierConfig

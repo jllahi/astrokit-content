@@ -1,0 +1,16 @@
+---
+import { GuestbookForm } from '@/components/guestbook/GuestbookForm'
+import Link from '@/components/ui/Link.astro'
+import Section from '@/components/ui/Section.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout seo={{ title: 'Write your message' }}>
+	<Section
+		class="grid h-full w-full place-content-center place-items-center gap-6"
+	>
+		<h1 class="font-heading text-7xl font-black">Write your message</h1>
+		<GuestbookForm client:load />
+		<Link href="/guestbook" intent={'primary'}>Back to Guestbook</Link>
+	</Section>
+</Layout>

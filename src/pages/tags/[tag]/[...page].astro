@@ -21,13 +21,13 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 	const allPosts = await getCollection('posts')
 	const allTags = getUniqueTags(allPosts)
 
-	return allTags.flatMap((tag) => {
+	return allTags.flatMap(tag => {
 		const filteredPosts = getPostsByTag(allPosts, tag.tag)
 
 		return paginate(filteredPosts, {
 			params: { tag: tag.tag },
 			props: { tagName: tag.tagName },
-			pageSize: site.pagination
+			pageSize: site.pagination,
 		})
 	})
 }

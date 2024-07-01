@@ -12,9 +12,9 @@ import { getCollection } from 'astro:content'
 export async function getStaticPaths() {
 	const pages = await getCollection('pages')
 
-	return pages.map((page) => ({
+	return pages.map(page => ({
 		params: { slug: page.slug },
-		props: { page }
+		props: { page },
 	}))
 }
 
@@ -25,7 +25,7 @@ const { Content, headings } = await page.render()
 <Layout
 	seo={{
 		title: page.data.title,
-		description: page.data.description ?? site.description
+		description: page.data.description ?? site.description,
 		// openGraph: {
 		// 	basic: {
 		// 		title: page.data.title,

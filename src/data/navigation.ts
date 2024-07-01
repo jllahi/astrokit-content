@@ -3,20 +3,20 @@ import type { NavigationMenu } from './types'
 export const navigation: NavigationMenu[] = [
 	{
 		title: 'Home',
-		path: '/'
+		path: '/',
 	},
 	{
 		title: 'About',
-		path: '/about'
+		path: '/about',
 	},
 	{
 		title: 'Blog',
-		path: '/posts'
+		path: '/posts',
 	},
 	{
-		title: 'Contact',
-		path: '/contact'
-	}
+		title: 'Guestbook',
+		path: '/guestbook',
+	},
 	// {
 	// 	title: "Features",
 	// 	path: "#",

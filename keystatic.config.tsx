@@ -12,7 +12,7 @@ export default config({
 		: {
 				kind: 'github',
 				repo: { owner: 'jllahi', name: 'astrokit-content' },
-				branchPrefix: 'keystatic/'
+				branchPrefix: 'keystatic/',
 			},
 
 	// KEYSTATIC UI
@@ -20,8 +20,8 @@ export default config({
 		brand: { name: 'Astrokit Keystatic' },
 		navigation: {
 			Content: ['posts', 'pages', 'categories'],
-			Settings: ['site', 'tags', 'navigation']
-		}
+			Settings: ['site', 'tags', 'navigation'],
+		},
 	},
 
 	// CONTENT COLLECTIONS
@@ -44,10 +44,10 @@ export default config({
 							isRequired: true,
 							length: {
 								min: 5,
-								max: 180
-							}
-						}
-					}
+								max: 180,
+							},
+						},
+					},
 				}),
 				description: fields.text({
 					label: 'Description',
@@ -56,16 +56,16 @@ export default config({
 						isRequired: true,
 						length: {
 							min: 5,
-							max: 255
-						}
-					}
+							max: 255,
+						},
+					},
 				}),
 				date: fields.date({
 					label: 'Date',
 					defaultValue: { kind: 'today' },
 					validation: {
-						isRequired: true
-					}
+						isRequired: true,
+					},
 				}),
 				updated: fields.date({ label: 'Updated' }),
 				image: fields.image({
@@ -73,13 +73,13 @@ export default config({
 					directory: 'src/assets/images/posts',
 					publicPath: '../../assets/images/posts/',
 					validation: {
-						isRequired: true
-					}
+						isRequired: true,
+					},
 				}),
 				category: fields.relationship({
 					label: 'Category',
 					// description: 'The country this person lives in',
-					collection: 'categories'
+					collection: 'categories',
 				}),
 				// category: fields.text({
 				// 	label: 'Category',
@@ -93,15 +93,16 @@ export default config({
 				// }),
 				tags: fields.array(fields.text({ label: 'Tag' }), {
 					label: 'Tag',
-					itemLabel: (props) => props.value
+					itemLabel: props => props.value,
 				}),
 				featured: fields.checkbox({
 					label: 'Featured',
-					description: 'Set this post as featured to promote on homepage'
+					description: 'Set this post as featured to promote on homepage',
 				}),
 				draft: fields.checkbox({
 					label: 'Draft',
-					description: 'Set this post as draft to prevent it from being published'
+					description:
+						'Set this post as draft to prevent it from being published',
 				}),
 				content: fields.mdx({
 					label: 'Content',
@@ -110,8 +111,8 @@ export default config({
 						link: true,
 						image: {
 							directory: 'src/assets/images/posts',
-							publicPath: '../../assets/images/posts/'
-						}
+							publicPath: '../../assets/images/posts/',
+						},
 					},
 					components: {
 						// Gallery: block({
@@ -136,64 +137,76 @@ export default config({
 						// }),
 						YouTube: block({
 							label: 'YouTube Video',
-							ContentView: (props: { value: { title: string; id: string } }) => (
-								<YouTubeLiteEmbed title={props.value.title} id={props.value.id} />
+							ContentView: (props: {
+								value: { title: string; id: string }
+							}) => (
+								<YouTubeLiteEmbed
+									title={props.value.title}
+									id={props.value.id}
+								/>
 							),
 							schema: {
 								id: fields.text({
 									label: 'Video ID',
 									validation: {
-										isRequired: true
-									}
+										isRequired: true,
+									},
 								}),
 								title: fields.text({
 									label: 'Video title',
 									validation: {
-										isRequired: true
-									}
-								})
-							}
+										isRequired: true,
+									},
+								}),
+							},
 						}),
 						Spotify: block({
 							label: 'Spotify Playlist',
-							ContentView: (props: { value: { title: string; playlist: string } }) => (
-								<SpotifyKeystatic title={props.value.title} playlist={props.value.playlist} />
+							ContentView: (props: {
+								value: { title: string; playlist: string }
+							}) => (
+								<SpotifyKeystatic
+									title={props.value.title}
+									playlist={props.value.playlist}
+								/>
 							),
 							schema: {
 								playlist: fields.text({
 									label: 'Playlist ID',
 									validation: {
-										isRequired: true
-									}
+										isRequired: true,
+									},
 								}),
 								title: fields.text({
 									label: 'Playlist title',
 									validation: {
-										isRequired: true
-									}
-								})
-							}
+										isRequired: true,
+									},
+								}),
+							},
 						}),
 						LinkPreview: block({
 							label: 'Link Preview',
-							ContentView: (props: { value: { id: string; title: string } }) => (
+							ContentView: (props: {
+								value: { id: string; title: string }
+							}) => (
 								<LinkPreview id={props.value.id} title={props.value.title} />
 							),
 							schema: {
 								id: fields.text({
 									label: 'Link ID',
 									validation: {
-										isRequired: true
-									}
+										isRequired: true,
+									},
 								}),
 								title: fields.text({
 									label: 'Link title',
 									validation: {
-										isRequired: true
-									}
-								})
-							}
-						})
+										isRequired: true,
+									},
+								}),
+							},
+						}),
 						// Testimonial: wrapper({
 						// 	label: 'Testimonial',
 						// 	schema: {
@@ -201,8 +214,8 @@ export default config({
 						// 		role: fields.text({ label: 'Role' }),
 						// 	},
 						// }),
-					}
-				})
+					},
+				}),
 				// content: fields.document({
 				//   label: 'Content',
 				//   formatting: true,
@@ -213,7 +226,7 @@ export default config({
 				//     publicPath: '../../assets/images/posts/',
 				//   },
 				// }),
-			}
+			},
 		}),
 
 		// PAGES COLLECTION
@@ -230,22 +243,22 @@ export default config({
 					name: {
 						label: 'Title',
 						validation: {
-							isRequired: true
-						}
-					}
+							isRequired: true,
+						},
+					},
 				}),
 				description: fields.text({
 					label: 'Description',
 					validation: {
-						isRequired: true
-					}
+						isRequired: true,
+					},
 				}),
 				date: fields.date({
 					label: 'Date',
 					defaultValue: { kind: 'today' },
 					validation: {
-						isRequired: false
-					}
+						isRequired: false,
+					},
 				}),
 				content: fields.mdx({
 					label: 'Content',
@@ -254,11 +267,11 @@ export default config({
 						link: true,
 						image: {
 							directory: 'src/assets/images/pages',
-							publicPath: '../../assets/images/pages/'
-						}
-					}
-				})
-			}
+							publicPath: '../../assets/images/pages/',
+						},
+					},
+				}),
+			},
 		}),
 
 		// CATEGORIES COLLECTION
@@ -276,16 +289,16 @@ export default config({
 					name: {
 						label: 'Title',
 						validation: {
-							isRequired: true
-						}
-					}
+							isRequired: true,
+						},
+					},
 				}),
 				description: fields.text({
 					label: 'Description',
 					multiline: true,
 					validation: {
-						isRequired: true
-					}
+						isRequired: true,
+					},
 				}),
 				content: fields.mdx({
 					label: 'Content',
@@ -296,10 +309,10 @@ export default config({
 						// 	directory: 'src/assets/images/pages',
 						// 	publicPath: '../../assets/images/pages/'
 						// }
-					}
-				})
-			}
-		})
+					},
+				}),
+			},
+		}),
 	},
 
 	// SETTINGS SINGLETONS
@@ -314,24 +327,24 @@ export default config({
 				title: fields.text({
 					label: 'Title',
 					validation: {
-						isRequired: true
-					}
+						isRequired: true,
+					},
 				}),
 				description: fields.text({
 					label: 'Description',
 					validation: {
-						isRequired: true
-					}
+						isRequired: true,
+					},
 				}),
 				image: fields.image({
 					label: 'Image',
 					description: 'Image used for SEO',
 					directory: 'src/assets/images/site',
 					validation: {
-						isRequired: true
-					}
-				})
-			}
+						isRequired: true,
+					},
+				}),
+			},
 		}),
 
 		// TAGS POSTS SINGLETON
@@ -344,16 +357,16 @@ export default config({
 					fields.text({
 						label: 'Post Tag',
 						validation: {
-							isRequired: true
-						}
+							isRequired: true,
+						},
 					}),
 					// Labelling options
 					{
 						label: 'Tags for posts',
-						itemLabel: (props) => props.value
+						itemLabel: props => props.value,
 					}
-				)
-			}
+				),
+			},
 		}),
 
 		// NAVIGATION SINGLETON
@@ -368,15 +381,15 @@ export default config({
 							label: 'Name',
 							description: 'Usually the name of the link',
 							validation: {
-								isRequired: true
-							}
+								isRequired: true,
+							},
 						}),
 						url: fields.url({
 							label: 'URL',
 							validation: {
-								isRequired: true
-							}
-						})
+								isRequired: true,
+							},
+						}),
 						// projects: fields.array(
 						// 	fields.relationship({
 						// 		label: 'Posts',
@@ -394,10 +407,10 @@ export default config({
 					// Labelling options
 					{
 						label: 'Main Navigation',
-						itemLabel: (props) => props.fields.name.value
+						itemLabel: props => props.fields.name.value,
 					}
-				)
-			}
-		})
-	}
+				),
+			},
+		}),
+	},
 })

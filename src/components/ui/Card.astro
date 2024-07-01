@@ -16,7 +16,7 @@ const optimizedBackground = await getImage({
 	src: post.data.image,
 	format: 'webp',
 	width: featured ? 1200 : 600,
-	quality: 85
+	quality: 85,
 })
 
 const relatedCategory = await getEntry(post.data.category)
@@ -24,7 +24,7 @@ const relatedCategory = await getEntry(post.data.category)
 
 <article
 	class:list={[
-		'relative flex w-full items-end justify-start bg-gray-200 bg-cover bg-center text-left dark:bg-gray-800'
+		'relative flex w-full items-end justify-start bg-gray-200 bg-cover bg-center text-left dark:bg-gray-800',
 		// { 'col-span-3': featured }
 	]}
 	style={`height: 450px; background-image:url(${optimizedBackground.src});`}
@@ -35,7 +35,9 @@ const relatedCategory = await getEntry(post.data.category)
 			class="absolute bottom-0 left-0 right-0 top-0 mt-20 bg-gradient-to-b from-transparent to-gray-900"
 		>
 		</div>
-		<div class="absolute left-0 right-0 top-0 mx-5 mt-2 flex items-center justify-between">
+		<div
+			class="absolute left-0 right-0 top-0 mx-5 mt-2 flex items-center justify-between"
+		>
 			<!-- <Link href={`/${site.urls.category}/${relatedCategory.slug}`} size="sm" intent="tag"
 				>{relatedCategory.data.title}
 			</Link> -->
@@ -43,13 +45,14 @@ const relatedCategory = await getEntry(post.data.category)
 				class:list={[
 					'border border-color-black bg-color-white px-2 text-black no-underline hover:bg-color-black hover:text-white',
 					'dark:border-color-white dark:bg-color-black dark:text-white dark:hover:bg-color-white dark:hover:text-black',
-					'px-2 py-1 text-xs font-bold uppercase'
+					'px-2 py-1 text-xs font-bold uppercase',
 				]}
 			>
 				{relatedCategory.data.title}
 			</div>
 			<div class="font-regular flex flex-col justify-start text-white">
-				<span class="leading-0 text-3xl font-semibold drop-shadow-md">{getDay(post.data.date)}</span
+				<span class="leading-0 text-3xl font-semibold drop-shadow-md"
+					>{getDay(post.data.date)}</span
 				>
 				<span class="-mt-3 drop-shadow-md">{getMonth(post.data.date)}</span>
 			</div>

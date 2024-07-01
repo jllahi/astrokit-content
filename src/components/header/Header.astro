@@ -1,7 +1,7 @@
 ---
 import site from '@/data/site.json'
 // import Navigation from '@/components/Navigation.astro'
-import ResponsiveMenu from '../header/ResponsiveMenu.astro'
+import ResponsiveMenu from '@/components/header/ResponsiveMenu.astro'
 ---
 
 <header class:list={['flex w-full flex-row justify-between', 'mb-1 sm:mb-4']}>
@@ -12,7 +12,7 @@ import ResponsiveMenu from '../header/ResponsiveMenu.astro'
 				'transition-all duration-300 ease-out',
 				'text-color-black dark:text-color-white',
 				'hover:bg-color-black hover:text-color-white',
-				'dark:hover:bg-color-white dark:hover:text-color-black'
+				'dark:hover:bg-color-white dark:hover:text-color-black',
 			]}
 		>
 			{site.title}

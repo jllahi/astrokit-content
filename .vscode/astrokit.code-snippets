@@ -3,8 +3,8 @@
 		"scope": "astro",
 		"prefix": "class:list",
 		"body": ["class:list={['$1', '$2', {'$3':false}]}"],
-		"description": "Takes an array of class values and converts them into a class string."
-	}
+		"description": "Takes an array of class values and converts them into a class string.",
+	},
 	// Place your astrokit workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
 	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
 	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is

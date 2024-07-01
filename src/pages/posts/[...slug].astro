@@ -10,19 +10,19 @@ import LikeButton from '@/components/likes/like-button'
 import Article from '@/components/ui/Article.astro'
 import Link from '@/components/ui/Link.astro'
 import Title from '@/components/ui/Title.astro'
-import DataDump from '@/components/utils/DataDump.astro'
 import DateFormat from '@/components/utils/DateFormat.astro'
 import SocialShare from '@/components/utils/SocialShare.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
 import postFilter from '@/utils/postFilter'
+import { Debug } from 'astro:components'
 
 export async function getStaticPaths() {
 	const posts = (await getCollection('posts')).filter(postFilter)
 
-	return posts.map((post) => ({
+	return posts.map(post => ({
 		params: { slug: post.slug },
-		props: { post }
+		props: { post },
 	}))
 }
 
@@ -44,9 +44,9 @@ const category = await getEntry(post.data.category)
 			basic: {
 				title: post.data.title,
 				type: 'article',
-				image: post.data.image.src
-			}
-		}
+				image: post.data.image.src,
+			},
+		},
 	}}
 >
 	<Article>
@@ -84,7 +84,11 @@ const category = await getEntry(post.data.category)
 			<DateFormat date={post.data.date} />
 			<!-- <span>Reading time: {post.data.reading}</span> -->
 			<div class="my-4 flex-wrap place-items-center gap-3 p-0 md:flex">
-				<Link size="sm" intent="tag" href={`/${site.urls.category}/${category.slug}`}>
+				<Link
+					size="sm"
+					intent="tag"
+					href={`/${site.urls.category}/${category.slug}`}
+				>
 					{category.data.title}
 				</Link>
 
@@ -99,12 +103,16 @@ const category = await getEntry(post.data.category)
 
 		<div class="mt-8 flex w-full flex-row justify-between">
 			<LikeButton slug={post.slug} client:load />
-			<SocialShare description={post.data.description} title={post.data.title} via="AstroKit" />
+			<SocialShare
+				description={post.data.description}
+				title={post.data.title}
+				via="AstroKit"
+			/>
 		</div>
 	</Article>
 	<!-- <Section>
 		<h2>Related</h2>
 		<PostListCategory category={post.data.category} />
 	</Section> -->
-	<DataDump data={post} />
+	<Debug data={post} />
 </Layout>

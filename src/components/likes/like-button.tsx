@@ -4,7 +4,7 @@ import {
 	useIsFetching,
 	useMutation,
 	useQuery,
-	useQueryClient
+	useQueryClient,
 } from '@tanstack/react-query'
 import axios from 'axios'
 import type { LikeResponseData } from './like-type'
@@ -36,22 +36,28 @@ function Likes({ slug }: LikeButtonProps) {
 				return data
 			} else {
 				return new Response('Slug parameter is missing', {
-					status: 400
+					status: 400,
 				})
 			}
-		}
+		},
 	})
 	const mutation = useMutation({
 		mutationFn: async () => {
-			const response = await axios.post<LikeResponseData>(`/api/likes/${slug}`, { slug })
+			const response = await axios.post<LikeResponseData>(
+				`/api/likes/${slug}`,
+				{ slug }
+			)
 			return response.data
 		},
 		onSuccess: async () => {
 			await queryClient.invalidateQueries({ queryKey: ['likes', slug] })
-		}
+		},
 	})
 	const isUpdating =
-		query.status === 'pending' || query.isFetching || isFetching || mutation.isPending
+		query.status === 'pending' ||
+		query.isFetching ||
+		isFetching ||
+		mutation.isPending
 
 	return (
 		<div className="flex items-center gap-2">
@@ -68,7 +74,9 @@ function Likes({ slug }: LikeButtonProps) {
 						<Spinner />
 					) : (
 						<span className="font-mono font-medium">
-							{query.data && 'likesCount' in query.data && query.data.likesCount}
+							{query.data &&
+								'likesCount' in query.data &&
+								query.data.likesCount}
 						</span>
 					)}
 				</span>

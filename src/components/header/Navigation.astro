@@ -19,18 +19,19 @@ export const navigation = tv({
 	variants: {
 		intent: {
 			horizontal: 'flex-row uppercase font-heading font-medium',
-			vertical: 'flex-col font-black text-4xl uppercase font-heading mt-10 gap-10'
+			vertical:
+				'flex-col font-black text-4xl uppercase font-heading mt-10 gap-10',
 		},
 		size: {
 			sm: 'pb-1 px-2 text-xs',
 			md: 'pb-1 px-2 text-base',
-			lg: 'py-2 px-3 text-xl'
-		}
+			lg: 'py-2 px-3 text-xl',
+		},
 	},
 	defaultVariants: {
 		size: 'md',
-		intent: 'horizontal'
-	}
+		intent: 'horizontal',
+	},
 	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
 })
 
@@ -42,7 +43,9 @@ export const navigation = tv({
 // 	...rest
 // } = Astro.props
 
-export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof navigation> {}
+export interface Props
+	extends HTMLAttributes<'ul'>,
+		VariantProps<typeof navigation> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 
@@ -53,8 +56,12 @@ const mainNav = navigationData[0].data.mainNav
 {
 	mainNav && (
 		<nav>
-			<ul class={navigation({ intent, size, className })} data-name="ui-navigation" {...rest}>
-				{mainNav.map((item) => (
+			<ul
+				class={navigation({ intent, size, className })}
+				data-name="ui-navigation"
+				{...rest}
+			>
+				{mainNav.map(item => (
 					<li>
 						<Link
 							href={item.url}

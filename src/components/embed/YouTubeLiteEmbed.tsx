@@ -12,7 +12,7 @@ export default function YouTubeLiteEmbed({
 	id,
 	title,
 	cover,
-	poster = 'sddefault'
+	poster = 'sddefault',
 }: YouTubeLiteEmbedProps) {
 	return (
 		<div>

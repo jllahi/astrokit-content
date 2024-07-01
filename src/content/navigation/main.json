@@ -9,8 +9,8 @@
 			"url": "/posts"
 		},
 		{
-			"name": "Contact",
-			"url": "/contact"
+			"name": "Guestbook",
+			"url": "/guestbook"
 		}
 	]
 }

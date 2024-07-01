@@ -13,21 +13,21 @@ const sizes = [undefined, 'large', 'medium', 'small'] as const
 			'relative',
 			'h-max w-max',
 			'self-center justify-self-center',
-			'[&_:where(th,td)]:p-2'
+			'[&_:where(th,td)]:p-2',
 		]}
 	>
 		<thead>
 			<tr>
 				<th></th>
-				{intents.map((intent) => <th scope="col">{intent || 'default'}</th>)}
+				{intents.map(intent => <th scope="col">{intent || 'default'}</th>)}
 			</tr>
 		</thead>
 		<tbody>
 			{
-				sizes.map((size) => (
+				sizes.map(size => (
 					<tr>
 						<th scope="row">{size || 'default'}</th>
-						{intents.map((intent) => (
+						{intents.map(intent => (
 							// <td scope="col">
 							<td>
 								<Button {...(intent && { intent })} {...(size && { size })}>

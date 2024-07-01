@@ -1,4 +1,5 @@
 import containerQueries from '@tailwindcss/container-queries'
+import forms from '@tailwindcss/forms'
 import typography from '@tailwindcss/typography'
 import { type Config } from 'tailwindcss'
 import animate from 'tailwindcss-animate'
@@ -10,8 +11,8 @@ export default {
 		'variant',
 		[
 			'@media (prefers-color-scheme: dark) { &:where(:not(.light *, .light)) }',
-			'&:where(.dark *, .dark)'
-		]
+			'&:where(.dark *, .dark)',
+		],
 	],
 	// darkMode: ['class', '[data-mode="dark"]'],
 	// darkMode: ['class'], // '[data-mode="dark"]'],
@@ -22,7 +23,7 @@ export default {
 			fontFamily: {
 				sans: ['Inter Variable', ...theme.fontFamily.sans],
 				heading: ['Montserrat Variable', ...theme.fontFamily.sans],
-				logo: ['Montserrat Variable', ...theme.fontFamily.sans]
+				logo: ['Montserrat Variable', ...theme.fontFamily.sans],
 			},
 			colors: {
 				'color-black': colors.gray[900],
@@ -59,15 +60,15 @@ export default {
 
 				'color-warning-dark': colors.yellow[800],
 				'color-warning': colors.yellow[500],
-				'color-warning-light': colors.yellow[200]
-			}
+				'color-warning-light': colors.yellow[200],
+			},
 			// borderColor: ({ theme }) => ({
 			// 	...theme('colors'),
 			// 	DEFAULT: theme('colors.gray.200', 'currentColor'),
 			// 	'color-light': colors.gray[200],
 			// 	'color-dark:': colors.gray[800]
 			// })
-		}
+		},
 	},
-	plugins: [typography, containerQueries, animate]
+	plugins: [typography, containerQueries, animate, forms],
 } satisfies Config

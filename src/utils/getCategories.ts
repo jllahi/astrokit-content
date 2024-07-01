@@ -8,13 +8,13 @@ export interface Category {
 
 const getCategories = async () => {
 	const allCategories = await getCollection('categories')
-	const filledcategories = allCategories.map(async (category) => {
+	const filledcategories = allCategories.map(async category => {
 		const relatedCategory = await getEntry(category)
 
 		const filledCategory: Category = {
 			title: relatedCategory.data.title,
 			description: relatedCategory.data.description,
-			slug: category.slug
+			slug: category.slug,
 		}
 		return filledCategory
 	})

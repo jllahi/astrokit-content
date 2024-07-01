@@ -1,0 +1,20 @@
+---
+import { Guestbook, db, desc } from 'astro:db'
+
+const messages = await db.select().from(Guestbook).orderBy(desc(Guestbook.date))
+---
+
+<section>
+	<h2 class="mb-8 text-center text-2xl font-bold">What people are saying:</h2>
+	{
+		messages.map(message => (
+			<article class="my-8 flex flex-col gap-4 rounded border p-4">
+				<h3 class="text-xl font-black">{message.title}</h3>
+				<p class="text-lg">{message.message}</p>
+				<p class="text-right text-sm">
+					by {message.name} on {message.date.toLocaleDateString()}
+				</p>
+			</article>
+		))
+	}
+</section>

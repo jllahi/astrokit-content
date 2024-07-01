@@ -51,8 +51,8 @@ function extractComponent(file: string) {
 				basic: {
 					title: seo?.title || site.title,
 					type: 'website', // https://ogp.me/#types
-					image: site.opengraph.image || '/open-graph.jpg'
-				}
+					image: site.opengraph.image || '/open-graph.jpg',
+				},
 			}}
 			{...seo}
 		/>
@@ -67,7 +67,7 @@ function extractComponent(file: string) {
 			// },
 			'mx-auto flex h-screen flex-col p-10 font-sans transition-all duration-300',
 			'bg-color-white text-color-black',
-			'dark:bg-color-black dark:text-color-white'
+			'dark:bg-color-black dark:text-color-white',
 		]}
 	>
 		<header class:list={['flex w-full flex-row justify-between', 'mb-10 mt-1']}>
@@ -78,7 +78,7 @@ function extractComponent(file: string) {
 						'transition-all duration-300 ease-out',
 						'text-color-black dark:text-color-white',
 						'hover:bg-color-black hover:text-color-white',
-						'dark:hover:bg-color-white dark:hover:text-color-black'
+						'dark:hover:bg-color-white dark:hover:text-color-black',
 					]}
 				>
 					{site.title} Components
@@ -93,7 +93,7 @@ function extractComponent(file: string) {
 		<footer class="mt-10 flex flex-row justify-between">
 			<ul class="flex flex-row gap-x-6 uppercase">
 				{
-					components.map((component) => (
+					components.map(component => (
 						<li>
 							<a class="font-heading text-2xl font-black" href={component.url}>
 								{extractComponent(component.file)}

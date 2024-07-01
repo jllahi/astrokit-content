@@ -17,8 +17,11 @@ const domain = meta?.url ? new URL(meta.url).hostname.replace('www.', '') : ''
 				'link-preview',
 				{
 					'link-preview--has-video': meta.video && meta.videoType,
-					'link-preview--no-media': !((meta.video && meta.videoType) || meta.image)
-				}
+					'link-preview--no-media': !(
+						(meta.video && meta.videoType) ||
+						meta.image
+					),
+				},
 			]}
 		>
 			<div class="link-preview__content">
@@ -35,7 +38,14 @@ const domain = meta?.url ? new URL(meta.url).hostname.replace('www.', '') : ''
 					<source src={meta.video} type={meta.videoType} />
 				</video>
 			) : (
-				meta.image && <img src={meta.image} alt={meta.imageAlt || ''} width="1200" height="630" />
+				meta.image && (
+					<img
+						src={meta.image}
+						alt={meta.imageAlt || ''}
+						width="1200"
+						height="630"
+					/>
+				)
 			)}
 		</article>
 	) : (
