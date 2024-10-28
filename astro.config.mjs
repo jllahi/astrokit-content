@@ -59,7 +59,9 @@ export default defineConfig({
 		react(),
 		robotsTxt(),
 		sitemap(),
-		tailwind(),
+		tailwind({
+			applyBaseStyles: false,
+		}),
 	],
 	vite: {
 		ssr: {
@@ -71,9 +73,12 @@ export default defineConfig({
 		// }
 	},
 	experimental: {
-		actions: true,
+		// actions: true,
+		contentIntellisense: true,
+		contentLayer: true,
 		contentCollectionCache: true,
-		contentCollectionJsonSchema: true,
+		serverIslands: true,
+		// contentCollectionJsonSchema: true,
 	},
 	// markdown: {
 	// 	remarkPlugins: [

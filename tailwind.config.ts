@@ -5,6 +5,7 @@ import { type Config } from 'tailwindcss'
 import animate from 'tailwindcss-animate'
 import colors from 'tailwindcss/colors'
 import theme from 'tailwindcss/defaultTheme'
+// import { fontFamily } from 'tailwindcss/defaultTheme'
 
 export default {
 	darkMode: [
@@ -19,12 +20,20 @@ export default {
 	// darkMode: ['selector'], // '[data-mode="dark"]'],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
+		container: {
+			center: true,
+			padding: '2rem',
+			screens: {
+				'2xl': '1400px', // '820px',
+			},
+		},
 		extend: {
 			fontFamily: {
 				sans: ['Inter Variable', ...theme.fontFamily.sans],
 				heading: ['Montserrat Variable', ...theme.fontFamily.sans],
 				logo: ['Montserrat Variable', ...theme.fontFamily.sans],
 			},
+
 			colors: {
 				'color-black': colors.gray[900],
 				'color-white': colors.gray[100],
@@ -61,6 +70,13 @@ export default {
 				'color-warning-dark': colors.yellow[800],
 				'color-warning': colors.yellow[500],
 				'color-warning-light': colors.yellow[200],
+
+				background: 'hsl(var(--background))',
+				foreground: 'hsl(var(--foreground))',
+
+				border: 'hsl(var(--border))',
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
 			},
 			// borderColor: ({ theme }) => ({
 			// 	...theme('colors'),

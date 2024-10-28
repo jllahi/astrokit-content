@@ -2,6 +2,7 @@
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"astro.content-intellisense": true,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit"
 	},
@@ -15,16 +16,16 @@
 		"typescript", // Enable .ts
 		"typescriptreact" // Enable .tsx
 	],
-	"explorer.fileNesting.enabled": true,
-	"explorer.fileNesting.expand": false,
-	"explorer.fileNesting.patterns": {
-		".prettierrc.js": ".prettierignore",
-		".eslintrc.cjs": ".eslintignore",
-		"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock, bun.lockb",
-		// "package.json": "*",
-		// "astro.config.mjs": "",
-		"README.md": "CONTRIBUTING.md"
-	},
+	// "explorer.fileNesting.enabled": true,
+	// "explorer.fileNesting.expand": false,
+	// "explorer.fileNesting.patterns": {
+	// 	".eslintrc.cjs": ".eslintignore",
+	// 	".prettierrc.js": ".prettierignore",
+	// 	"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock, bun.lockb",
+	// 	// "package.json": "*",
+	// 	// "astro.config.mjs": "",
+	// 	"README.md": "CONTRIBUTING.md"
+	// },
 	"files.autoSave": "onWindowChange",
 	"files.autoSaveWhenNoErrors": true,
 	"json.schemas": [
@@ -34,6 +35,8 @@
 		}
 	],
 	"prettier.documentSelectors": ["**/*.astro"],
+	"tailwind-fold.autoFold": false,
+	"tailwind-fold.unfoldedTextOpacity": 0.7,
 	"typescript.inlayHints.parameterNames.enabled": "all",
 	"typescript.tsdk": "node_modules/typescript/lib"
 }

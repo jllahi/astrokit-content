@@ -1,5 +1,5 @@
 ---
-// import '@/assets/styles/global.css'
+import '@/assets/styles/global.css'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/header/Header.astro'
 import ThemeInit from '@/components/theme/ThemeInit.astro'
@@ -48,8 +48,8 @@ const { seo } = Astro.props
 			// 		process.env.NODE_ENV === 'development'
 			// },
 			'container mx-auto flex h-dvh flex-col items-start justify-between p-6 font-sans transition-all duration-300 lg:p-10',
-			'bg-color-white text-color-black',
-			'dark:bg-color-black dark:text-color-white',
+			// 'bg-color-white text-color-black',
+			// 'dark:bg-color-black dark:text-color-white',
 		]}
 	>
 		<Header />
@@ -60,10 +60,10 @@ const { seo } = Astro.props
 		<Footer />
 		<TailwindIndicator align="right" />
 		<SpeedInsights />
-		<style is:global>
+		<!-- <style is:global>
 			* {
 				border-color: var(--border-color-black);
 			}
-		</style>
+		</style> -->
 	</body>
 </html>

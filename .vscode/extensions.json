@@ -5,6 +5,7 @@
 		"astro-build.astro-vscode",
 		"astro-build.houston",
 		"bradlc.vscode-tailwindcss",
+		"Codeium.codeium",
 		"DavidAnson.vscode-markdownlint",
 		"eliostruyf.vscode-front-matter",
 		"esbenp.prettier-vscode",
