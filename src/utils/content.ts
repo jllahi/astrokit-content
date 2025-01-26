@@ -134,7 +134,7 @@ export async function getPostsByCategory(category: string) {
 	const posts = (await getCollection('posts'))
 		.filter(
 			post =>
-				post.data.category.slug === category &&
+				post.data.category.id === category &&
 				post.data.draft !== undefined &&
 				!import.meta.env.DEV
 		)
