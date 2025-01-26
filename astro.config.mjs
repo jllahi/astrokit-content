@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 import keystatic from '@keystatic/astro'
 // import sentry from '@sentry/astro'
 // import spotlightjs from '@spotlightjs/astro'
@@ -22,7 +22,7 @@ export default defineConfig({
 	// build: {
 	// 	format: 'directory'
 	// },
-	output: 'hybrid',
+	// output: 'server',
 	adapter: vercel({
 		webAnalytics: {
 			enabled: true,
@@ -75,9 +75,9 @@ export default defineConfig({
 	experimental: {
 		// actions: true,
 		contentIntellisense: true,
-		contentLayer: true,
-		contentCollectionCache: true,
-		serverIslands: true,
+		// contentLayer: true,
+		// contentCollectionCache: true,
+		// serverIslands: true,
 		// contentCollectionJsonSchema: true,
 	},
 	// markdown: {

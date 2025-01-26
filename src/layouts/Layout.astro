@@ -9,7 +9,7 @@ import '@fontsource-variable/inter'
 import '@fontsource-variable/montserrat'
 import SpeedInsights from '@vercel/speed-insights/astro'
 import { SEO, type Props as SEOProps } from 'astro-seo'
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 
 interface Props {
 	seo?: SEOProps
@@ -38,8 +38,7 @@ const { seo } = Astro.props
 			{...seo}
 		/>
 		<ThemeInit />
-		<!-- <Themes /> -->
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 	<body
 		class:list={[
@@ -60,10 +59,5 @@ const { seo } = Astro.props
 		<Footer />
 		<TailwindIndicator align="right" />
 		<SpeedInsights />
-		<!-- <style is:global>
-			* {
-				border-color: var(--border-color-black);
-			}
-		</style> -->
 	</body>
 </html>

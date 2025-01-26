@@ -12,9 +12,10 @@ const posts = defineCollection({
 			// Transform string to Date object
 			date: z.coerce.date(),
 			updated: z.coerce.date().optional(),
-			image: image().refine(img => img.width >= 400, {
-				message: 'Cover image must be at least 400 pixels wide!',
-			}),
+			image: image(),
+			// image: image().refine(img => img.width >= 400, {
+			// 	message: 'Cover image must be at least 400 pixels wide!',
+			// }),
 			// categories: z.array(z.string()).default(['Uncategorized']),
 			// categories: reference("categories"),
 			// tags: z.array(reference("tags")).optional(),
