@@ -80,7 +80,7 @@
 		"serve": "^14.2.4",
 		"typescript-eslint": "^8.21.0"
 	},
-	"packageManager": "pnpm@9.15.4",
+	"packageManager": "bun@1.20.0",
 	"trustedDependencies": [
 		"@sentry/cli",
 		"@vercel/speed-insights",
