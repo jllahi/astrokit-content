@@ -11,10 +11,13 @@ let tags = getUniqueTags(posts)
 ---
 
 <Layout seo={{ title: 'Tags' }}>
-	<main>
-		<Section>
-			<Title>Tags</Title>
-			<Tags {tags} size="lg" />
-		</Section>
-	</main>
+  <main>
+    <Section>
+      <Title>Tags</Title>
+      <Tags
+        {tags}
+        size="lg"
+      />
+    </Section>
+  </main>
 </Layout>

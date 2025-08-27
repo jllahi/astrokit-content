@@ -1,10 +1,10 @@
 import { column, defineDb, defineTable, NOW } from 'astro:db'
 
 const Like = defineTable({
-	columns: {
-		postSlug: column.text({ primaryKey: true }),
-		likesCount: column.number({ default: 0 }),
-	},
+  columns: {
+    postSlug: column.text({ primaryKey: true }),
+    likesCount: column.number({ default: 0 }),
+  },
 })
 
 // const Comment = defineTable({
@@ -18,19 +18,19 @@ const Like = defineTable({
 // })
 
 const Guestbook = defineTable({
-	columns: {
-		title: column.text(),
-		name: column.text(),
-		message: column.text(),
-		date: column.date({ default: NOW }),
-	},
+  columns: {
+    title: column.text(),
+    name: column.text(),
+    message: column.text(),
+    date: column.date({ default: NOW }),
+  },
 })
 
 // https://astro.build/db/config
 export default defineDb({
-	tables: {
-		Like,
-		// Comment,
-		Guestbook,
-	},
+  tables: {
+    Like,
+    // Comment,
+    Guestbook,
+  },
 })

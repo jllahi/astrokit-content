@@ -8,56 +8,56 @@ import { Icon } from 'astro-icon/components'
 import type { CollectionEntry } from 'astro:content'
 
 interface Props {
-	page: Page<CollectionEntry<'posts'>>
+  page: Page<CollectionEntry<'posts'>>
 }
 
 const { page } = Astro.props
 ---
 
 <div class="mt-12 flex w-full flex-row justify-between">
-	{
-		page.url.prev && (
-			// <div class:list={['p-2', 'hover:bg-font-color hover:text-background-color']}>
-			<div>
-				<Link
-					href={page.url.prev}
-					rel="prev"
-					size="lg"
-					class="flex size-16 place-content-start p-2"
-				>
-					<Icon
-						name="ri:arrow-left-double-fill"
-						title="Previous"
-						class="align-center size-12"
-					/>
-					<span class="sr-only">Previous</span>
-				</Link>
-			</div>
-		)
-	}
-	<div>
-		{
-			// page.currentPage
-		}
-	</div>
-	{
-		page.url.next && (
-			// <div class="p-2">
-			<div>
-				<Link
-					href={page.url.next}
-					rel="next"
-					size="lg"
-					class="flex size-16 place-content-start p-2"
-				>
-					<Icon
-						name="ri:arrow-left-double-fill"
-						title="Next"
-						class="align-center size-12 rotate-180"
-					/>
-					<span class="sr-only">Next</span>
-				</Link>
-			</div>
-		)
-	}
+  {
+    page.url.prev && (
+      // <div class:list={['p-2', 'hover:bg-font-color hover:text-background-color']}>
+      <div>
+        <Link
+          href={page.url.prev}
+          rel="prev"
+          size="lg"
+          class="flex size-16 place-content-start p-2"
+        >
+          <Icon
+            name="ri:arrow-left-double-fill"
+            title="Previous"
+            class="align-center size-12"
+          />
+          <span class="sr-only">Previous</span>
+        </Link>
+      </div>
+    )
+  }
+  <div>
+    {
+      // page.currentPage
+    }
+  </div>
+  {
+    page.url.next && (
+      // <div class="p-2">
+      <div>
+        <Link
+          href={page.url.next}
+          rel="next"
+          size="lg"
+          class="flex size-16 place-content-start p-2"
+        >
+          <Icon
+            name="ri:arrow-left-double-fill"
+            title="Next"
+            class="align-center size-12 rotate-180"
+          />
+          <span class="sr-only">Next</span>
+        </Link>
+      </div>
+    )
+  }
 </div>

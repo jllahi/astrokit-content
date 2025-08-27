@@ -6,11 +6,13 @@ import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout seo={{ title: 'Guestbook' }}>
-	<Section
-		class="grid h-full w-full place-content-center place-items-center gap-6"
-	>
-		<h1 class="font-heading text-7xl font-black">Guestbook</h1>
-		<GuestbookMessages />
-		<Link href="/guestbook/write" intent={'primary'}>Write your message</Link>
-	</Section>
+  <Section class="grid h-full w-full place-content-center place-items-center gap-6">
+    <h1 class="font-heading text-7xl font-black">Guestbook</h1>
+    <GuestbookMessages />
+    <Link
+      href="/guestbook/write"
+      intent={'primary'}
+      >Write your message</Link
+    >
+  </Section>
 </Layout>

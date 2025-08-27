@@ -15,24 +15,23 @@ import { tv, type VariantProps } from 'tailwind-variants'
 // }
 
 export const navigation = tv({
-	base: 'transition-all duration-300 ease-in-out place-content-center p-1 font-logo uppercase flex gap-4',
-	variants: {
-		intent: {
-			horizontal: 'flex-row uppercase font-heading font-medium',
-			vertical:
-				'flex-col font-black text-4xl uppercase font-heading mt-10 gap-10',
-		},
-		size: {
-			sm: 'pb-1 px-2 text-xs',
-			md: 'pb-1 px-2 text-base',
-			lg: 'py-2 px-3 text-xl',
-		},
-	},
-	defaultVariants: {
-		size: 'md',
-		intent: 'horizontal',
-	},
-	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
+  base: 'transition-all duration-300 ease-in-out place-content-center p-1 font-logo uppercase flex gap-4',
+  variants: {
+    intent: {
+      horizontal: 'flex-row uppercase font-heading font-medium',
+      vertical: 'flex-col font-black text-4xl uppercase font-heading mt-10 gap-10',
+    },
+    size: {
+      sm: 'pb-1 px-2 text-xs',
+      md: 'pb-1 px-2 text-base',
+      lg: 'py-2 px-3 text-xl',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+    intent: 'horizontal',
+  },
+  // compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
 })
 
 // const {
@@ -43,9 +42,7 @@ export const navigation = tv({
 // 	...rest
 // } = Astro.props
 
-export interface Props
-	extends HTMLAttributes<'ul'>,
-		VariantProps<typeof navigation> {}
+export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof navigation> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 
@@ -54,27 +51,27 @@ const mainNav = navigationData[0].data.mainNav
 ---
 
 {
-	mainNav && (
-		<nav>
-			<ul
-				class={navigation({ intent, size, className })}
-				data-name="ui-navigation"
-				{...rest}
-			>
-				{mainNav.map(item => (
-					<li>
-						<Link
-							href={item.url}
-							size={size}
-							intent={intent === 'vertical' ? 'inverted' : 'primary'}
-							title={item.name}
-							aria-label={item.name}
-						>
-							{item.name}
-						</Link>
-					</li>
-				))}
-			</ul>
-		</nav>
-	)
+  mainNav && (
+    <nav>
+      <ul
+        class={navigation({ intent, size, className })}
+        data-name="ui-navigation"
+        {...rest}
+      >
+        {mainNav.map((item) => (
+          <li>
+            <Link
+              href={item.url}
+              size={size}
+              intent={intent === 'vertical' ? 'inverted' : 'primary'}
+              title={item.name}
+              aria-label={item.name}
+            >
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
 }

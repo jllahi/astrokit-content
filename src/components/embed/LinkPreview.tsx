@@ -1,24 +1,21 @@
 export interface LinkPreviewProps {
-	/** URL to fetch Open Graph data. */
-	id: string
-	title?: string
+  /** URL to fetch Open Graph data. */
+  id: string
+  title?: string
 }
 
-export default function LinkPreviewEmbed({
-	id,
-	title = 'Link title',
-}: LinkPreviewProps) {
-	// const meta = await parseOpenGraph(id)
-	// const domain = meta?.url ? new URL(meta.url).hostname.replace('www.', '') : ''
+export default function LinkPreviewEmbed({ id, title = 'Link title' }: LinkPreviewProps) {
+  // const meta = await parseOpenGraph(id)
+  // const domain = meta?.url ? new URL(meta.url).hostname.replace('www.', '') : ''
 
-	return (
-		<article>
-			<p>
-				<a href={id}>{title}</a>
-			</p>
-			<small>{id}</small>
-		</article>
-	)
+  return (
+    <article>
+      <p>
+        <a href={id}>{title}</a>
+      </p>
+      <small>{id}</small>
+    </article>
+  )
 }
 // export default function LikePreviewEmbed({ id, title }: YouTubeLiteEmbedProps) {
 // 	const meta = await parseOpenGraph(id)

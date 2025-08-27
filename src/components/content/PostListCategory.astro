@@ -4,8 +4,8 @@ import getPostsByCategory from '@/utils/getPostsByCategory'
 import { getCollection } from 'astro:content'
 
 interface Props {
-	// posts?: CollectionEntry<ContentCollectionKey>[]
-	category: string
+  // posts?: CollectionEntry<ContentCollectionKey>[]
+  category: string
 }
 
 const { category } = Astro.props
@@ -14,6 +14,13 @@ const filteredPosts = getPostsByCategory(posts, category)
 ---
 
 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-	{category}
-	{filteredPosts.map((post, key) => <Card post={post} featured={key == 0} />)}
+  {category}
+  {
+    filteredPosts.map((post, key) => (
+      <Card
+        post={post}
+        featured={key == 0}
+      />
+    ))
+  }
 </div>

@@ -12,52 +12,65 @@ import { SEO, type Props as SEOProps } from 'astro-seo'
 import { ClientRouter } from 'astro:transitions'
 
 interface Props {
-	seo?: SEOProps
+  seo?: SEOProps
 }
 
 const { seo } = Astro.props
 ---
 
 <html lang={site.language}>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<SEO
-			title={seo?.title ?? site.title}
-			description={seo?.description ?? site.description}
-			openGraph={{
-				basic: {
-					title: seo?.title || site.title,
-					type: 'website', // https://ogp.me/#types
-					image: site.opengraph.image || '/open-graph.jpg',
-				},
-			}}
-			{...seo}
-		/>
-		<ThemeInit />
-		<ClientRouter />
-	</head>
-	<body
-		class:list={[
-			// {
-			// 	'[&_*]:outline [&_*]:outline-1 [&_*]:outline-red-300':
-			// 		process.env.NODE_ENV === 'development'
-			// },
-			'container mx-auto flex h-dvh flex-col items-start justify-between p-6 font-sans transition-all duration-300 lg:p-10',
-			// 'bg-color-white text-color-black',
-			// 'dark:bg-color-black dark:text-color-white',
-		]}
-	>
-		<Header />
-		<main class="w-full flex-grow">
-			<slot />
-		</main>
-		<!-- <EditLink /> -->
-		<Footer />
-		<TailwindIndicator align="right" />
-		<SpeedInsights />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <link
+      rel="sitemap"
+      href="/sitemap-index.xml"
+    />
+    <SEO
+      title={seo?.title ?? site.title}
+      description={seo?.description ?? site.description}
+      openGraph={{
+        basic: {
+          title: seo?.title || site.title,
+          type: 'website', // https://ogp.me/#types
+          image: site.opengraph.image || '/open-graph.jpg',
+        },
+      }}
+      {...seo}
+    />
+    <ThemeInit />
+    <ClientRouter />
+  </head>
+  <body
+    class:list={[
+      // {
+      // 	'[&_*]:outline [&_*]:outline-1 [&_*]:outline-red-300':
+      // 		process.env.NODE_ENV === 'development'
+      // },
+      'container mx-auto flex h-dvh flex-col items-start justify-between p-6 font-sans transition-all duration-300 lg:p-10',
+      // 'bg-color-white text-color-black',
+      // 'dark:bg-color-black dark:text-color-white',
+    ]}
+  >
+    <Header />
+    <main class="w-full flex-grow">
+      <slot />
+    </main>
+    <!-- <EditLink /> -->
+    <Footer />
+    <TailwindIndicator align="right" />
+    <SpeedInsights />
+  </body>
 </html>

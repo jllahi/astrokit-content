@@ -5,18 +5,21 @@ import ResponsiveMenu from '@/components/header/ResponsiveMenu.astro'
 ---
 
 <header class:list={['flex w-full flex-row justify-between', 'mb-1 sm:mb-4']}>
-	<a href="/" class="z-40">
-		<h2
-			class:list={[
-				'border-2 border-color-black px-4 py-2 font-logo text-2xl font-black uppercase no-underline dark:border-color-white',
-				'transition-all duration-300 ease-out',
-				'text-color-black dark:text-color-white',
-				'hover:bg-color-black hover:text-color-white',
-				'dark:hover:bg-color-white dark:hover:text-color-black',
-			]}
-		>
-			{site.title}
-		</h2>
-	</a>
-	<ResponsiveMenu />
+  <a
+    href="/"
+    class="z-40"
+  >
+    <h2
+      class:list={[
+        'border-2 border-color-black px-4 py-2 font-logo text-2xl font-black uppercase no-underline dark:border-color-white',
+        'transition-all duration-300 ease-out',
+        'text-color-black dark:text-color-white',
+        'hover:bg-color-black hover:text-color-white',
+        'dark:hover:bg-color-white dark:hover:text-color-black',
+      ]}
+    >
+      {site.title}
+    </h2>
+  </a>
+  <ResponsiveMenu />
 </header>

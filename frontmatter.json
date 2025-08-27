@@ -1,163 +1,163 @@
 {
-	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
-	"frontMatter.framework.id": "astro",
-	"frontMatter.preview.host": "http://localhost:4321",
-	"frontMatter.website.host": "https://astrokit-content.vercel.app",
-	"frontMatter.git.enabled": true,
-	"frontMatter.framework.startCommand": "pnpm run dev",
-	"frontMatter.content.supportedFileTypes": ["md", "mdx"],
-	"frontMatter.content.defaultFileType": "mdx",
-	"frontMatter.dashboard.openOnStart": false,
-	"frontMatter.content.publicFolder": {
-		"path": "[[workspace]]/src/assets/images",
-		"relative": true
-	},
-	"frontMatter.content.pageFolders": [
-		{
-			"title": "posts",
-			"path": "[[workspace]]/src/content/posts",
-			"contentTypes": ["default", "posts"]
-		},
-		{
-			"title": "categories",
-			"path": "[[workspace]]/src/content/categories",
-			"contentTypes": ["categories"]
-		},
-		{
-			"title": "pages",
-			"path": "[[workspace]]/src/content/pages",
-			"contentTypes": ["pages"]
-		}
-	],
-	"frontMatter.taxonomy.contentTypes": [
-		{
-			"name": "default",
-			"previewPath": "/posts",
-			"pageBundle": false,
-			"clearEmpty": true,
-			"template": "[[workspace]]/.frontmatter/templates/post.mdx",
-			"filePrefix": null,
-			"fileType": "mdx",
-			"fields": [
-				{
-					"title": "Title",
-					"name": "title",
-					"type": "string",
-					"required": true
-				},
-				{
-					"title": "Description",
-					"name": "description",
-					"type": "string"
-				},
-				{
-					"title": "Date",
-					"name": "date",
-					"type": "datetime",
-					"default": "{{now}}",
-					"dateFormat": "yyyy-MM-dd",
-					"required": true,
-					"isPublishDate": true
-				},
-				{
-					"title": "Updated",
-					"name": "updated",
-					"type": "datetime",
-					"default": "{{now}}",
-					"dateFormat": "yyyy-MM-dd",
-					"isModifiedDate": true
-				},
-				{
-					"title": "Image",
-					"name": "image",
-					"type": "image",
-					"required": true,
-					"isPreviewImage": true
-				},
-				{
-					"title": "Category",
-					"name": "category",
-					"type": "contentRelationship",
-					"contentTypeName": "categories",
-					"required": true,
-					"singleValueAsString": true
-				},
-				{
-					"title": "Tags",
-					"name": "tags",
-					"type": "tags",
-					"default": []
-				},
-				{
-					"title": "Draft",
-					"name": "draft",
-					"type": "draft"
-				},
-				{
-					"title": "Featured",
-					"name": "featured",
-					"type": "boolean"
-				}
-			]
-		},
-		{
-			"name": "pages",
-			"previewPath": "/pages",
-			"pageBundle": false,
-			"clearEmpty": true,
-			"template": "[[workspace]]/.frontmatter/templates/page.mdx",
-			"filePrefix": null,
-			"fileType": "mdx",
-			"fields": [
-				{
-					"title": "Title",
-					"name": "title",
-					"type": "string",
-					"required": true
-				},
-				{
-					"title": "Description",
-					"name": "description",
-					"type": "string"
-				},
-				{
-					"title": "Date",
-					"name": "date",
-					"type": "datetime",
-					"default": "{{now}}",
-					"dateFormat": "yyyy-MM-dd",
-					"required": false,
-					"isPublishDate": true
-				}
-			]
-		},
-		{
-			"name": "categories",
-			"previewPath": "/categories",
-			"pageBundle": false,
-			"clearEmpty": true,
-			"template": "[[workspace]]/.frontmatter/templates/category.mdx",
-			"filePrefix": null,
-			"fileType": "mdx",
-			"fields": [
-				{
-					"title": "Title",
-					"name": "title",
-					"type": "string",
-					"required": true
-				},
-				{
-					"title": "Description",
-					"name": "description",
-					"type": "string"
-				}
-			]
-		}
-	],
-	"frontMatter.content.snippets": {
-		"Spotify": {
-			"description": "Playlist from Spotify",
-			"body": ["<Spotify title=\"Lorem\" playlist=\"xxxxxxxxxxxxxxx\" />", ""]
-		}
-	}
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.website.host": "https://astrokit-content.vercel.app",
+  "frontMatter.git.enabled": true,
+  "frontMatter.framework.startCommand": "pnpm run dev",
+  "frontMatter.content.supportedFileTypes": ["md", "mdx"],
+  "frontMatter.content.defaultFileType": "mdx",
+  "frontMatter.dashboard.openOnStart": false,
+  "frontMatter.content.publicFolder": {
+    "path": "[[workspace]]/src/assets/images",
+    "relative": true
+  },
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "posts",
+      "path": "[[workspace]]/src/content/posts",
+      "contentTypes": ["default", "posts"]
+    },
+    {
+      "title": "categories",
+      "path": "[[workspace]]/src/content/categories",
+      "contentTypes": ["categories"]
+    },
+    {
+      "title": "pages",
+      "path": "[[workspace]]/src/content/pages",
+      "contentTypes": ["pages"]
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "previewPath": "/posts",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "template": "[[workspace]]/.frontmatter/templates/post.mdx",
+      "filePrefix": null,
+      "fileType": "mdx",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "dateFormat": "yyyy-MM-dd",
+          "required": true,
+          "isPublishDate": true
+        },
+        {
+          "title": "Updated",
+          "name": "updated",
+          "type": "datetime",
+          "default": "{{now}}",
+          "dateFormat": "yyyy-MM-dd",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Image",
+          "name": "image",
+          "type": "image",
+          "required": true,
+          "isPreviewImage": true
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "type": "contentRelationship",
+          "contentTypeName": "categories",
+          "required": true,
+          "singleValueAsString": true
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags",
+          "default": []
+        },
+        {
+          "title": "Draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Featured",
+          "name": "featured",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "pages",
+      "previewPath": "/pages",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "template": "[[workspace]]/.frontmatter/templates/page.mdx",
+      "filePrefix": null,
+      "fileType": "mdx",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "dateFormat": "yyyy-MM-dd",
+          "required": false,
+          "isPublishDate": true
+        }
+      ]
+    },
+    {
+      "name": "categories",
+      "previewPath": "/categories",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "template": "[[workspace]]/.frontmatter/templates/category.mdx",
+      "filePrefix": null,
+      "fileType": "mdx",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "frontMatter.content.snippets": {
+    "Spotify": {
+      "description": "Playlist from Spotify",
+      "body": ["<Spotify title=\"Lorem\" playlist=\"xxxxxxxxxxxxxxx\" />", ""]
+    }
+  }
 }

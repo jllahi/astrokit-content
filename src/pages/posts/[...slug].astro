@@ -18,16 +18,16 @@ import postFilter from '@/utils/postFilter'
 import { Debug } from 'astro:components'
 
 export async function getStaticPaths() {
-	const posts = (await getCollection('posts')).filter(postFilter)
+  const posts = (await getCollection('posts')).filter(postFilter)
 
-	return posts.map(post => ({
-		params: { slug: post.slug },
-		props: { post },
-	}))
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
 }
 
 interface Props {
-	post: CollectionEntry<'posts'>
+  post: CollectionEntry<'posts'>
 }
 
 const { post } = Astro.props
@@ -37,29 +37,33 @@ const category = await getEntry(post.data.category)
 ---
 
 <Layout
-	seo={{
-		title: post.data.title,
-		description: post.data.description ?? site.description,
-		openGraph: {
-			basic: {
-				title: post.data.title,
-				type: 'article',
-				image: post.data.image.src,
-			},
-		},
-	}}
+  seo={{
+    title: post.data.title,
+    description: post.data.description ?? site.description,
+    openGraph: {
+      basic: {
+        title: post.data.title,
+        type: 'article',
+        image: post.data.image.src,
+      },
+    },
+  }}
 >
-	<Article>
-		<header>
-			<Title transition:name={`post-title-${post.data.title}`}>
-				{post.data.title}
-			</Title>
-			<p class="mb-8 text-xl">{post.data.description}</p>
-		</header>
+  <Article>
+    <header>
+      <Title transition:name={`post-title-${post.data.title}`}>
+        {post.data.title}
+      </Title>
+      <p class="mb-8 text-xl">{post.data.description}</p>
+    </header>
 
-		<ImageKit src={post.data.image} alt={post.data.title} loading="eager" />
+    <ImageKit
+      src={post.data.image}
+      alt={post.data.title}
+      loading="eager"
+    />
 
-		<!-- 
+    <!-- 
 		<Picture
 			alt={post.data.title}
 			src={post.data.image}
@@ -71,7 +75,7 @@ const category = await getEntry(post.data.category)
 			quality={88}
 		/>
 -->
-		<!-- <Image
+    <!-- <Image
 			alt={post.data.title}
 			src={post.data.image}
 			class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
@@ -80,39 +84,46 @@ const category = await getEntry(post.data.category)
 			loading="eager"
 		/> -->
 
-		<div class="my-2 flex flex-col justify-between md:flex-row">
-			<DateFormat date={post.data.date} />
-			<!-- <span>Reading time: {post.data.reading}</span> -->
-			<div class="my-4 flex-wrap place-items-center gap-3 p-0 md:flex">
-				<Link
-					size="sm"
-					intent="tag"
-					href={`/${site.urls.category}/${category.slug}`}
-				>
-					{category.data.title}
-				</Link>
+    <div class="my-2 flex flex-col justify-between md:flex-row">
+      <DateFormat date={post.data.date} />
+      <!-- <span>Reading time: {post.data.reading}</span> -->
+      <div class="my-4 flex-wrap place-items-center gap-3 p-0 md:flex">
+        <Link
+          size="sm"
+          intent="tag"
+          href={`/${site.urls.category}/${category.slug}`}
+        >
+          {category.data.title}
+        </Link>
 
-				<Tags tags={post.data.tags} size="sm" intent="tag" />
-			</div>
-		</div>
-		<Prose>
-			<TableContents {headings} />
-			<!-- <Content components={{ img: ImageKit, YouTube, Spotify }} /> -->
-			<Content components={componentsEmbed} />
-		</Prose>
+        <Tags
+          tags={post.data.tags}
+          size="sm"
+          intent="tag"
+        />
+      </div>
+    </div>
+    <Prose>
+      <TableContents {headings} />
+      <!-- <Content components={{ img: ImageKit, YouTube, Spotify }} /> -->
+      <Content components={componentsEmbed} />
+    </Prose>
 
-		<div class="mt-8 flex w-full flex-row justify-between">
-			<LikeButton slug={post.slug} client:load />
-			<SocialShare
-				description={post.data.description}
-				title={post.data.title}
-				via="AstroKit"
-			/>
-		</div>
-	</Article>
-	<!-- <Section>
+    <div class="mt-8 flex w-full flex-row justify-between">
+      <LikeButton
+        slug={post.slug}
+        client:load
+      />
+      <SocialShare
+        description={post.data.description}
+        title={post.data.title}
+        via="AstroKit"
+      />
+    </div>
+  </Article>
+  <!-- <Section>
 		<h2>Related</h2>
 		<PostListCategory category={post.data.category} />
 	</Section> -->
-	<Debug data={post} />
+  <Debug data={post} />
 </Layout>

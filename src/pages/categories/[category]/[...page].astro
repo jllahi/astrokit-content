@@ -12,28 +12,28 @@ import type { GetStaticPaths, Page } from 'astro'
 import { getCollection, type CollectionEntry } from 'astro:content'
 
 interface Props {
-	page: Page<CollectionEntry<'posts'>>
-	categoryName: string
-	categoryDescription: string
+  page: Page<CollectionEntry<'posts'>>
+  categoryName: string
+  categoryDescription: string
 }
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-	const allPosts = await getCollection('posts')
-	const allCategories = await getCollection('categories')
-	// const allCategories = getUniqueCategories(allPosts)
+  const allPosts = await getCollection('posts')
+  const allCategories = await getCollection('categories')
+  // const allCategories = getUniqueCategories(allPosts)
 
-	return allCategories.flatMap(category => {
-		const filteredPosts = getPostsByCategory(allPosts, category.slug)
+  return allCategories.flatMap((category) => {
+    const filteredPosts = getPostsByCategory(allPosts, category.slug)
 
-		return paginate(filteredPosts, {
-			params: { category: category.slug },
-			props: {
-				categoryName: category.data.title,
-				categoryDescription: category.data.description,
-			},
-			pageSize: site.pagination,
-		})
-	})
+    return paginate(filteredPosts, {
+      params: { category: category.slug },
+      props: {
+        categoryName: category.data.title,
+        categoryDescription: category.data.description,
+      },
+      pageSize: site.pagination,
+    })
+  })
 }
 
 // const posts = await getCollection('posts')
@@ -44,19 +44,19 @@ const { page, categoryName, categoryDescription } = Astro.props
 ---
 
 <Layout seo={{ title: 'Category ' + categoryName }}>
-	<Section>
-		<header class="mb-2 flex flex-col">
-			<Title>{categoryName}</Title>
-			<p class="mb-8 text-xl">{categoryDescription}</p>
-		</header>
-		<PostList posts={page.data} />
-		<Pagination {page} />
-	</Section>
+  <Section>
+    <header class="mb-2 flex flex-col">
+      <Title>{categoryName}</Title>
+      <p class="mb-8 text-xl">{categoryDescription}</p>
+    </header>
+    <PostList posts={page.data} />
+    <Pagination {page} />
+  </Section>
 
-	<Divider />
+  <Divider />
 
-	<Section>
-		<h2 class="text-3xl font-black">Other categories</h2>
-		<Categories />
-	</Section>
+  <Section>
+    <h2 class="text-3xl font-black">Other categories</h2>
+    <Categories />
+  </Section>
 </Layout>

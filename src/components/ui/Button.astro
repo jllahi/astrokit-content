@@ -4,43 +4,40 @@ import type { HTMLAttributes } from 'astro/types'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const button = tv({
-	base: 'rounded transition-all duration-500 ease-out',
-	variants: {
-		intent: {
-			primary: 'bg-blue-500 text-white border-transparent hover:bg-blue-600',
-			secondary: 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100',
-			accent:
-				'bg-color-accent text-white border-transparent hover:bg-color-accent-dark',
-			ghost: [
-				'bg-transparent text-gray-800 hover:border-gray-600 border-transparent border',
-				'dark:text-gray-300 dark:hover:border-gray-300',
-			],
-		},
-		size: {
-			small: 'text-sm py-1 px-2',
-			medium: 'text-base py-2 px-4',
-			large: 'text-xl py-3 px-6',
-		},
-	},
-	defaultVariants: {
-		size: 'large',
-		intent: 'primary',
-	},
-	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
+  base: 'rounded transition-all duration-500 ease-out',
+  variants: {
+    intent: {
+      primary: 'bg-blue-500 text-white border-transparent hover:bg-blue-600',
+      secondary: 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100',
+      accent: 'bg-color-accent text-white border-transparent hover:bg-color-accent-dark',
+      ghost: [
+        'bg-transparent text-gray-800 hover:border-gray-600 border-transparent border',
+        'dark:text-gray-300 dark:hover:border-gray-300',
+      ],
+    },
+    size: {
+      small: 'text-sm py-1 px-2',
+      medium: 'text-base py-2 px-4',
+      large: 'text-xl py-3 px-6',
+    },
+  },
+  defaultVariants: {
+    size: 'large',
+    intent: 'primary',
+  },
+  // compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
 })
 
-export interface Props
-	extends HTMLAttributes<'button'>,
-		VariantProps<typeof button> {}
+export interface Props extends HTMLAttributes<'button'>, VariantProps<typeof button> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 ---
 
 <button
-	class={button({ intent, size, className })}
-	data-name="ui-button"
-	type="submit"
-	{...rest}
+  class={button({ intent, size, className })}
+  data-name="ui-button"
+  type="submit"
+  {...rest}
 >
-	<slot />
+  <slot />
 </button>

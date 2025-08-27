@@ -7,55 +7,53 @@ import type { HTMLAttributes } from 'astro/types'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const tagsVariants = tv({
-	base: 'my-4 flex flex-wrap gap-2 p-0 place-items-center',
-	variants: {
-		intent: {
-			outline: '',
-			primary: '',
-			// inverted: '',
-			tag: '',
-		},
-		size: {
-			sm: 'my-2 gap-2 md:gap-3 text-xs',
-			md: 'my-4 gap-3 md:gap-4 text-base',
-			lg: 'my-8 gap-4 md:gap-8 text-xl',
-		},
-	},
-	defaultVariants: {
-		size: 'md',
-		intent: 'tag',
-	},
-	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
+  base: 'my-4 flex flex-wrap gap-2 p-0 place-items-center',
+  variants: {
+    intent: {
+      outline: '',
+      primary: '',
+      // inverted: '',
+      tag: '',
+    },
+    size: {
+      sm: 'my-2 gap-2 md:gap-3 text-xs',
+      md: 'my-4 gap-3 md:gap-4 text-base',
+      lg: 'my-8 gap-4 md:gap-8 text-xl',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+    intent: 'tag',
+  },
+  // compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
 })
 
-export interface Props
-	extends HTMLAttributes<'ul'>,
-		VariantProps<typeof tagsVariants> {
-	tags: Tag[] | string[] | undefined
+export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof tagsVariants> {
+  tags: Tag[] | string[] | undefined
 }
 const { tags, intent, size, class: className, ...rest } = Astro.props
 // <Icon name="ri:price-tag-3-line" title="Tags" class="align-center mb-1 inline size-4" />
 ---
 
 {
-	tags && (
-		<ul
-			class={tagsVariants({ intent, size, className })}
-			data-name="ui-tags"
-			{...rest}
-		>
-			{tags.map(tag => (
-				<li>
-					<Link
-						size={size}
-						intent={intent}
-						href={`/${site.urls.tags}/${typeof tag === 'string' ? slugifyStr(tag) : tag.tag}`}
-						class="leading-10"
-					>
-						#&nbsp;{typeof tag === 'string' ? tag : tag.tagName}
-					</Link>
-				</li>
-			))}
-		</ul>
-	)
+  tags && (
+    <ul
+      class={tagsVariants({ intent, size, className })}
+      data-name="ui-tags"
+      {...rest}
+    >
+      {tags.map((tag) => (
+        <li>
+          <Link
+            size={size}
+            intent={intent}
+            href={`/${site.urls.tags}/${typeof tag === 'string' ? slugifyStr(tag) : tag.tag}`}
+            class="leading-10"
+          >
+            #&nbsp;{typeof tag === 'string' ? tag : tag.tagName}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  )
 }

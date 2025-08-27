@@ -3,13 +3,20 @@ import Card from '@/components/ui/Card.astro'
 import type { CollectionEntry } from 'astro:content'
 
 interface Props {
-	// posts: CollectionEntry<ContentCollectionKey>[]
-	posts: CollectionEntry<'posts'>[]
+  // posts: CollectionEntry<ContentCollectionKey>[]
+  posts: CollectionEntry<'posts'>[]
 }
 
 const { posts } = Astro.props
 ---
 
 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-	{posts.map((post, key) => <Card post={post} featured={key == 0} />)}
+  {
+    posts.map((post, key) => (
+      <Card
+        post={post}
+        featured={key == 0}
+      />
+    ))
+  }
 </div>

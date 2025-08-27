@@ -1,4 +1,4 @@
 export interface LikeResponseData {
-	postSlug?: string
-	likesCount: number
+  postSlug?: string
+  likesCount: number
 }

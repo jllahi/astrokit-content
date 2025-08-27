@@ -14,29 +14,27 @@ import postFilter from '@/utils/postFilter'
 import { Debug } from 'astro:components'
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-	const posts = (await getCollection('posts')).filter(postFilter)
-	const filteredPosts = filterContent(posts)
+  const posts = (await getCollection('posts')).filter(postFilter)
+  const filteredPosts = filterContent(posts)
 
-	return paginate(filteredPosts, { pageSize: site.pagination })
+  return paginate(filteredPosts, { pageSize: site.pagination })
 }
 
 interface Props {
-	page: Page<CollectionEntry<'posts'>>
+  page: Page<CollectionEntry<'posts'>>
 }
 
 const { page } = Astro.props
 ---
 
 <Layout seo={{ title: 'Posts', description: 'Collection of posts' }}>
-	<Section>
-		<header class="mb-8 flex flex-col">
-			<Title>The Blog</Title>
-			<p class="block text-pretty text-xl font-light">
-				Everything you need to know about websites
-			</p>
-		</header>
-		<PostList posts={page.data} />
-		<Pagination {page} />
-	</Section>
-	{import.meta.env.DEV && <Debug data={page} />}
+  <Section>
+    <header class="mb-8 flex flex-col">
+      <Title>The Blog</Title>
+      <p class="block text-pretty text-xl font-light">Everything you need to know about websites</p>
+    </header>
+    <PostList posts={page.data} />
+    <Pagination {page} />
+  </Section>
+  {import.meta.env.DEV && <Debug data={page} />}
 </Layout>

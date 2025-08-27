@@ -3,26 +3,24 @@ import type { HTMLAttributes } from 'astro/types'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const section = tv({
-	base: 'my-8 grid items-center gap-2',
-	variants: {
-		intent: {},
-		size: {},
-	},
-	defaultVariants: {},
-	compoundVariants: [{}],
+  base: 'my-8 grid items-center gap-2',
+  variants: {
+    intent: {},
+    size: {},
+  },
+  defaultVariants: {},
+  compoundVariants: [{}],
 })
 
-export interface Props
-	extends HTMLAttributes<'section'>,
-		VariantProps<typeof section> {}
+export interface Props extends HTMLAttributes<'section'>, VariantProps<typeof section> {}
 
 const { intent, size, class: className, ...rest } = Astro.props
 ---
 
 <section
-	class={section({ intent, size, className })}
-	data-name="ui-section"
-	{...rest}
+  class={section({ intent, size, className })}
+  data-name="ui-section"
+  {...rest}
 >
-	<slot />
+  <slot />
 </section>

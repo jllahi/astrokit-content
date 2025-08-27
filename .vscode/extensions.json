@@ -1,25 +1,25 @@
 {
-	"recommendations": [
-		"aaron-bond.better-comments",
-		"antfu.iconify",
-		"astro-build.astro-vscode",
-		"astro-build.houston",
-		"bradlc.vscode-tailwindcss",
-		"Codeium.codeium",
-		"DavidAnson.vscode-markdownlint",
-		"eliostruyf.vscode-front-matter",
-		"esbenp.prettier-vscode",
-		"idered.npm",
-		"mhutchie.git-graph",
-		"SheltonLouis.astro-snippets",
-		"stivo.tailwind-fold",
-		"unifiedjs.vscode-mdx",
-		"usernamehw.errorlens",
-		"VisualStudioExptTeam.vscodeintellicode",
-		"WallabyJs.console-ninja",
-		"xabikos.JavaScriptSnippets",
-		"yoavbls.pretty-ts-errors"
-		// "svelte.svelte-vscode",
-	],
-	"unwantedRecommendations": []
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "antfu.iconify",
+    "astro-build.astro-vscode",
+    "astro-build.houston",
+    "bradlc.vscode-tailwindcss",
+    "Codeium.codeium",
+    "DavidAnson.vscode-markdownlint",
+    "eliostruyf.vscode-front-matter",
+    "esbenp.prettier-vscode",
+    "idered.npm",
+    "mhutchie.git-graph",
+    "SheltonLouis.astro-snippets",
+    "stivo.tailwind-fold",
+    "unifiedjs.vscode-mdx",
+    "usernamehw.errorlens",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "WallabyJs.console-ninja",
+    "xabikos.JavaScriptSnippets",
+    "yoavbls.pretty-ts-errors"
+    // "svelte.svelte-vscode",
+  ],
+  "unwantedRecommendations": []
 }

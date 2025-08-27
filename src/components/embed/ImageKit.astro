@@ -4,14 +4,14 @@ import { Picture } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 
 interface Props {
-	src: ImageMetadata
-	alt: string
-	loading?: 'eager' | 'lazy'
-	// 	// formats?: string[]
-	// 	// widths?: number[]
-	// 	// quality?: number
-	// 	// transitionName?: string
-	// 	// class?: string
+  src: ImageMetadata
+  alt: string
+  loading?: 'eager' | 'lazy'
+  // 	// formats?: string[]
+  // 	// widths?: number[]
+  // 	// quality?: number
+  // 	// transitionName?: string
+  // 	// class?: string
 }
 // interface postType extends CollectionEntry<'posts'>
 
@@ -27,13 +27,13 @@ const { src, alt, loading = 'lazy', ...attrs } = Astro.props
 	loading="eager"
 /> --><!-- <Image src={src} alt={alt} {...attrs} /> -->
 <Picture
-	{alt}
-	{src}
-	class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
-	transition:name={`image-${src}`}
-	{loading}
-	formats={['webp']}
-	widths={[540, 780, 1020]}
-	quality={88}
-	{...attrs}
+  {alt}
+  {src}
+  class="my-4 aspect-video w-full rounded bg-gray-200 object-cover dark:bg-gray-800"
+  transition:name={`image-${src}`}
+  {loading}
+  formats={['webp']}
+  widths={[540, 780, 1020]}
+  quality={88}
+  {...attrs}
 />

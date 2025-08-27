@@ -7,32 +7,29 @@ import { getCollection } from 'astro:content'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const categoriesVariants = tv({
-	base: 'm-0 flex flex-wrap gap-2 p-0 place-items-center',
-	variants: {
-		intent: {
-			outline:
-				'border-2 border-black hover:bg-black text-black hover:text-white',
-			primary: 'bg-color-primary text-white hover:bg-color-primary-dark',
-			// inverted: '',
-			tag: '',
-		},
-		size: {
-			sm: 'my-2 gap-2 md:gap-3 text-xs',
-			md: 'my-4 gap-3 md:gap-4 text-base',
-			lg: 'my-8 gap-4 md:gap-8 text-xl',
-		},
-	},
-	defaultVariants: {
-		size: 'md',
-		intent: 'tag',
-	},
-	// compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
+  base: 'm-0 flex flex-wrap gap-2 p-0 place-items-center',
+  variants: {
+    intent: {
+      outline: 'border-2 border-black hover:bg-black text-black hover:text-white',
+      primary: 'bg-color-primary text-white hover:bg-color-primary-dark',
+      // inverted: '',
+      tag: '',
+    },
+    size: {
+      sm: 'my-2 gap-2 md:gap-3 text-xs',
+      md: 'my-4 gap-3 md:gap-4 text-base',
+      lg: 'my-8 gap-4 md:gap-8 text-xl',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+    intent: 'tag',
+  },
+  // compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }]
 })
 
-export interface Props
-	extends HTMLAttributes<'ul'>,
-		VariantProps<typeof categoriesVariants> {
-	// categories: CollectionEntry<'categories'>[] // | undefined
+export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof categoriesVariants> {
+  // categories: CollectionEntry<'categories'>[] // | undefined
 }
 // const { categories, intent, size, class: className, ...rest } = Astro.props
 const { intent, size, class: className, ...rest } = Astro.props
@@ -42,24 +39,24 @@ const categories = await getCollection('categories')
 ---
 
 {
-	categories && (
-		<ul
-			class={categoriesVariants({ intent, size, className })}
-			data-name="ui-categories"
-			{...rest}
-		>
-			{categories.map(category => (
-				<li>
-					<Link
-						size={size}
-						intent={intent}
-						href={`/${site.urls.category}/${category.slug}`}
-						class="leading-10"
-					>
-						//&nbsp;{category.data.title}
-					</Link>
-				</li>
-			))}
-		</ul>
-	)
+  categories && (
+    <ul
+      class={categoriesVariants({ intent, size, className })}
+      data-name="ui-categories"
+      {...rest}
+    >
+      {categories.map((category) => (
+        <li>
+          <Link
+            size={size}
+            intent={intent}
+            href={`/${site.urls.category}/${category.slug}`}
+            class="leading-10"
+          >
+            //&nbsp;{category.data.title}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  )
 }

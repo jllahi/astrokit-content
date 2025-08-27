@@ -1,42 +1,42 @@
 {
-	"[astro]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"astro.content-intellisense": true,
-	"editor.codeActionsOnSave": {
-		"source.organizeImports": "explicit"
-	},
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true,
-	"editor.linkedEditing": true,
-	"eslint.validate": [
-		"javascript",
-		"javascriptreact",
-		"astro", // Enable .astro
-		"typescript", // Enable .ts
-		"typescriptreact" // Enable .tsx
-	],
-	// "explorer.fileNesting.enabled": true,
-	// "explorer.fileNesting.expand": false,
-	// "explorer.fileNesting.patterns": {
-	// 	".eslintrc.cjs": ".eslintignore",
-	// 	".prettierrc.js": ".prettierignore",
-	// 	"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock, bun.lockb",
-	// 	// "package.json": "*",
-	// 	// "astro.config.mjs": "",
-	// 	"README.md": "CONTRIBUTING.md"
-	// },
-	"files.autoSave": "onWindowChange",
-	"files.autoSaveWhenNoErrors": true,
-	"json.schemas": [
-		{
-			"fileMatch": ["/src/content/navigation/**"],
-			"url": "./.astro/collections/navigation.schema.json"
-		}
-	],
-	"prettier.documentSelectors": ["**/*.astro"],
-	"tailwind-fold.autoFold": false,
-	"tailwind-fold.unfoldedTextOpacity": 0.7,
-	"typescript.inlayHints.parameterNames.enabled": "all",
-	"typescript.tsdk": "node_modules/typescript/lib"
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "astro.content-intellisense": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ],
+  // "explorer.fileNesting.enabled": true,
+  // "explorer.fileNesting.expand": false,
+  // "explorer.fileNesting.patterns": {
+  // 	".eslintrc.cjs": ".eslintignore",
+  // 	".prettierrc.js": ".prettierignore",
+  // 	"package.json": "pnpm-lock.yaml, package-lock.json, yarn.lock, bun.lockb",
+  // 	// "package.json": "*",
+  // 	// "astro.config.mjs": "",
+  // 	"README.md": "CONTRIBUTING.md"
+  // },
+  "files.autoSave": "onWindowChange",
+  "files.autoSaveWhenNoErrors": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["/src/content/navigation/**"],
+      "url": "./.astro/collections/navigation.schema.json"
+    }
+  ],
+  "prettier.documentSelectors": ["**/*.astro"],
+  "tailwind-fold.autoFold": false,
+  "tailwind-fold.unfoldedTextOpacity": 0.7,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -3,7 +3,7 @@
 const prettierConfig = {
   arrowParens: 'always',
   astroAllowShorthand: true,
-  bracketSameLine: true,
+  bracketSameLine: false,
   bracketSpacing: true,
   endOfLine: 'lf', // end_of_line = lf
   jsxSingleQuote: false,
