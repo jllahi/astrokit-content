@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
 
 @layer base {
   :root {
@@ -70,7 +70,7 @@
   }
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border;
   }
@@ -83,4 +83,4 @@
 }
 
 @layer utilities {
-}
+} */
