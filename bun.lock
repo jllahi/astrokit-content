@@ -6,11 +6,11 @@
       "dependencies": {
         "@astrojs/check": "^0.9.4",
         "@astrojs/db": "^0.14.14",
-        "@astrojs/mdx": "^4.0.8",
-        "@astrojs/react": "^4.1.6",
+        "@astrojs/mdx": "^4.3.4",
+        "@astrojs/react": "^4.3.0",
         "@astrojs/rss": "^4.0.12",
         "@astrojs/sitemap": "^3.5.1",
-        "@astrojs/vercel": "^8.0.8",
+        "@astrojs/vercel": "^8.2.6",
         "@fontsource-variable/inter": "^5.2.6",
         "@fontsource-variable/montserrat": "^5.2.6",
         "@iconify-json/heroicons": "^1.2.2",
@@ -24,7 +24,7 @@
         "@types/react-dom": "^18.3.7",
         "@vercel/analytics": "^1.5.0",
         "@vercel/speed-insights": "^1.2.0",
-        "astro": "^5.1.10",
+        "astro": "^5.13.3",
         "astro-embed": "^0.9.0",
         "astro-expressive-code": "^0.40.2",
         "astro-icon": "^1.1.5",
@@ -122,7 +122,7 @@
 
     "@astrojs/prism": ["@astrojs/prism@3.3.0", "", { "dependencies": { "prismjs": "^1.30.0" } }, "sha512-q8VwfU/fDZNoDOf+r7jUnMC2//H2l0TuQ6FkGJL8vD8nw/q5KiL3DS1KKBI3QhI9UQhpJ5dc7AtqfbXWuOgLCQ=="],
 
-    "@astrojs/react": ["@astrojs/react@4.1.6", "", { "dependencies": { "@vitejs/plugin-react": "^4.3.4", "ultrahtml": "^1.5.3", "vite": "^6.0.9" }, "peerDependencies": { "@types/react": "^17.0.50 || ^18.0.21 || ^19.0.0", "@types/react-dom": "^17.0.17 || ^18.0.6 || ^19.0.0", "react": "^17.0.2 || ^18.0.0 || ^19.0.0", "react-dom": "^17.0.2 || ^18.0.0 || ^19.0.0" } }, "sha512-lMBO+Va4JbLsXviagT9/ZmliwfQGmsiw4rvI4yusPZijQek3q5yfEnQor5XWNcErrkazjjNxY9BFO5f/eSfqmw=="],
+    "@astrojs/react": ["@astrojs/react@4.3.0", "", { "dependencies": { "@vitejs/plugin-react": "^4.4.1", "ultrahtml": "^1.6.0", "vite": "^6.3.5" }, "peerDependencies": { "@types/react": "^17.0.50 || ^18.0.21 || ^19.0.0", "@types/react-dom": "^17.0.17 || ^18.0.6 || ^19.0.0", "react": "^17.0.2 || ^18.0.0 || ^19.0.0", "react-dom": "^17.0.2 || ^18.0.0 || ^19.0.0" } }, "sha512-N02aj52Iezn69qHyx5+XvPqgsPMEnel9mI5JMbGiRMTzzLMuNaxRVoQTaq2024Dpr7BLsxCjqMkNvelqMDhaHA=="],
 
     "@astrojs/rss": ["@astrojs/rss@4.0.12", "", { "dependencies": { "fast-xml-parser": "^5.2.0", "kleur": "^4.1.5" } }, "sha512-O5yyxHuDVb6DQ6VLOrbUVFSm+NpObulPxjs6XT9q3tC+RoKbN4HXMZLpv0LvXd1qdAjzVgJ1NFD+zKHJNDXikw=="],
 

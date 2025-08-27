@@ -2,11 +2,11 @@ import db from '@astrojs/db'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel'
 import keystatic from '@keystatic/astro'
 // import sentry from '@sentry/astro'
 // import spotlightjs from '@spotlightjs/astro'
+import tailwindcss from '@tailwindcss/vite'
 import AstroDevtoolbarTailwind from 'astro-devtoolbar-tailwind'
 import embeds from 'astro-embed/integration'
 import astroExpressiveCode from 'astro-expressive-code'
@@ -59,15 +59,15 @@ export default defineConfig({
     react(),
     robotsTxt(),
     sitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
   ],
   vite: {
     ssr: {
       external: ['@keystatic/core'],
     },
-    // plugins: [mkcert()],
+    plugins: [
+      tailwindcss(),
+      // mkcert()
+    ],
     // server: {
     // 	https: true
     // }
