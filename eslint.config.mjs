@@ -5,7 +5,7 @@ export default antfu(
   {
     astro: true,
     react: true,
-    svelte: false,
+    // svelte: false,
     stylistic: false,
     ignores: ['.astro', '.dist', 'pnpm-lock.yaml', 'bun.lock'],
     // formatters: true,
