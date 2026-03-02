@@ -1,12 +1,5 @@
 {
   "title": "posts",
   "type": "object",
-  "properties": {
-    "image": {
-      "required": false,
-      "fieldType": "String",
-      "dataType": "string",
-      "title": "Image"
-    }
-  }
+  "properties": {}
 }
