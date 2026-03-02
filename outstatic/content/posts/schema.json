@@ -33,6 +33,11 @@
       "fieldType": "Boolean",
       "dataType": "boolean",
       "title": "Featured"
+    },
+    "draft": {
+      "fieldType": "Boolean",
+      "dataType": "boolean",
+      "title": "Draft"
     }
   }
 }
