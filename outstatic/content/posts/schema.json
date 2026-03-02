@@ -23,6 +23,11 @@
       "fieldType": "Date",
       "dataType": "date",
       "title": "Date"
+    },
+    "description": {
+      "fieldType": "Text",
+      "dataType": "string",
+      "title": "Description"
     }
   }
 }
