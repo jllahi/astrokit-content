@@ -17,6 +17,12 @@
       "fieldType": "Text",
       "dataType": "string",
       "title": "Category"
+    },
+    "date": {
+      "required": true,
+      "fieldType": "Date",
+      "dataType": "date",
+      "title": "Date"
     }
   }
 }
