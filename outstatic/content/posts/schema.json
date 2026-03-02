@@ -12,6 +12,11 @@
       "dataType": "array",
       "title": "Tags",
       "values": []
+    },
+    "category": {
+      "fieldType": "Text",
+      "dataType": "string",
+      "title": "Category"
     }
   }
 }
