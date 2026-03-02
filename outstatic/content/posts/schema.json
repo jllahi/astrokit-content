@@ -28,6 +28,11 @@
       "fieldType": "Text",
       "dataType": "string",
       "title": "Description"
+    },
+    "featured": {
+      "fieldType": "Boolean",
+      "dataType": "boolean",
+      "title": "Featured"
     }
   }
 }
