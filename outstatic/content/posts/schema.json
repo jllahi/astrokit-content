@@ -6,6 +6,12 @@
       "fieldType": "Image",
       "dataType": "image",
       "title": "Image"
+    },
+    "tags": {
+      "fieldType": "Tags",
+      "dataType": "array",
+      "title": "Tags",
+      "values": []
     }
   }
 }
