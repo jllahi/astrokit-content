@@ -52,7 +52,8 @@
     "react-lite-youtube-embed": "^2.6.0",
     "reading-time": "^1.5.0",
     "sharp": "^0.34.5",
-    "tailwind-variants": "^3.2.2",
+    "tailwind-merge": "^2.6.0",
+    "tailwind-variants": "3.2.2",
     "tailwindcss": "^4.2.2",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.3"
