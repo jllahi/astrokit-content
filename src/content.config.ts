@@ -1,8 +1,11 @@
-import { defineCollection, reference, z } from 'astro:content'
+import { defineCollection, reference } from 'astro:content'
 // import { rssSchema } from '@astrojs/rss';
+import { glob } from 'astro/loaders'
+import { z } from 'astro/zod'
 
 const posts = defineCollection({
-  type: 'content',
+  // type: 'content',
+  loader: glob({ base: './src/content/posts', pattern: '**/*.{md,mdx}' }),
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
     z.object({
@@ -30,7 +33,8 @@ const posts = defineCollection({
 })
 
 const pages = defineCollection({
-  type: 'content',
+  // type: 'content',
+  loader: glob({ base: './src/content/pages', pattern: '**/*.{md,mdx}' }),
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
     z.object({
@@ -54,7 +58,8 @@ const pages = defineCollection({
 })
 
 const categories = defineCollection({
-  type: 'content',
+  // type: 'content',
+  loader: glob({ base: './src/content/categories', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -66,7 +71,8 @@ const categories = defineCollection({
 })
 
 const navigation = defineCollection({
-  type: 'data',
+  // type: 'data',
+  loader: glob({ base: './src/content/navigation', pattern: '**/*.{json}' }),
   schema: z.object({
     mainNav: z.array(
       z.object({
