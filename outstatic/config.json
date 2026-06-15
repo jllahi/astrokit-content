@@ -1,0 +1,15 @@
+{
+  "media": [
+    {
+      "categories": [
+        "image"
+      ],
+      "input": "src/assets/images",
+      "label": "Images",
+      "name": "images",
+      "output": "/_astro/"
+    }
+  ],
+  "publicMediaPath": "_astro/",
+  "repoMediaPath": "src/assets/images/"
+}
