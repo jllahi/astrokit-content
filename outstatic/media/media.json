@@ -1,0 +1,18 @@
+{
+  "commit": "",
+  "generated": "2026-06-15T22:53:49.844Z",
+  "media": [
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "2570043898",
+        "path": "src/assets/images/placeholder-image.jpg"
+      },
+      "alt": "",
+      "filename": "placeholder-image.jpg",
+      "publishedAt": "2026-06-15T22:53:48.869Z",
+      "source": "images",
+      "type": "image"
+    }
+  ]
+}
