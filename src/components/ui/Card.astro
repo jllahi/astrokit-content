@@ -31,7 +31,7 @@ const relatedCategory = await getEntry(post.data.category)
   {...props}
 >
   <a
-    href={`/${site.urls.posts}/${post.slug}`}
+    href={`/${site.urls.posts}/${post.id}`}
     aria-label={post.data.title}
   >
     <div
@@ -59,7 +59,7 @@ const relatedCategory = await getEntry(post.data.category)
     </div>
     <header class="z-10 p-5">
       <a
-        href={`/${site.urls.posts}/${post.slug}`}
+        href={`/${site.urls.posts}/${post.id}`}
         class="font-heading text-2xl font-bold leading-7 tracking-tight text-white hover:underline"
         transition:name={`post-title-${post.data.title}`}
       >

@@ -19,7 +19,7 @@ export default function YouTubeLiteEmbed({
       <LiteYouTubeEmbed
         id={id}
         title={title}
-        noCookie={true}
+        cookie={false}
         poster={poster}
         playlistCoverId={cover}
       />

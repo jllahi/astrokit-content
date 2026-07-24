@@ -14,7 +14,7 @@ const getCategories = async () => {
     const filledCategory: Category = {
       title: relatedCategory.data.title,
       description: relatedCategory.data.description,
-      slug: category.slug,
+      slug: category.id,
     }
     return filledCategory
   })

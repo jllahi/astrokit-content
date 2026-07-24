@@ -1,7 +1,7 @@
 import { actions } from 'astro:actions'
 
 export function GuestbookForm() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
     const result: unknown = actions.guestbook(formData)

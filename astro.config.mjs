@@ -13,6 +13,7 @@ import astroExpressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import metaTags from 'astro-meta-tags'
 import robotsTxt from 'astro-robots-txt'
+import { unified } from '@astrojs/markdown-remark'
 import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
@@ -72,6 +73,9 @@ export default defineConfig({
     // 	https: true
     // }
   },
+  markdown: {
+    processor: unified(),
+  },
   experimental: {
     // actions: true,
     contentIntellisense: true,
@@ -80,16 +84,4 @@ export default defineConfig({
     // serverIslands: true,
     // contentCollectionJsonSchema: true,
   },
-  // markdown: {
-  // 	remarkPlugins: [
-  // 		remarkReadingTime
-  // 		remarkToc,
-  // 		[
-  // 			remarkCollapse,
-  // 			{
-  // 				test: 'Table of contents',
-  // 			},
-  // 		],
-  // 	]
-  // },
 })

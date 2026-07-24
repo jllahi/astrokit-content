@@ -7,19 +7,19 @@ import Title from '@/components/ui/Title.astro'
 import DataDump from '@/components/utils/DataDump.astro'
 import site from '@/data/site'
 import Layout from '@/layouts/Layout.astro'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages')
 
   return pages.map((page) => ({
-    params: { slug: page.slug },
+    params: { slug: page.id },
     props: { page },
   }))
 }
 
 const { page } = Astro.props
-const { Content, headings } = await page.render()
+const { Content, headings } = await render(page)
 ---
 
 <Layout

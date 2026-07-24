@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content'
+import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content'
 // import { YouTube } from 'astro-embed'
 import Prose from '@/components/content/Prose.astro'
 import TableContents from '@/components/content/TableContents.astro'
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
   const posts = (await getCollection('posts')).filter(postFilter)
 
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }))
 }
@@ -31,7 +31,7 @@ interface Props {
 }
 
 const { post } = Astro.props
-const { Content, headings } = await post.render()
+const { Content, headings } = await render(post)
 
 const category = await getEntry(post.data.category)
 ---
@@ -91,7 +91,7 @@ const category = await getEntry(post.data.category)
         <Link
           size="sm"
           intent="tag"
-          href={`/${site.urls.category}/${category.slug}`}
+          href={`/${site.urls.category}/${category.id}`}
         >
           {category.data.title}
         </Link>
@@ -111,7 +111,7 @@ const category = await getEntry(post.data.category)
 
     <div class="mt-8 flex w-full flex-row justify-between">
       <LikeButton
-        slug={post.slug}
+        slug={post.id}
         client:load
       />
       <SocialShare

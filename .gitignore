@@ -21,3 +21,5 @@ pnpm-debug.log*
 
 # Vercel
 .vercel
+
+*skill-registry*
