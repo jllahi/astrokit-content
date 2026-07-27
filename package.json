@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "rimraf dist && astro check && astro build",
-    "build:remote": "rimraf dist && astro check && astro build --remote",
+    "build": "astro build",
+    "build:remote": "astro build --remote",
     "check": "astro check --watch",
     "clean": "rimraf node_modules && rimraf .vercel/output/ && rimraf dist && rimraf .astro",
     "dev": "astro dev",
