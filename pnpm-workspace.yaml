@@ -1,0 +1,16 @@
+allowBuilds:
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@eslint-react/ast@5.21.1'
+  - '@eslint-react/core@5.21.1'
+  - '@eslint-react/eslint-plugin@5.21.1'
+  - '@eslint-react/eslint@5.21.1'
+  - '@eslint-react/jsx@5.21.1'
+  - '@eslint-react/shared@5.21.1'
+  - '@eslint-react/var@5.21.1'
+  - eslint-plugin-react-dom@5.21.1
+  - eslint-plugin-react-jsx@5.21.1
+  - eslint-plugin-react-naming-convention@5.21.1
+  - eslint-plugin-react-rsc@5.21.1
+  - eslint-plugin-react-web-api@5.21.1
+  - eslint-plugin-react-x@5.21.1
