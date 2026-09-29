@@ -47,7 +47,7 @@ export interface Props extends HTMLAttributes<'ul'>, VariantProps<typeof navigat
 const { intent, size, class: className, ...rest } = Astro.props
 
 const navigationData = await getCollection('navigation')
-const mainNav = navigationData[0].data.mainNav
+const mainNav = navigationData[0]?.data?.mainNav ?? []
 ---
 
 {
