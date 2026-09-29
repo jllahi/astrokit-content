@@ -72,7 +72,7 @@ const categories = defineCollection({
 
 const navigation = defineCollection({
   // type: 'data',
-  loader: glob({ base: './src/content/navigation', pattern: '**/*.{json}' }),
+  loader: glob({ base: './src/content/navigation', pattern: 'main.json' }),
   schema: z.object({
     mainNav: z.array(
       z.object({
